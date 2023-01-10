@@ -8,4 +8,5 @@ import './renderMovies';
 import './renderTrendingFilms';
 import './movieModal';
 import './trailer';
-import './watched&queueLS';
+import './watchedLS';
+import './queueLS';
