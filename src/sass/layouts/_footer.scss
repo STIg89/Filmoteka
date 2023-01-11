@@ -1,31 +1,30 @@
 .footer {
   display: flex;
+  text-align: center;
   justify-content: center;
   align-items: baseline;
   background-color: var(--lightBG);
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
-.footer__container {
+.container {
   display: block;
-  padding-top: 30px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 30px;
-
+  justify-content: center;
 
   @include mobile {
     text-align: center;
     justify-content: center;
+    padding-left: 40px;
+    padding-right: 40px;
     width: 320px;
-    height: 100px;
+    height: 40px;
   }
 
   @include tablet {
   }
 
   @include pc {
-    padding-top: 29px;
-    padding-bottom: 29px;
   }
 }
 
