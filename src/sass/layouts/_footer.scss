@@ -8,24 +8,6 @@
   padding-bottom: 30px;
 }
 
-.container {
-  @include mobile {
-    display: block;
-    text-align: center;
-    justify-content: center;
-    padding-left: 40px;
-    padding-right: 40px;
-    width: 320px;
-    height: 40px;
-  }
-
-  @include tablet {
-  }
-
-  @include pc {
-  }
-}
-
 .footer__container__text {
   font-weight: 400;
   font-size: 14px;
