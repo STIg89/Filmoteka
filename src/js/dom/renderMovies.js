@@ -1,13 +1,8 @@
-import {
-  getTrendingFilms,
-  getMoviesSearch,
-  getMovieDetails,
-  getMovieTrailer,
-} from '../api/fetchAPI';
+import { refs } from './refs';
+const { moviesOnInputList } = refs;
 
-const moviesOnInputList = document.querySelector('.list-gallery');
-
-function renderGallery(data) {
+export function renderGallery(data) {
+  console.log('data', data);
   const markupGallery = data
     .map(
       ({
@@ -35,5 +30,3 @@ function renderGallery(data) {
     .join('');
   moviesOnInputList.insertAdjacentHTML('beforeend', markupGallery);
 }
-
-console.log(renderGallery());
