@@ -49,4 +49,21 @@ async function getMovieTrailer(id) {
   }
 }
 
-export { getTrendingFilms, getMoviesSearch, getMovieDetails, getMovieTrailer };
+async function getGenres() {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('getGenres error' + error);
+  }
+}
+
+export {
+  getTrendingFilms,
+  getMoviesSearch,
+  getMovieDetails,
+  getMovieTrailer,
+  getGenres,
+};
