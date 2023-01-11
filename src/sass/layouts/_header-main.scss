@@ -1,0 +1,100 @@
+.header-mobile {
+  @media screen and (max-width: 767px) {
+    display: flex;
+    justify-content: space-between;
+  }
+  @include tablet {
+    margin-top: 20px;
+    display: inline-block;
+    flex-grow: 1;
+  }
+  @include pc {
+    display: none;
+  }
+}
+
+//Mobile//
+
+@media screen and (max-width: 767px) {
+    .header {
+        background-image: url("../images/background-mobile.jpg");
+        max-width: 767px;
+        
+    }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+screen and (min-resolution: 192dpi) and (max-width: 767px),
+screen and (min-resolution: 2dppx) and (max-width: 767px) {
+    .header {
+      background-image: url ("../images/background-mobile@2x.jpg");
+    }
+}
+
+
+.header {
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+}
+
+
+//Tablet//
+
+@media screen and (min-width: 768px) {
+  .header {
+      background-image: url("../images/background-tablet.jpg");
+      max-width: 1199px;
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+screen and (min-resolution: 192dpi) and (min-width: 768px),
+screen and (min-resolution: 2dppx) and (min-width: 768px) {
+  .header {
+      background-image: url("../images/background-tablet@2x.jpg");
+  }
+}
+
+
+//PC//
+
+@media screen and (min-width: 1200px) {
+  .header {
+      background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url("../images/background-pc.jpg");
+      
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
+  screen and (min-resolution: 192dpi) and (min-width: 1200px),
+  screen and (min-resolution: 2dppx) and (min-width: 1200px) {
+  .header {
+      background-image: url("../images/background-pc@2x.jpg");
+  }   
+}
+.header-logo {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 35px;
+display: flex;
+align-items: center;
+text-align: center;
+color: var (--white-text-color) ;
+justify-content: start;
+position: absolute;
+top:8;
+left: 8;
+    &--svg {
+      width: 25px;
+      height: 25px;
+      color: var(--white-text-color);
+    }
+    &>p {
+        @include font-box(400,20px,1.15,0);
+        color: var(--white-text-color);
+    }
+  }
