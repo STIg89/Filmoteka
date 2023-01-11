@@ -1,0 +1,50 @@
+<div class="login-modal__backdrop is-hidden" login-data-modal> <!-- is-hidden -->
+    <div class="login__modal">
+        <div class="login-modal__logo">
+            <svg class="login-modal__logo--svg">
+            <use href="./images/sprite.svg#icon-logo"></use>
+        </svg>
+        <p>Filmoteka</p>
+        </div>
+        <!-- add logo without link -->
+        <button login-data-modal-close class="login-modal__close-button btn" title="Close">
+            <svg class="login-modal__svg">
+                <use href="./images/sprite.svg#icon-close"></use>
+            </svg>
+        </button>
+        <div>
+            <p class="login-modal__title title">
+                Sign in
+            </p>
+            <p class="login-modal__text">
+                In order to manage your lists you need to
+                login to your account. 
+            </p>
+            
+            <form class="login-form">
+                <input type="email" class="login-form__input" placeholder="Email" id="user-login" name="user-login"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+                    <input type="password" class="login-form__input" placeholder="Password" id="user-password" name="user-password"
+                     minlength="8" required />
+            </form>
+            <button type="button" class="login-modal__button btn login-modal__button--login">Log in</button>
+            <p class="login-modal__text">
+                You do not have an account? Please register.
+            </p>
+            <button type="submit" class="login-modal__button login-modal__button--signup btn">Sign up</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- 
+<label class="checkbox-label">
+    <input type="checkbox" name="policy-checkbox" class="policy-checkbox vis-hidden" value="true" />
+    <span class="policy-icon">
+        <svg width="16" height="15">
+            <use href="./images/icons.svg#icon-check"></use>
+        </svg>
+    </span>
+    Погоджуюся з розсилкою та приймаю
+    <a href="#" target="_blank" class="checkbox-link link" rel="noreferrer noopener nofollow">Умови договору</a>
+</label> -->
