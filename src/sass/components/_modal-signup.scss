@@ -61,3 +61,17 @@ background-color: var(--accent-text-color);
                 color: var(--black-text-color);
         }
     }
+
+
+
+// .show-modal {
+//   opacity: 1;
+//   visibility: visible;
+//   pointer-events: initial;
+// }
+
+.close-modal {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
