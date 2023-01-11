@@ -1,7 +1,6 @@
 const moviesOnInputList = document.querySelector('.list-gallery');
 
 export function renderGallery(data) {
-  console.log(data);
   const markupGallery = data
     .map(
       ({ original_title, poster_path, id, genre_names, release_date }) =>
