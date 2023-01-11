@@ -1,0 +1,204 @@
+.login-modal__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity var(--duration) var(--cubic);
+  background-color: var(--modal-overlay);
+  overflow-y: scroll;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.is-hidden .login-modal {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.login__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--duration) var(--cubic);
+  background-color: var(--lightBG);
+  border: 2px solid var(--accentBG);
+  padding: var(--Gap20);
+  min-width: 280px;
+
+//   @include tablet {
+//     max-width: 704px;
+//     // padding-left: var(--Gap16);
+//     // padding-right: var(--Gap16);
+//   }
+}
+
+// upwards are the styles for modal javacript
+.login-modal {
+  &__logo {
+    @include flex;
+    justify-content: start;
+    position: absolute;
+    top:8;
+    left: 8;
+    &--svg {
+      width: 25px;
+      height: 25px;
+      color: var(--accent-text-color);
+      stroke: currentColor;
+      fill: currentColor;
+    }
+    &>p {
+        @include font-box(400,20px,1.15,0);
+        color: var(--accent-text-color);
+    }
+  }
+  &__close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: transparent;
+    color: var(--black-text-color);
+    stroke: currentColor;
+    fill: currentColor;
+    border-color: transparent;
+    transition: color var(--duration) var(--cubic);
+    padding: 0;
+
+    @include tablet {
+      top: 20px;
+      right: 20px;
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--accent-text-color);
+    }
+  }
+
+  &__title {
+    @include font-box(500, 20px, 1.15, null);
+    color: var(--black-text-color);
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 35px;
+    text-transform: uppercase;
+
+    // @include pc {
+    //   @include font-box(null, 30px, 1.16, null);
+    //   max-width: 500px;
+    //   margin-left: auto;
+    //   margin-right: auto;
+    // }
+  }
+
+  &__svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+
+    // @include tablet {
+    //   width: 24px;
+    //   height: 24px;
+    // }
+  }
+
+  &__text {
+    @include font-box(400, 12px, 1.1, null);
+    color: var(--black-text-color);
+    margin-bottom: 10px;
+    text-align: center;
+
+    // @include tablet {
+    //   font-size: 16px;
+    // }
+  }
+}
+
+.login-form {
+  width: 100%;
+  margin-bottom: 20px;
+
+  &__input {
+    width: 100%;
+ 
+    background-color: var(--lightBG);
+    border: transparent;
+    border-bottom: 1px solid var(--accentBG);
+outline: transparent;
+    padding: 7px 12px;
+    transition: border-color var(--duration) var(--cubic), outline var(--duration) var(--cubic);
+
+    // @include tablet {
+    //   max-width: 368px;
+    //   display: block;
+    //   margin-right: auto;
+    //   margin-left: auto;
+    //   margin-bottom: var(--Gap16);
+    //   padding: 11px 16px;
+    // }
+
+    &:focus {
+      outline: 1px solid var(--accentBG);
+      border-color: var(--accentBG);
+    }
+
+    &::placeholder {
+      @include font-box(400, 12px, 1.4, null);
+      color: var(--dark-text-color);
+
+    //   @include tablet {
+    //     font-size: 14px;
+    //   }
+    }
+    &:not(:last-of-type) {
+        margin-bottom: 12px;
+    }
+  }
+}
+
+.login-modal__button {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  
+
+border: 1px solid var(--accentBG);
+    border-radius: 5px;
+    text-transform: uppercase;
+  @include font-box(500, 12px, 1.33, null);
+  transition: color var(--duration) var(--cubic),
+    background-color var(--duration) var(--cubic);
+
+    &--login {
+        background-color: var(--accent-text-color);
+        color: var(--white-text-color);
+            padding: 10px 25px;
+            margin-bottom: var(--Gap20);
+            &:hover,
+            :focus {
+                    background-color: transparent;
+                    color: var(--black-text-color);
+                }
+        }
+    &--signup {
+        background-color: transparent;
+        color: var(--black-text-color);
+        padding: 10px 20px;
+        &:hover,
+            :focus {
+                background-color: var(--accent-text-color);
+                    color: var(--white-text-color);
+            }
+    }
+
+
+  &:disabled {
+    background-color: var(--disabledBTN);
+  }
+}
