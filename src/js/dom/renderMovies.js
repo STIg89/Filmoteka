@@ -1,28 +1,19 @@
-import { refs } from './refs';
-const { moviesOnInputList } = refs;
+const moviesOnInputList = document.querySelector('.list-gallery');
 
 export function renderGallery(data) {
-  console.log('data', data);
+  console.log(data);
   const markupGallery = data
     .map(
-      ({
-        original_title,
-        poster_path,
-        overview,
-        vote_average,
-        id,
-        genre_names,
-        release_date,
-      }) =>
-        `<li class="movie__item" data-id=${id}>
+      ({ original_title, poster_path, id, genre_names, release_date }) =>
+        `<li class="movie__item" data-id="${id}">
                 <div class="movie__img">
-                <img src=https://image.tmdb.org/t/p/original${poster_path} alt="${original_title}" loading="lazy">
+                <img src= "https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}" loading="lazy">
         </div>
                 <div class="movie__description">
-                  <p class="movie__title">${title}</p>
+                  <p class="movie__title">"${original_title}"</p>
                   <div class="movie__meta">
-                    <p class="movie__genres">${genre_names}</p>
-                    <p class="movie__data">${release_date}</p>
+                    <p class="movie__genres">"${genre_names}"</p>
+                    <p class="movie__data">"${release_date}"</p>
                   </div>
                 </div>
             </li>`
