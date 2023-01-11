@@ -6,7 +6,7 @@
 <path fill="none" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z"></path>
 <path fill="none" stroke="#fff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M28 28.001l-5.8-5.8"></path>
 </symbol>
-<symbol id="icon-heart" width="32" height="32" viewBox="0 0 32 32" x="0" y="0">
+<symbol id="icon-heart" viewBox="0 0 32 32" x="0" y="0">
 <path fill="#ff6b08" d="M16 30.144l-2.24-2.218c-8.32-7.287-13.76-12.198-13.76-18.218 0-4.911 3.84-8.713 8.8-8.713 2.72 0 5.44 1.267 7.2 3.327 1.76-2.059 4.48-3.327 7.2-3.327 4.96 0 8.8 3.802 8.8 8.713 0 6.020-5.44 10.931-13.76 18.218l-2.24 2.218z"></path>
 </symbol>
 <symbol id="icon-logo" width="24" height="24" viewBox="0 0 32 32" x="0" y="0">
