@@ -9,10 +9,8 @@
 }
 
 .container {
-  display: block;
-  justify-content: center;
-
   @include mobile {
+    display: block;
     text-align: center;
     justify-content: center;
     padding-left: 40px;
