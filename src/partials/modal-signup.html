@@ -1,0 +1,43 @@
+<div class="login-modal__backdrop " login-data-modal> <!-- is-hidden -->
+    <div class="login__modal">
+        <div class="login-modal__logo">
+            <svg class="login-modal__logo--svg">
+            <use href="./images/sprite.svg#icon-logo"></use>
+        </svg>
+        <p>Filmoteka</p>
+        </div>
+        <!-- add logo without link -->
+        <button login-data-modal-close class="login-modal__close-button btn" title="Close">
+            <svg class="login-modal__svg">
+                <use href="./images/sprite.svg#icon-close"></use>
+            </svg>
+        </button>
+        <div>
+            <p class="login-modal__title title">
+                Sign up
+            </p>
+            <p class="login-modal__text">
+                Don't loose track of your favourite movies and those you want to watch! </br> Sign up!
+            </p>
+            
+            <form class="signup-form">
+                <input type="email" class="signup-form__input" placeholder="Email" id="user-login" name="user-login"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+                    <input type="password" class="signup-form__input" placeholder="Password" id="user-password" name="user-password"
+                     minlength="8" required />
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="policy-checkbox" class="policy-checkbox visually-hidden" value="true" />
+                        <span class="policy-icon">
+                            <svg width="16" height="15">
+                                <use href="./images/sprite.svg#icon-check"></use>
+                            </svg>
+                        </span>
+                        I agree to 
+                        <a href="#" target="_blank" class="checkbox-link link" rel="noreferrer noopener nofollow">Terms and conditions</a>
+                    </label>
+            </form>
+            <button type="button" class="signup-modal__button btn">Sign up</button>
+    
+        </div>
+    </div>
+</div>
