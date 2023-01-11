@@ -1,0 +1,43 @@
+.modal-form-checkbox {
+  margin-right: 8px;
+}
+.checkbox-label {
+  @include flex;
+  margin-bottom: var(--Gap20);
+  @include font-box(400, 12px, 1.15);
+  color: var(--black-text-color);
+  // @include pc {
+  //   margin-bottom: 30px;
+  //   @include font-box(400, 14px, 1.71);
+  // }
+}
+.checkbox-link {
+  margin-left: 4px;
+  color: var(--accent-text-color);
+}
+.policy-checkbox {
+  display: inline-block;
+  &:checked + .policy-icon {
+    background-color: var(--accent-text-color);
+    border-color: var(--accent-text-color);
+    fill: var(--white-text-color);
+    outline: transparent;
+  }
+  &:focus + .policy-icon {
+    border-color: var(--accent-text-color);
+  }
+}
+.policy-icon {
+  @include flex;
+  width: 16px;
+  height: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 8px;
+  fill: transparent;
+  border: 2px solid var(--accent-text-color);
+  border-radius: 4px;
+  transition: background-color var(--duration) var(--cubic),
+    border-color var(--duration) var(--cubic),
+    fill var(--duration) var(--cubic);
+}
