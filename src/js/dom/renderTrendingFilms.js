@@ -6,7 +6,7 @@ renderTrendingFilms();
 async function renderTrendingFilms() {
   const data = await getTrendingFilms();
 
-  const genres = await getGenres().then(({ genres }) => {
+  const genre = await getGenres().then(({ genres }) => {
     if (data.results) {
       data.results.forEach(movie => {
         const { genre_ids, release_date } = movie;
