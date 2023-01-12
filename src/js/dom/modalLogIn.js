@@ -1,34 +1,41 @@
-// import { signInWithEmailAndPassword } from '../api/sign-in.js';
-// import { auth } from '../api/firebase-config.js';
-// import { showLoginError } from './showLoginError.js';
-// const signInLoginRef = document.getElementById('signin-user-login');
-// const signInPasswordRef = document.getElementById('signin-user-password');
-// const signInFormRef = document.getElementById('login-form');
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../api/firebase-config.js';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { showLoginError } from './showErrors.js';
+import { showSuccessModal } from './showSuccess.js';
 
-// async function invokeResponseSet(evt) {
-//   evt.preventDefault();
-//   const email = evt.currentTarget.elements.useremail.value;
-//   console.log(evt.currentTarget.elements.useremail.value);
-//   const password = evt.currentTarget.elements.userpassword.value;
-//   try {
-//     const userCredential = await signInWithEmailAndPassword(
-//       auth,
-//       email,
-//       password
-//     );
-//     const user = userCredential.user;
-//   } catch (error) {
-//     console.log(error);
-//     showLoginError(error);
-//   }
+const signInFormRef = document.getElementById('login-form');
+const loginModalRef = document.querySelector('[login-data-modal]');
 
-//   //   // ...
-//   // })
-//   // .catch(error => {
-//   //   const errorCode = error.code;
-//   //   console.log('Oops');
-//   //   const errorMessage = error.message;
-//   // });
-// }
+async function invokeResponseSet(event) {
+  event.preventDefault();
+  const email = event.currentTarget.elements.useremail.value;
+  console.log(email);
+  const password = event.currentTarget.elements.userpassword.value;
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
+    console.log(user);
+    loginModalRef.classList.toggle('is-hidden');
+    const delay = setTimeout(showSuccessModal(user.email), 500);
 
-// signInFormRef.addEventListener('submit', invokeResponseSet(evt));
+    clearTimeout(delay);
+  } catch (error) {
+    showLoginError(error);
+  }
+  //   // ...
+  // })
+  // .catch(error => {
+  //   const errorCode = error.code;
+  //   console.log('Oops');
+  //   const errorMessage = error.message;
+  // });
+}
+
+signInFormRef.addEventListener('submit', invokeResponseSet);

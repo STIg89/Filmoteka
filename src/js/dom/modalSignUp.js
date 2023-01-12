@@ -12,7 +12,7 @@ const signUpModalRef = document.querySelector('[signup-data-modal]');
 async function createAccount(event) {
   event.preventDefault();
   const email = event.currentTarget.elements.useremail.value;
-  const password = event.currentTarget.elements.useremail.value;
+  const password = event.currentTarget.elements.userpassword.value;
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   try {
