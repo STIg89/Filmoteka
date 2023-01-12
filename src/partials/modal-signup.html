@@ -1,4 +1,4 @@
-<div class="login-modal__backdrop" signup-data-modal> <!-- is-hidden -->
+<div class="login-modal__backdrop is-hidden" signup-data-modal> <!-- is-hidden -->
     <div class="login__modal">
         <div class="login-modal__logo">
             <svg class="login-modal__logo--svg">
@@ -20,13 +20,15 @@
                 Don't loose track of your favourite movies and those you want to watch! </br> Sign up!
             </p>
             
-            <form class="signup-form">
-                <input type="email" class="signup-form__input" placeholder="Email" id="signup-user-login" name="user-login"
+            <form class="signup-form" id="signup-form">
+                <input type="email" class="signup-form__input" placeholder="Email" id="signup-user-login" name="useremail"
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
-                    <input type="password" class="signup-form__input" placeholder="Password" id="signup-user-password" name="user-password"
+                    <input type="password" class="signup-form__input" placeholder="Password" id="signup-user-password" name="userpassword"
                      minlength="8" required />
+                            <div class="login-error-message" id="signup-error-message"></div>
                     <label class="checkbox-label">
                         <input type="checkbox" name="policy-checkbox" class="policy-checkbox visually-hidden" value="true" />
+                 
                         <span class="policy-icon">
                             <svg width="16" height="15">
                                 <use href="./images/sprite.svg#icon-check"></use>
@@ -35,8 +37,8 @@
                         I agree to 
                         <a href="#" target="_blank" class="checkbox-link link" rel="noreferrer noopener nofollow">Terms and conditions</a>
                     </label>
+                    <button type="submit" class="signup-modal__button btn" disabled>Sign up</button>
             </form>
-            <button type="button" class="signup-modal__button btn">Sign up</button>
         </div>
     </div>
 </div>

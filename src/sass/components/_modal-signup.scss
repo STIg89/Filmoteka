@@ -1,6 +1,5 @@
 .signup-form {
     width: 100%;
-    margin-bottom: 20px;
 
     &__input {
         width: 100%;
@@ -57,9 +56,16 @@ background-color: var(--accent-text-color);
             color: var(--black-text-color);
         }
         &:disabled {
-            background-color: var(--dark-text-color);
+            background-color: transparent;
+            border-color: var(--light-text-color);
                 color: var(--black-text-color);
         }
     }
-
-
+.login-error-message {
+    display: none;
+    color: red;
+    border-bottom: 1 px solid red;
+    @include font-box(400,14px,1.15, null);
+    margin-bottom: 10px;
+    text-align: center;
+}
