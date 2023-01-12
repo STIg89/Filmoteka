@@ -25,8 +25,10 @@
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
                     <input type="password" class="signup-form__input" placeholder="Password" id="signup-user-password" name="userpassword"
                      minlength="8" required />
+                            <div class="login-error-message" id="signup-error-message"></div>
                     <label class="checkbox-label">
                         <input type="checkbox" name="policy-checkbox" class="policy-checkbox visually-hidden" value="true" />
+                 
                         <span class="policy-icon">
                             <svg width="16" height="15">
                                 <use href="./images/sprite.svg#icon-check"></use>
@@ -35,7 +37,7 @@
                         I agree to 
                         <a href="#" target="_blank" class="checkbox-link link" rel="noreferrer noopener nofollow">Terms and conditions</a>
                     </label>
-                    <button type="submit" class="signup-modal__button btn">Sign up</button>
+                    <button type="submit" class="signup-modal__button btn" disabled>Sign up</button>
             </form>
         </div>
     </div>
