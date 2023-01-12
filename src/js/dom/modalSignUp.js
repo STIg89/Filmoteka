@@ -5,19 +5,20 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 const signUpLoginRef = document.getElementById('signup-user-login');
 const signUpPasswordRef = document.getElementById('signup-user-password');
 const signUpFormRef = document.getElementById('signup-form');
+const signUpBtnRef = document.querySelector('.signup-modal__button');
 
 console.log(signUpFormRef);
-console.log();
-function createAccount(event) {
-  console.log(event);
+async function createAccount(event) {
+  event.preventDefault();
+
   const email = event.currentTarget.elements.useremail.value;
   console.log(email);
-  const password = signUpPasswordRef.value;
+  const password = event.currentTarget.elements.useremail.value;
   console.log(password);
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   try {
-    const userCredential = createUserWithEmailAndPassword(
+    const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
@@ -29,4 +30,4 @@ function createAccount(event) {
   }
 }
 
-signUpFormRef.addEventListener('submit', createAccount(event));
+signUpFormRef.addEventListener('submit', createAccount);
