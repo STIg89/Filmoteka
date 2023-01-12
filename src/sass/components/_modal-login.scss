@@ -13,7 +13,6 @@
   &.is-hidden {
     opacity: 0;
     pointer-events: none;
-    visibility: hidden;
   }
 
   &.is-hidden .login-modal {

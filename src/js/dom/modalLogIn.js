@@ -1,18 +1,10 @@
 const refs = {
-    closeModalBtn: document.querySelector('.login-modal__close-button'),
-    modalLogIn: document.querySelector('.login-modal__backdrop'),
+    closeModalBtn: document.querySelector('[signup-data-modal-close]'),
+    modalLogIn: document.querySelector('[signup-data-modal]'),
 }
 
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 
 function onCloseModal() {
-    refs.modalLogIn.classList.add('close-modal');
+    refs.modalLogIn.classList.toggle('is-hidden');
 }
-
-// function onCloseModal() {
-//     refs.modalLogIn.classList.toggle('close-modal');
-// }
-
-// function onCloseModal() {
-//     refs.modalLogIn.classList.toggle('is-hidden');
-// }
