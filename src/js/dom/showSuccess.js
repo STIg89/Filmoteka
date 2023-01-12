@@ -4,7 +4,7 @@ const modalSuccessCloseBtnRef = document.querySelector(
   '[success-data-modal-close]'
 );
 
-function onCloseModal() {
+export function onCloseModal() {
   modalSuccessRef.classList.toggle('is-hidden');
   modalSuccessCloseBtnRef.removeEventListener('click', onCloseModal);
 }

@@ -23,10 +23,11 @@ async function createAccount(event) {
     );
     const user = userCredential.user;
     console.log(user);
-    showSuccessModal(user.email);
     signUpModalRef.classList.toggle('is-hidden');
+    const delay = setTimeout(showSuccessModal(user.email), 500);
     signUpFormRef.removeEventListener('submit', createAccount);
     policyCheckboxRef.removeEventListener('click', toggleBtnProperty);
+    clearTimeout(delay);
   } catch (error) {
     showSignUpError(error);
   }
