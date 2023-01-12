@@ -1,4 +1,6 @@
-import {pagePreloader} from '../dom/refs';
+import { refs } from '../dom/refs';
+
+const { pagePreloader } = refs;
 
 function showSpinner() {
   pagePreloader.classList.remove('hide');
