@@ -1,0 +1,14 @@
+.modal-checkmark-success {
+    color: green;
+    fill: currentColor;
+}
+.modal-checkmark-wrapper {
+    @include flex;
+    margin: 50px;
+
+}
+.success-modal-text {
+    color:green;
+    @include font-box(500,16px,1.33);
+    text-align: center;
+}

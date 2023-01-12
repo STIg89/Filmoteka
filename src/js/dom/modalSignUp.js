@@ -2,13 +2,13 @@ import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../api/firebase-config.js';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { showSignUpError } from './showErrors.js';
-const signUpLoginRef = document.getElementById('signup-user-login');
-const signUpPasswordRef = document.getElementById('signup-user-password');
+import { showSuccessModal, onCloseModal } from './showSuccess.js';
+
 const signUpFormRef = document.getElementById('signup-form');
 const signUpBtnRef = document.querySelector('.signup-modal__button');
 const policyCheckboxRef = document.querySelector('[name="policy-checkbox"]');
+const signUpModalRef = document.querySelector('[signup-data-modal]');
 
-console.log(signUpFormRef);
 async function createAccount(event) {
   event.preventDefault();
   const email = event.currentTarget.elements.useremail.value;
@@ -22,7 +22,11 @@ async function createAccount(event) {
       password
     );
     const user = userCredential.user;
-    showSignUpSuccess(user); // no function created
+    console.log(user);
+    showSuccessModal(user.email);
+    signUpModalRef.classList.toggle('is-hidden');
+    signUpFormRef.removeEventListener('submit', createAccount);
+    policyCheckboxRef.removeEventListener('click', toggleBtnProperty);
   } catch (error) {
     showSignUpError(error);
   }
