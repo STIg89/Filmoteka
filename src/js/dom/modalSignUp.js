@@ -24,7 +24,6 @@ async function createAccount(event) {
     const user = userCredential.user;
     console.log(user);
     showSuccessModal(user.email);
-    console.log(signUpModalRef);
     signUpModalRef.classList.toggle('is-hidden');
     signUpFormRef.removeEventListener('submit', createAccount);
     policyCheckboxRef.removeEventListener('click', toggleBtnProperty);
