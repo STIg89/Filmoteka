@@ -1,9 +1,9 @@
 import { getMoviesSearch } from '../api/fetchAPI';
 import { renderGallery } from './renderMovies';
+import { refs } from './refs';
 import Notiflix from 'notiflix';
 
-const inputEl = document.querySelector('.input');
-const moviesOnInputList = document.querySelector('.list-gallery');
+const { moviesOnInputList, inputEl } = refs;
 
 inputEl.addEventListener('submit', searchHendler);
 
