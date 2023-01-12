@@ -1,3 +1,3 @@
 export const refs = {
-  moviesOnInputList: document.querySelector('.list-gallery'),
+  moviesOnInputList: document.querySelector('.movie__gallery'),
 };
