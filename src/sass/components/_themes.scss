@@ -1,0 +1,55 @@
+body { 
+    transition: color var(--duration) var(--cubic), background-color var(--duration) var(--cubic);
+    background-color: var(--mainBGL);
+    color: var(--black-text-color);
+  }
+  
+  html.light body { 
+    background-color: var(--mainBGL);
+    color: var(--black-text-color);
+  }
+  
+  html.dark body { 
+    background-color: #333;
+    color: var(--white-text-color);
+  }
+  .page__action { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .page__theme { 
+    border: 0;
+    width: 25px;
+    height: 25px;
+  }
+  
+  .page__reset { 
+    opacity: 0;
+    visibility: hidden; 
+    background: transparent;
+    border: transparent;
+    transition: color var(--duration) var(--cubic);
+  }
+  
+  .page__reset.active{ 
+    opacity: 1;
+    visibility: visible;
+    border: 0;
+  }
+  
+  html.dark .page__theme { 
+    background: url("../images/icon-moon.svg");
+  }
+  
+  html.light .page__theme { 
+    background: url("../images/icon-sun.svg");
+  }
