@@ -16,5 +16,10 @@ async function searchHendler(e) {
   }
   const data = await getMoviesSearch(query);
   moviesOnInputList.innerHTML = '';
-  renderGallery(data.results);
+  if (data.total_results === 0) {
+    Notiflix.Notify.failure('There is no such film');
+    return;
+  } else {
+    renderGallery(data.results);
+  }
 }
