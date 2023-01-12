@@ -1,14 +1,11 @@
 .movie__item {
-  @media screen and (max-width: 768px) {
-    max-width: 336px;
+  width: 100%;
+
+  @include tablet {
+    width: calc((100% - var(--Gap16) * 2) / 2);
   }
 
-  @media screen and (min-width: 769px) and (max-width: 1280px) {
-    max-width: 395px;
-    width: calc((100% - 96px) / 2);
-  }
-
-  @media screen and (min-width: 1281px) {
-    max-width: 395px;
+  @include pc {
+    width: calc((100% - var(--Gap16) * 2) / 3);
   }
 }

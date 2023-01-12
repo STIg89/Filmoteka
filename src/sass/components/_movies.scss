@@ -1,13 +1,13 @@
 .movie__gallery {
   display: flex;
   flex-wrap: wrap;
+  gap: var(--Gap20);
 
-  @media screen and (max-width: 768px) {
-    max-width: 336px;
+  @include tablet {
+    gap: calc(var(--Gap16) * 2);
   }
 
-  @media screen and (min-width: 769px) and (max-width: 1280px) {
-    column-gap: 15px;
-    margin-top: 60px;
+  @include pc {
+    gap: calc(var(--Gap16) * 2) calc(var(--Gap16));
   }
 }
