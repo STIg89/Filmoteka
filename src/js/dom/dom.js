@@ -1,11 +1,12 @@
 import './footerModal';
 import './inputSearch';
 import './modalLogIn';
+import './modalSignUp';
 import './movieModal';
 import './refs';
 import './renderMovieModal';
 import './renderMovies';
-import './renderTrendingFilms';
+// import './renderTrendingFilms';
 import './movieModal';
 import './trailer';
 import './watchedLS';
