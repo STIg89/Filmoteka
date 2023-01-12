@@ -1,18 +1,14 @@
 .movie__item {
-  margin-right: 16px;
-  margin-bottom: 32px;
-
   @media screen and (max-width: 768px) {
     max-width: 336px;
-    margin-right: 32px;
   }
 
-  @media screen and (min-width: 769px) and (max-width: 1279px) {
+  @media screen and (min-width: 769px) and (max-width: 1280px) {
     max-width: 395px;
     width: calc((100% - 96px) / 2);
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1281px) {
     max-width: 395px;
   }
 }

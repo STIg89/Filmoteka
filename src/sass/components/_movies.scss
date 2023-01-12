@@ -1,7 +1,13 @@
 .movie__gallery {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -32px;
-  margin-bottom: -32px;
-  margin-top: 60px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 336px;
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1280px) {
+    column-gap: 15px;
+    margin-top: 60px;
+  }
 }
