@@ -1,17 +1,35 @@
 import { AuthErrorCodes } from '@firebase/auth';
 
-// const divLoginError = ;
-export const hideLoginError = () => {
-  divLoginError.display = 'none';
-  loginErrorMessage.innerHTML = '';
-};
+const divLoginEmailError = document.getElementById('loginemail-error-message');
+const divLoginPassError = document.getElementById(
+  'loginpassword-error-message'
+);
+const loginFormRef = divLoginEmailError.parentNode;
+const loginEmailInputRef = loginFormRef.querySelector('[name="useremail"]');
+console.log(loginEmailInputRef);
+const loginPassInputRef = loginFormRef.querySelector('[name="userpassword"]');
 
+function onFocusChange() {
+  divLoginEmailError.innerHTML = '';
+  divLoginPassError.innerHTML = '';
+  loginPassInputRef.removeEventListener('focus', onFocusChange);
+  loginEmailInputRef.removeEventListener('focus', onFocusChange);
+}
 export const showLoginError = error => {
-  divLoginError.display = 'block';
+  console.log(AuthErrorCodes);
   if (error.code === AuthErrorCodes.INVALID_PASSWORD) {
-    loginErrorMessage.innerHTML = 'Wrong passowrd. Try again';
+    divLoginPassError.style.display = 'block';
+    divLoginPassError.innerHTML = '❌ Wrong passowrd. Try again';
+    loginPassInputRef.addEventListener('focus', onFocusChange);
+  } else if (error.code === AuthErrorCodes.USER_DELETED) {
+    divLoginEmailError.style.display = 'block';
+    divLoginEmailError.innerHTML = '❌ No such email in our database';
+    loginEmailInputRef.addEventListener('focus', onFocusChange);
   } else {
-    loginErrorMessage.innerHTML = `Error: ${error.message}`;
+    console.log(error);
+    divLoginPassError.style.display = 'block';
+    divLoginPassError.innerHTML = `❌ Error: ${error.message}`;
+    loginPassInputRef.addEventListener('focus', onFocusChange);
   }
 };
 
@@ -24,8 +42,4 @@ export const showSignUpError = error => {
   } else {
     divSignUpError.innerHTML = `Error: ${error.message}`;
   }
-};
-
-export const showLoginState = user => {
-  authState.innerHTML = `You're logged in as ${user.displayName}`;
 };
