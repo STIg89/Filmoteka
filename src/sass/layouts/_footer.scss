@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--lightBG);
+  padding-top: 29px;
+  padding-bottom: 29px;
+  
+  &__text {
+  max-width: 240px;
+  font-weight: 400;
+  text-align: center;
+  font-size: 14px;
+  line-height: 2em;
+  color: var(--dark-text-colort);
+  @include tablet {
+    max-width: 100%;
+    line-height: 1.14em;
+  }
+}
+
+  &__icon {
+  justify-content: center;
+  align-items: stretch;
+}
+
+  &__refs{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14px;
+  color: var(--dark-text-colort);
+  text-decoration: underline;
+}
+}
