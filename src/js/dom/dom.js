@@ -1,6 +1,7 @@
 import './footerModal';
 import './inputSearch';
 import './modalLogIn';
+import './modalSignUp';
 import './movieModal';
 import './refs';
 import './renderMovieModal';
