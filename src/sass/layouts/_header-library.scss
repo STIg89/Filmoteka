@@ -1,0 +1,16 @@
+.header-mobile {
+    @media screen and (max-width: 767px) {
+      display: flex;
+      justify-content: space-between;
+    }
+    @include tablet {
+      margin-top: 20px;
+      display: inline-block;
+      flex-grow: 1;
+    }
+    @include pc {
+      display: none;
+    }
+  }
+
+  
