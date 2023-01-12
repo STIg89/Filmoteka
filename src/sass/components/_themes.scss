@@ -1,0 +1,38 @@
+body { 
+    transition: all var(--duration) var(--cubic);
+    background-color: var(--mainBGL);
+    color: var(--black-text-color);
+  }
+  
+  html.light body { 
+    background-color: var(--mainBGL);
+    color: var(--black-text-color);
+  }
+  
+  html.dark body { 
+    background-color: #333;
+    color: var(--white-text-color);
+  }
+  
+  .page__theme { 
+    width: 50px;
+    height: 50px;
+  }
+  
+  .page__reset { 
+    opacity: 0;
+    visibility: hidden; 
+  }
+  
+  .page__reset.active{ 
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  html.dark .page__theme { 
+    background: url("../images/icon-moon.svg");
+  }
+  
+  html.light .page__theme { 
+    background: url("../images/icon-sun.svg");
+  }
