@@ -6,7 +6,6 @@ const divLoginPassError = document.getElementById(
 );
 const loginFormRef = divLoginEmailError.parentNode;
 const loginEmailInputRef = loginFormRef.querySelector('[name="useremail"]');
-console.log(loginEmailInputRef);
 const loginPassInputRef = loginFormRef.querySelector('[name="userpassword"]');
 
 function onFocusChange() {
@@ -16,7 +15,6 @@ function onFocusChange() {
   loginEmailInputRef.removeEventListener('focus', onFocusChange);
 }
 export const showLoginError = error => {
-  console.log(AuthErrorCodes);
   if (error.code === AuthErrorCodes.INVALID_PASSWORD) {
     divLoginPassError.style.display = 'block';
     divLoginPassError.innerHTML = '❌ Wrong passowrd. Try again';
@@ -35,7 +33,6 @@ export const showLoginError = error => {
 
 const divSignUpError = document.querySelector('#signup-error-message');
 export const showSignUpError = error => {
-  console.log(divSignUpError);
   divSignUpError.style.display = 'block';
   if (error.code === AuthErrorCodes.EMAIL_EXISTS) {
     divSignUpError.innerHTML = ` ❌ You've already been registered. Please log in`;

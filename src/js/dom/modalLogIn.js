@@ -2,15 +2,14 @@ import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../api/firebase-config.js';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { showLoginError } from './showErrors.js';
-import { showSuccessModal } from './showSuccess.js';
+import { userState } from './onAuthStateChanged.js';
 
 const signInFormRef = document.getElementById('login-form');
-const loginModalRef = document.querySelector('[login-data-modal]');
+export const loginModalRef = document.querySelector('[login-data-modal]');
 
 async function invokeResponseSet(event) {
   event.preventDefault();
   const email = event.currentTarget.elements.useremail.value;
-  console.log(email);
   const password = event.currentTarget.elements.userpassword.value;
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
@@ -21,11 +20,7 @@ async function invokeResponseSet(event) {
       password
     );
     const user = userCredential.user;
-    console.log(user);
-    loginModalRef.classList.toggle('is-hidden');
-    const delay = setTimeout(showSuccessModal(user.email), 500);
-
-    clearTimeout(delay);
+    userState(user);
   } catch (error) {
     showLoginError(error);
   }
