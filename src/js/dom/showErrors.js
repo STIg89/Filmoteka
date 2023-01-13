@@ -35,6 +35,8 @@ export const showSignUpError = error => {
     loginLink.style.textDecoration = 'underline';
     loginLink.style.cursor = 'pointer';
     loginLink.addEventListener('click', () => {
+      loginEmailInput.value = '';
+      loginPassInput.value = '';
       refs.signupModal.classList.toggle('is-hidden');
       refs.loginModal.classList.toggle('is-hidden');
     });
