@@ -4,12 +4,11 @@
 .checkbox-label {
   @include flex;
   margin-bottom: var(--Gap20);
-  @include font-box(400, 12px, 1.15);
+  @include font-box(500, 12px, 1.15);
   color: var(--black-text-color);
-  // @include pc {
-  //   margin-bottom: 30px;
-  //   @include font-box(400, 14px, 1.71);
-  // }
+  @include tablet {
+    @include font-box(500, 14px, 1.15);
+  }
 }
 .checkbox-link {
   margin-left: 4px;
