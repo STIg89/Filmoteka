@@ -1,9 +1,7 @@
 .movie__item {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-
-  @include mobile {
-    max-width: 280px;
-  }
 
   @include tablet {
     width: calc((100% - var(--Gap16) * 2) / 2);
@@ -12,6 +10,10 @@
   @include pc {
     width: calc((100% - var(--Gap16) * 2) / 3);
   }
+}
+
+.movie__container {
+  flex-grow: 1;
 }
 
 .movie__description {
