@@ -3,8 +3,8 @@ import { firebaseConfig } from '../api/firebase-config.js';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { showLoginError } from './showErrors.js';
 import { userState } from './onAuthStateChanged.js';
+import { refs } from './refs.js';
 
-const signInFormRef = document.getElementById('login-form');
 export const loginModalRef = document.querySelector('[login-data-modal]');
 
 async function invokeResponseSet(event) {
@@ -33,4 +33,4 @@ async function invokeResponseSet(event) {
   // });
 }
 
-signInFormRef.addEventListener('submit', invokeResponseSet);
+refs.loginForm.addEventListener('submit', invokeResponseSet);

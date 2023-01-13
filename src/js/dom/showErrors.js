@@ -1,42 +1,44 @@
 import { AuthErrorCodes } from '@firebase/auth';
+import { refs } from './refs.js';
 
-const divLoginEmailError = document.getElementById('loginemail-error-message');
-const divLoginPassError = document.getElementById(
-  'loginpassword-error-message'
-);
-const loginFormRef = divLoginEmailError.parentNode;
-const loginEmailInputRef = loginFormRef.querySelector('[name="useremail"]');
-const loginPassInputRef = loginFormRef.querySelector('[name="userpassword"]');
-
+const loginEmailInput = refs.loginForm.querySelector('[name="useremail"]');
+const loginPassInput = refs.loginForm.querySelector('[name="userpassword"]');
 function onFocusChange() {
-  divLoginEmailError.innerHTML = '';
-  divLoginPassError.innerHTML = '';
-  loginPassInputRef.removeEventListener('focus', onFocusChange);
-  loginEmailInputRef.removeEventListener('focus', onFocusChange);
+  refs.divLoginEmailError.innerHTML = '';
+  refs.divLoginPassError.innerHTML = '';
+  loginPassInput.removeEventListener('focus', onFocusChange);
+  loginEmailInput.removeEventListener('focus', onFocusChange);
 }
 export const showLoginError = error => {
   if (error.code === AuthErrorCodes.INVALID_PASSWORD) {
-    divLoginPassError.style.display = 'block';
-    divLoginPassError.innerHTML = '❌ Wrong passowrd. Try again';
-    loginPassInputRef.addEventListener('focus', onFocusChange);
+    refs.divLoginPassError.style.display = 'block';
+    refs.divLoginPassError.innerHTML = '❌ Wrong passowrd. Try again';
+    loginPassInput.addEventListener('focus', onFocusChange);
   } else if (error.code === AuthErrorCodes.USER_DELETED) {
-    divLoginEmailError.style.display = 'block';
-    divLoginEmailError.innerHTML = '❌ No such email in our database';
-    loginEmailInputRef.addEventListener('focus', onFocusChange);
+    refs.divLoginEmailError.style.display = 'block';
+    refs.divLoginEmailError.innerHTML = '❌ No such email in our database';
+    loginEmailInput.addEventListener('focus', onFocusChange);
   } else {
     console.log(error);
-    divLoginPassError.style.display = 'block';
-    divLoginPassError.innerHTML = `❌ Error: ${error.message}`;
-    loginPassInputRef.addEventListener('focus', onFocusChange);
+    refs.divLoginPassError.style.display = 'block';
+    refs.divLoginPassError.innerHTML = `❌ Error: ${error.message}`;
+    loginPassInput.addEventListener('focus', onFocusChange);
   }
 };
 
-const divSignUpError = document.querySelector('#signup-error-message');
 export const showSignUpError = error => {
-  divSignUpError.style.display = 'block';
+  refs.divSignUpError.style.display = 'block';
   if (error.code === AuthErrorCodes.EMAIL_EXISTS) {
-    divSignUpError.innerHTML = ` ❌ You've already been registered. Please log in`;
+    refs.divSignUpError.innerHTML = ` ❌ You've already been registered. Please <a class="checkbox-link link" login-data-modal-open>log in</a>`;
+    const loginLink = refs.divSignUpError.querySelector('.checkbox-link');
+    loginLink.style.pointerEvents = 'all';
+    loginLink.style.textDecoration = 'underline';
+    loginLink.style.cursor = 'pointer';
+    loginLink.addEventListener('click', () => {
+      refs.signupModal.classList.toggle('is-hidden');
+      refs.loginModal.classList.toggle('is-hidden');
+    });
   } else {
-    divSignUpError.innerHTML = `Error: ${error.message}`;
+    refs.divSignUpError.innerHTML = `Error: ${error.message}`;
   }
 };

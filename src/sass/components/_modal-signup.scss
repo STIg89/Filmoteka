@@ -62,10 +62,9 @@ background-color: var(--accent-text-color);
         }
     }
 .login-error-message {
-    display: none;
     color: red;
-    border-bottom: 1 px solid red;
     @include font-box(400,14px,1.15, null);
     margin-bottom: 10px;
     text-align: center;
+    
 }
