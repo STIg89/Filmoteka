@@ -3,11 +3,7 @@ import { firebaseConfig } from '../api/firebase-config.js';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { showSignUpError } from './showErrors.js';
 import { showSuccessModal, onCloseModal } from './showSuccess.js';
-
-const signUpFormRef = document.getElementById('signup-form');
-const signUpBtnRef = document.querySelector('.signup-modal__button');
-const policyCheckboxRef = document.querySelector('[name="policy-checkbox"]');
-const signUpModalRef = document.querySelector('[signup-data-modal]');
+import { refs } from './refs.js';
 
 async function createAccount(event) {
   event.preventDefault();
@@ -23,24 +19,24 @@ async function createAccount(event) {
     );
     const user = userCredential.user;
     console.log(user);
-    signUpModalRef.classList.toggle('is-hidden');
+    refs.signupModal.classList.toggle('is-hidden');
     const delay = setTimeout(showSuccessModal(user.email), 500);
-    signUpFormRef.removeEventListener('submit', createAccount);
-    policyCheckboxRef.removeEventListener('click', toggleBtnProperty);
+    refs.signupForm.removeEventListener('submit', createAccount);
+    refs.policyCheckbox.removeEventListener('click', toggleBtnProperty);
     clearTimeout(delay);
   } catch (error) {
     showSignUpError(error);
   }
 }
 
-signUpFormRef.addEventListener('submit', createAccount);
+refs.signupForm.addEventListener('submit', createAccount);
 
-policyCheckboxRef.addEventListener('click', toggleBtnProperty);
+refs.policyCheckbox.addEventListener('click', toggleBtnProperty);
 
 function toggleBtnProperty(evt) {
   if (evt.target.checked) {
-    signUpBtnRef.disabled = false;
+    refs.signupBtn.disabled = false;
   } else {
-    signUpBtnRef.disabled = true;
+    refs.signupBtn.disabled = true;
   }
 }
