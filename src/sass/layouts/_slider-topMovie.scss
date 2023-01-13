@@ -1,0 +1,34 @@
+.swiper {
+  @include mobile {
+    max-width: 480px;
+  }
+
+  @include tablet {
+    width: 768px;
+    padding: 0 32px;
+  }
+
+  @include pc {
+    width: 1280px;
+  }
+}
+
+.topMovieGallery_slide {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.topMovie_img {
+  @include mobile {
+    max-width: 60px;
+  }
+
+  @include tablet {
+    width: 120px;
+    padding: 0 32px;
+  }
+
+  @include pc {
+    width: 200px;
+  }
+}
