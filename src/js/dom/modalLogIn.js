@@ -5,8 +5,8 @@ import { showLoginError } from './showErrors.js';
 import { userState } from './onAuthStateChanged.js';
 import { refs } from './refs.js';
 
-export const loginModalRef = document.querySelector('[login-data-modal]');
-
+const signupEmailInput = refs.signupForm.querySelector('[name="useremail"]');
+const signupPassInput = refs.signupForm.querySelector('[name="userpassword"]');
 async function invokeResponseSet(event) {
   event.preventDefault();
   const email = event.currentTarget.elements.useremail.value;
@@ -34,3 +34,12 @@ async function invokeResponseSet(event) {
 }
 
 refs.loginForm.addEventListener('submit', invokeResponseSet);
+refs.signupBtnOnLoginModal.addEventListener('click', () => {
+  signupEmailInput.value = '';
+  signupPassInput.value = '';
+  refs.divSignUpError.innerHTML = '';
+  refs.policyCheckbox.checked = false;
+  refs.signupBtn.disabled = true;
+  refs.loginModal.classList.toggle('is-hidden');
+  refs.signupModal.classList.toggle('is-hidden');
+});

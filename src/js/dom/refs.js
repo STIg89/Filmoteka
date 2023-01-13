@@ -10,6 +10,7 @@ export const refs = {
   signupForm: document.getElementById('signup-form'),
   divSignUpError: document.getElementById('signup-error-message'),
   signupBtn: document.querySelector('.signup-modal__button'),
+  signupBtnOnLoginModal: document.querySelector('.login-modal__button--signup'),
   policyCheckbox: document.querySelector('[name="policy-checkbox"]'),
   signoutModal: document.querySelector('[signout-data-modal]'),
 };
