@@ -1,5 +1,4 @@
 import { getDataApi } from '../api/getDataApi';
-
 import card from './templates/card.hbs';
 import Pagination from 'tui-pagination';
 const containerPag = document.getElementById('tui-pagination-container');
