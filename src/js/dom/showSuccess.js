@@ -11,5 +11,5 @@ export function onCloseModal() {
 export function showSuccessModal(email) {
   modalSuccessRef.classList.remove('is-hidden');
   modalSuccessCloseBtnRef.addEventListener('click', onCloseModal);
-  textContainerSuccessRef.innerHTML = `Success! Hello </br> ${email}`;
+  textContainerSuccessRef.innerHTML = `Success! </br> Hello ${email}`;
 }
