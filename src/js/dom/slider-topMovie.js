@@ -1,12 +1,12 @@
-import axios from 'axios';
 import Swiper from 'swiper';
 import 'swiper/swiper.scss';
+import { getTopFilms } from '../api/fetchAPI';
+import { refs } from './refs';
 
-const topMovieEll = document.querySelector('.swiper-wrapper');
-const API_KEY = 'e57746b2e4fe98cb5cc839cb405a15f1';
-const BASE_URL = 'https://api.themoviedb.org/3';
+const { topMovieEll } = refs;
 
 renderTopFilms();
+
 async function renderTopFilms() {
   const data = await getTopFilms();
   renderGallery(data.results);
@@ -35,17 +35,7 @@ async function renderTopFilms() {
     },
   });
 }
-async function getTopFilms() {
-  try {
-    const response = await axios.get(
-      `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`
-    );
 
-    return response.data;
-  } catch (error) {
-    console.error('getTopFilms error' + error);
-  }
-}
 function renderGallery(data) {
   let markup = '';
   for (let i = 0; i <= 15; i += 5) {
@@ -70,7 +60,6 @@ function renderGallery(data) {
             </div></div>`;
     }
     markup += '</div>';
-    console.log('markup' + markup);
   }
 
   topMovieEll.insertAdjacentHTML('beforeend', markup);
