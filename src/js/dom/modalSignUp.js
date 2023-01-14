@@ -5,6 +5,16 @@ import { showSignUpError } from './showErrors.js';
 import { showSuccessModal, onCloseModal } from './showSuccess.js';
 import { refs } from './refs.js';
 
+if (localStorage.getItem('uid')) {
+  refs.headerUserNoLoginContainer.classList.add('is-hidden');
+} else {
+  refs.headerUserNoLoginContainer.classList.remove('is-hidden');
+  refs.headerUserLogedinContainer.classList.add('is-hidden');
+}
+
+refs.headerSignupBtn.addEventListener('click', () => {
+  refs.signupModal.classList.toggle('is-hidden');
+});
 async function createAccount(event) {
   event.preventDefault();
   const email = event.currentTarget.elements.useremail.value;
@@ -18,7 +28,6 @@ async function createAccount(event) {
       password
     );
     const user = userCredential.user;
-    console.log(user);
     refs.signupModal.classList.toggle('is-hidden');
     const delay = setTimeout(showSuccessModal(user.email), 500);
     refs.signupForm.removeEventListener('submit', createAccount);

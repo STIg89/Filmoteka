@@ -4,24 +4,29 @@ import { getAuth, signOut } from 'firebase/auth';
 import { showSuccessModal } from './showSuccess.js';
 import { refs } from './refs.js';
 
+refs.headerSignoutBtn.addEventListener('click', () => {
+  userState();
+});
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export const userState = user => {
   auth.onAuthStateChanged(user => {
-    if (!user) {
-      console.log('Signed out');
-      signOut(auth)
+    console.log(user);
+    if (localStorage.getItem('uid')) {
+      auth
+        .signOut()
         .then(() => {
-          window.localStorage.removeItem('uid', uid);
+          localStorage.removeItem('uid');
           refs.signoutModal.classList.toggle('is-hidden');
           // should be attached to button sign out in header
         })
         .catch(error => {
           // An error happened.
+          console.log(error);
         });
     } else {
       const uid = user.uid;
-      window.localStorage.setItem('uid', uid);
+      localStorage.setItem('uid', uid);
       refs.loginModal.classList.toggle('is-hidden');
       const delay = setTimeout(showSuccessModal(user.email), 500);
       console.log('Signed in');
