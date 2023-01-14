@@ -1,7 +1,23 @@
 .movie__gallery {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -32px;
-  margin-bottom: -32px;
-  margin-top: 60px;
+  gap: var(--Gap20);
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  @include tablet {
+    gap: calc(var(--Gap16) * 2);
+    margin-top: 60px;
+    row-gap: 32px;
+  }
+
+  @include pc {
+    gap: calc(var(--Gap16) * 2) calc(var(--Gap16));
+    margin-top: 60px;
+    row-gap: 32px;
+  }
 }

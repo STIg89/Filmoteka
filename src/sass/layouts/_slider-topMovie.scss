@@ -1,0 +1,50 @@
+.swiper {
+  @include mobile {
+    max-width: 480px;
+  }
+
+  @include tablet {
+    width: 768px;
+    padding: 0 32px;
+  }
+
+  @include pc {
+    width: 1280px;
+  }
+}
+
+.topMovieGallery_slide {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  gap: 2px;
+}
+.topMovie_container {
+  flex-grow: 1;
+
+  @include mobile {
+    max-width: 70px;
+  }
+
+  @include tablet {
+    width: 140px;
+  }
+
+  @include pc {
+    width: 240px;
+  }
+}
+.topMovie_date {
+  color: var(--accent-text-color);
+  font-weight: 500;
+
+  @media screen and (min-width: 769px) and (max-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+    line-height: 1.33;
+  }
+}

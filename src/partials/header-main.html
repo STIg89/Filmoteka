@@ -1,12 +1,14 @@
 <header class="header" id="header">
   <div class="container header-container">
     <nav class="page-navigation">
-            <a class="header-logo-link link" href="./index.html">
-                <svg class="header-logo-svg" width="24" height="24">
-                  <use href="./images/sprite.svg#icon-film-1"></use>
-                </svg>
-                <p>Filmoteka</p>
-              </a>
+      <div class="heder-logo">
+        <a class="header-logo-link link" href="./index.html">
+          <svg class="header-logo-svg" width="24" height="24">
+            <use href="./images/sprite.svg#icon-film-1"></use>
+          </svg>
+          <p>Filmoteka</p>
+        </a>
+      </div>
           <div class="header-menu">
             <ul class="menu list">
                 <li class="menu__item">
@@ -39,5 +41,24 @@
         <button type="button" class="page__theme"></button>
         <button type="button" class="page__reset">AUTO</button>
     </div>
+
+    <div class="header__buttons" id="div-sign-up">
+      <button class="header__button" login-data-modal-open>LOG IN</button>
+      <button class="header__button" signup-data-modal-open>SIGN-UP</button>
+    </div>
+
+    <div class="header__buttons" id="div-sign-out">
+      <div id="header-useremail-div"></div>
+      <button class="header__button" signout-data-modal-open>SIGN-OUT</button>
+    </div>
+
+  </div>
+
+  <div class="filter">
+    <button class="filter__btn">
+      <svg class="filter__icon" width="25" height="25">
+        <use href="./images/sprite.svg#icon-filters"></use>
+      </svg>
+      FILTER</button>
   </div>
 </header>

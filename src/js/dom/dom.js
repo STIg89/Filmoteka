@@ -1,9 +1,9 @@
 import './footerModal';
 import './inputSearch';
-import './modalLogIn';
-import './modalSignUp';
 import './movieModal';
 import './refs';
+import './modalLogIn';
+import './modalSignUp';
 import './renderMovieModal';
 import './renderMovies';
 import './renderTrendingFilms';
@@ -11,3 +11,4 @@ import './movieModal';
 import './trailer';
 import './watchedLS';
 import './queueLS';
+import './slider-topMovie';

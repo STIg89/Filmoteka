@@ -13,7 +13,7 @@ body {
     background-color: #333;
     color: var(--white-text-color);
   }
-  .page__action { 
+  .page__action, .filter { 
     position: absolute;
     top: 0;
     right: 0;
@@ -53,3 +53,17 @@ body {
   html.light .page__theme { 
     background: url("../images/icon-sun.svg");
   }
+
+
+// ФІЛЬТР 
+
+.filter {
+  top: 60px;
+}
+.filter__btn {
+  background: transparent;
+  border: transparent;
+  display: flex; 
+  align-items: center;
+  gap: 7px;
+}

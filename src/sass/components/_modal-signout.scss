@@ -1,0 +1,24 @@
+@keyframes animate {
+    from {
+        transform: rotate(-20deg);
+    }
+
+    to {
+        transform: rotate(20deg);
+    }
+}
+.modal-checkmark-goodbye {
+font-size: 100px;
+    transform: rotate(-20deg);
+    animation: animate 0.3s infinite alternate linear; 
+}
+.goodbye-modal-text {
+    @include font-box(500, 16px,1.33);
+    color: var(--accent-text-color);
+    text-align: center;
+
+}
+
+
+
+
