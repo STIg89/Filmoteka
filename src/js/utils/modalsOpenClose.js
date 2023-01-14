@@ -1,6 +1,6 @@
 const refs = {
-  closeModalBtn: document.querySelector('[signup-data-modal-close]'),
-  modalLogIn: document.querySelector('[signup-data-modal]'),
+  closeModalBtn: document.querySelector('[signout-data-modal-close]'),
+  modalLogIn: document.querySelector('[signout-data-modal]'),
 };
 
 refs.closeModalBtn.addEventListener('click', onCloseModal);
@@ -23,5 +23,3 @@ function onEscKeyPress(e) {
     onCloseModal();
   }
 }
-
-
