@@ -47,20 +47,31 @@ async function getTopFilms() {
   }
 }
 function renderGallery(data) {
-  const markup = data
-    .map(({ original_title, poster_path, id, release_date }) => {
-      return `<div  class="topMovieGallery_slide swiper-slide">
-<div class="topMovie_container">
-                <img class="topMovie_img"  src= "https://image.tmdb.org/t/p/original${poster_path}" alt="${original_title}" loading="lazy">
-        </div>
-                <div class="topMovie_description">
-                  <p class="topMovie_title">${original_title}</p>
-                  <div class="topMovie_meta">
-                    <p class="topMovie_genres">${release_date}</p>                    
-                  </div>
-                </div>
-    </div>`;
-    })
-    .join('');
+  let markup = '';
+  for (let i = 0; i <= 15; i += 5) {
+    markup += '<div  class="topMovieGallery_slide swiper-slide">';
+    for (let j = 0 + i; j <= i + 4; j += 1) {
+      markup += `<div class="topMovie_container">
+                  <img class="topMovie_img"  src= "https://image.tmdb.org/t/p/original${
+                    data[j].poster_path
+                  }" alt="${data[j].original_title}" loading="lazy">
+            
+            <div class="topMovie_description movie__description">
+                <p class="topMovie_title movie__title">${
+                  data[j].original_title
+                }</p>
+                 <p class="topMovie_date">${data[j].release_date.slice(
+                   0,
+                   4
+                 )}</p>
+                 <p class="topMovie_vote movie__rate">${
+                   data[j].vote_average
+                 }</p>
+            </div></div>`;
+    }
+    markup += '</div>';
+    console.log('markup' + markup);
+  }
+
   topMovieEll.insertAdjacentHTML('beforeend', markup);
 }
