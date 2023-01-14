@@ -5,6 +5,8 @@ import { showLoginError } from './showErrors.js';
 import { userState } from './onAuthStateChanged.js';
 import { refs } from './refs.js';
 
+const userObj = {};
+
 refs.headerLoginBtn.addEventListener('click', () => {
   refs.loginModal.classList.toggle('is-hidden');
 });
@@ -23,11 +25,12 @@ async function invokeResponseSet(event) {
       password
     );
     const user = userCredential.user;
-
+    userObj.uid = user.uid;
+    userObj.userlogin = user.email;
     refs.headerUserNoLoginContainer.classList.add('is-hidden');
     refs.headerUserLogedinContainer.classList.remove('is-hidden');
     console.log(refs.headerUserEmailDiv);
-    refs.headerUserEmailDiv.innerHTML = user.email;
+    refs.headerUserEmailDiv.innerHTML = userObj.userlogin;
     userState(user);
   } catch (error) {
     showLoginError(error);

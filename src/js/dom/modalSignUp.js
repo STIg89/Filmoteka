@@ -6,10 +6,15 @@ import { showSuccessModal, onCloseModal } from './showSuccess.js';
 import { refs } from './refs.js';
 
 if (localStorage.getItem('uid')) {
-  refs.headerUserNoLoginContainer.classList.add('is-hidden');
+  if (refs.headerUserNoLoginContainer.classList.contains('is-hidden')) {
+    refs.headerUserNoLoginContainer.classList.remove('is-hidden');
+    refs.headerUserEmailDiv.innerHTML = userObj.userlogin;
+  } else return;
 } else {
-  refs.headerUserNoLoginContainer.classList.remove('is-hidden');
-  refs.headerUserLogedinContainer.classList.add('is-hidden');
+  console.log(refs.headerUserNoLoginContainer.classList.contains('is-hidden'));
+  if (refs.headerUserLogedinContainer.classList.contains('is-hidden')) {
+    refs.headerUserLogedinContainer.classList.remove('is-hidden');
+  } else return;
 }
 
 refs.headerSignupBtn.addEventListener('click', () => {
