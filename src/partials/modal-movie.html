@@ -1,1 +1,56 @@
-<button class="add-queue-btn" type="button">Add to queue</button>
+<div class="backdrop is-hidden" data-modal>
+    <div class="modal-movie">
+        <button data-modal-close class="button-modal-movie--close">
+            <svg class="close__svg" width="30" height="30">
+                <use href="/src/images/sprite.svg#icon-btn-modal-movie-close"></use>
+            </svg>
+        </button>
+        <div class="modal-movie__content">
+           
+        </div>
+    </div>
+</div>
+
+<div class="thumb">
+
+    <img class="modal-movie__image"  alt="poster is not available" />
+</div>
+<div class="content__text">
+
+    <h2 class="modal-movie__title"></h2>
+
+    
+
+    <div class="wrap-modal-movie">
+        <ul class="modal-movie__list modal-movie__list--points">
+            <li>Vote / Votes</li>
+            <li>Popularity</li>
+            <li>Original Title</li>
+            <li>Genre</li>
+        </ul>
+        <ul class="modal-movie__list modal-movie__list--values">
+            <li class="modal-movie-list__item">
+                <span class="modal-movie__rating--orange"></span>
+                <span class="modal-movie__rating--slash"> /</span>
+                <span class="modal-movie__rating"></span>
+            </li>
+
+        </ul>
+    </div>
+    <div class="modal-movie-text">
+        <h3 class="modal-movie-text__title">About</h3>
+        <p class="modal-movie-text__item"></p>
+    </div>
+    <ul class="buttons-list">
+        <li>
+            <button type="button" class="button-modal-movie button-modal-movie--orange" >watched</button>
+        </li>
+        <li>
+            <button type="submit" class="button-modal-movie" id="queueInModal">add to queue</button>
+        </li>
+        <li>
+            <button type="button" class="button-modal-movie button-modal-movie--trailer" >trailer</button>
+        </li>
+    </ul>
+</div>
+
