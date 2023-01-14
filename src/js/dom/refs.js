@@ -13,4 +13,5 @@ export const refs = {
   signupBtnOnLoginModal: document.querySelector('.login-modal__button--signup'),
   policyCheckbox: document.querySelector('[name="policy-checkbox"]'),
   signoutModal: document.querySelector('[signout-data-modal]'),
+  topMovieEll: document.querySelector('.swiper-wrapper'),
 };

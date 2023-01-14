@@ -76,10 +76,23 @@ async function getGenres() {
   }
 }
 
+async function getTopFilms() {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error('getTopFilms error' + error);
+  }
+}
+
 export {
   getTrendingFilms,
   getMoviesSearch,
   getMovieDetails,
   getMovieTrailer,
   getGenres,
+  getTopFilms,
 };
