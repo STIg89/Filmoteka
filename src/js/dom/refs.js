@@ -25,4 +25,4 @@ export const refs = {
   watchedAddBtn: '',
   watchedBtn: document.querySelector('#watched-btn'),
   modalMovieContent: document.querySelector('.modal-movie__content'),
-};
+ }; 
