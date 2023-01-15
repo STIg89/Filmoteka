@@ -8,6 +8,7 @@ import './modalSignUp';
 import './renderMovieModal';
 import './renderMovies';
 import './renderTrendingFilms';
+import './movieModal';
 import './trailer';
 import './watchedLS';
 import './queueLS';

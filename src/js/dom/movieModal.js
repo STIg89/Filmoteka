@@ -1,5 +1,6 @@
 import { getMovieDetails } from '../api/fetchAPI';
-console.log(1)
+import { addListenerAddWatched, checkStatusBTN } from '../dom/watchedLS';
+console.log(1);
 setTimeout(() => {
   const movieItems = document.querySelectorAll('.movie__item');
 
@@ -12,9 +13,13 @@ setTimeout(() => {
       const id = movie.getAttribute('data-id');
 
       getMovieDetails(id).then(data => {
-        console.log(data)
+        console.log(data);
         const backdrop = document.querySelector('.backdrop');
         backdrop.classList.remove('is-hidden');
+        //Заповнення id для кнопки Add to watched і Add to queue
+        document
+          .querySelector('.modal-movie__content')
+          .setAttribute('data-id', id);
 
         document.querySelector('.modal-movie__content').innerHTML = `
         <div class="movie-detail">
@@ -44,13 +49,16 @@ setTimeout(() => {
             <h5 class="movie-detail__subtitle">About</h5>
             <p class="movie-detail__text">${data.overview}</p>
             <div class="movie-detail__btns">
-              <button class="movie-detail__btn-main">add to Watched</button>
+              <button id ="add-watched-btn" class="movie-detail__btn-main">add to Watched</button>
               <button class="movie-detail__btn-secondary">add to queue</button>
               <button class="movie-detail__btn-main">trailer</button>
             </div>
           </div>
         </div>
-        `
+        `;
+
+        addListenerAddWatched();
+        checkStatusBTN(Number(id));
       });
     });
   });
@@ -62,9 +70,12 @@ setTimeout(() => {
   //     document.querySelector('.backdrop').classList.add('is-hidden');
   //   });
 
-    document.querySelector('.backdrop').addEventListener('click', e => {
-      if(e.target.classList.contains('button-modal-movie--close') || e.target.classList.contains('backdrop')) {
-        document.querySelector('.backdrop').classList.add('is-hidden')
-      }
-    })
+  document.querySelector('.backdrop').addEventListener('click', e => {
+    if (
+      e.target.classList.contains('button-modal-movie--close') ||
+      e.target.classList.contains('backdrop')
+    ) {
+      document.querySelector('.backdrop').classList.add('is-hidden');
+    }
+  });
 }, 1000);
