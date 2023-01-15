@@ -1,22 +1,26 @@
-const { default: Swiper } = require("swiper");
+import Swiper from 'swiper';
+import 'swiper/swiper.scss';
 
-new Swiper('.mySwiper', {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 'auto',
-        coverflowEffect: {
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-        },
-      });
+const { default: Swiper } = require('swiper');
 
+  const swiper = new Swiper('.mySwiper', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  });
+
+// Відкриття та закриття модалки футера----------------------------------------------
 
 const modalRefs = document.querySelectorAll('#footer-modal-open');
 const modals = document.querySelectorAll('.modal');
@@ -31,7 +35,7 @@ function closeModal(e) {
   if (
     e.target.classList.contains('modal-close') ||
     e.target.closest('.modal-close') ||
-    e.target.classList.contains('modal-bg')
+    e.target.classList.contains('footer-modal__container')
   ) {
     e.target.closest('.modal').classList.remove('active');
     body.classList.remove('locked');

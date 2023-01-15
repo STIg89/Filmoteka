@@ -1,10 +1,10 @@
-// import './refs';
-// import './checkForLoginState';
+import './refs';
+import './checkForLoginState';
 import './footerModal';
-// import './inputSearch';
-// import './movieModal';
-// import './modalLogIn';
-// import './modalSignUp';
+import './inputSearch';
+import './movieModal';
+import './modalLogIn';
+import './modalSignUp';
 import './renderMovieModal';
 // import './renderMovies';
 // import './renderTrendingFilms';
