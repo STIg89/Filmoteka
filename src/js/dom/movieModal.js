@@ -1,7 +1,11 @@
+import { addListener } from 'process';
 import { getMovieDetails } from '../api/fetchAPI';
 import { addListenerAddWatched, checkStatusBTN } from '../dom/watchedLS';
+import { addListener } from 'process';
+import {addListenerQueueAddBtn} from './queueLS';
 
 console.log(1);
+
 setTimeout(() => {
   const movieItems = document.querySelectorAll('.movie__item');
 
@@ -51,7 +55,7 @@ setTimeout(() => {
             <p class="movie-detail__text">${data.overview}</p>
             <div class="movie-detail__btns">
               <button class="movie-detail__btn-main" id="add-watched-btn">add to Watched</button>
-              <button class="movie-detail__btn-secondary">add to queue</button>
+              <button class="movie-detail__add-queue-btn add-queue-btn" type="button">Add to queue</button>
               <button class="movie-detail__btn-main">trailer</button>
             </div>
           </div>
@@ -59,6 +63,7 @@ setTimeout(() => {
         `;
         //додає слухача на кнопку і перевіряє ч иє цей фільм в local storage
         addListenerAddWatched();
+        addListenerQueueAddBtn();
         checkStatusBTN(Number(id));
       });
     });
