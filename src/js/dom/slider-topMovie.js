@@ -1,5 +1,8 @@
-import Swiper from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/swiper.scss';
+import 'swiper/modules/navigation/navigation.scss';
+import 'swiper/modules/pagination/pagination.scss';
+
 import { getTopFilms } from '../api/fetchAPI';
 import { refs } from './refs';
 
@@ -14,6 +17,7 @@ async function renderTopFilms() {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
+    modules: [Navigation, Pagination],
 
     // If we need pagination
     pagination: {
@@ -41,7 +45,9 @@ function renderGallery(data) {
   for (let i = 0; i <= 15; i += 5) {
     markup += '<div  class="topMovieGallery_slide swiper-slide">';
     for (let j = 0 + i; j <= i + 4; j += 1) {
-      markup += `<div class="topMovie_container">
+      markup += `<div class="movie__item topMovie_container" data-id="${
+        data[j].id
+      }">
                   <img class="topMovie_img"  src= "https://image.tmdb.org/t/p/original${
                     data[j].poster_path
                   }" alt="${data[j].original_title}" loading="lazy">
