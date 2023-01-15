@@ -5,18 +5,6 @@ import { showSignUpError } from './showErrors.js';
 import { showSuccessModal, onCloseModal } from './showSuccess.js';
 import { refs } from './refs.js';
 
-if (localStorage.getItem('uid')) {
-  if (refs.headerUserNoLoginContainer.classList.contains('is-hidden')) {
-    refs.headerUserNoLoginContainer.classList.remove('is-hidden');
-    refs.headerUserEmailDiv.innerHTML = userObj.userlogin;
-  } else return;
-} else {
-  console.log(refs.headerUserNoLoginContainer.classList.contains('is-hidden'));
-  if (refs.headerUserLogedinContainer.classList.contains('is-hidden')) {
-    refs.headerUserLogedinContainer.classList.remove('is-hidden');
-  } else return;
-}
-
 refs.headerSignupBtn.addEventListener('click', () => {
   refs.signupModal.classList.toggle('is-hidden');
 });

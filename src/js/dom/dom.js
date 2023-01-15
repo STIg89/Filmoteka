@@ -1,7 +1,8 @@
+import './refs';
+import './checkForLoginState';
 import './footerModal';
 import './inputSearch';
 import './movieModal';
-import './refs';
 import './modalLogIn';
 import './modalSignUp';
 import './renderMovieModal';

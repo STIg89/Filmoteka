@@ -17,7 +17,10 @@ export const userState = user => {
         .signOut()
         .then(() => {
           localStorage.removeItem('uid');
+          localStorage.removeItem('username');
           refs.signoutModal.classList.toggle('is-hidden');
+          refs.headerUserLogedinContainer.classList.add('visually-hidden');
+          refs.headerUserNoLoginContainer.classList.remove('visually-hidden');
           // should be attached to button sign out in header
         })
         .catch(error => {
@@ -27,6 +30,10 @@ export const userState = user => {
     } else {
       const uid = user.uid;
       localStorage.setItem('uid', uid);
+      localStorage.setItem('username', user.email);
+      refs.headerUserEmailDiv.innerHTML = `Hello, </br> ${localStorage.getItem(
+        'username'
+      )}`;
       refs.loginModal.classList.toggle('is-hidden');
       const delay = setTimeout(showSuccessModal(user.email), 500);
       console.log('Signed in');
