@@ -23,3 +23,12 @@ function onEscKeyPress(e) {
     onCloseModal();
   }
 }
+
+// document.querySelector('.backdrop').addEventListener('click', e => {
+//     if (
+//       e.target.classList.contains('button-modal-movie--close') ||
+//       e.target.classList.contains('backdrop')
+//     ) {
+//       document.querySelector('.backdrop').classList.add('is-hidden');
+//     }
+//   });

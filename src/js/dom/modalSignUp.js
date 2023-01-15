@@ -42,3 +42,24 @@ function toggleBtnProperty(evt) {
     refs.signupBtn.disabled = true;
   }
 }
+
+refs.SignupBtnClose.addEventListener('click', onCloseModal);
+refs.signupModal.addEventListener("click", onBackdropClick);
+window.addEventListener("keydown", onEscKeyPress);
+
+function onCloseModal() {
+  refs.signupModal.classList.toggle('is-hidden');
+  window.removeEventListener("keydown", onEscKeyPress);
+}
+
+function onBackdropClick(e) {
+  if (e.currentTarget === e.target) {
+    onCloseModal();
+  }
+}
+
+function onEscKeyPress(e) {
+  if (e.code === "Escape") {
+    onCloseModal();
+  }
+}

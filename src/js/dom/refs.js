@@ -5,6 +5,7 @@ export const refs = {
   headerUserNoLoginContainer: document.getElementById('div-sign-up'),
   headerLoginBtn: document.querySelector('[login-data-modal-open]'),
   headerSignupBtn: document.querySelector('[signup-data-modal-open]'),
+  SignupBtnClose: document.querySelector('[signup-data-modal-close]'),
   headerUserLogedinContainer: document.getElementById('div-sign-out'),
   headerUserEmailDiv: document.getElementById('header-useremail-div'),
   headerSignoutBtn: document.querySelector('[signout-data-modal-open]'),
