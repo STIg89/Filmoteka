@@ -62,3 +62,23 @@ padding: 30px 10px;
   font-size: 40px;
   margin: 0px 0px 1em 0px;
 }
+
+// Cтилі для слайдеру
+
+      .swiper {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+      }
