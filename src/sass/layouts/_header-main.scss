@@ -1,100 +1,114 @@
-.header-mobile {
-  @media screen and (max-width: 767px) {
-    display: flex;
-    justify-content: space-between;
-  }
-  @include tablet {
-    margin-top: 20px;
-    display: inline-block;
-    flex-grow: 1;
-  }
-  @include pc {
-    display: none;
-  }
-}
-
-//Mobile//
-
-@media screen and (max-width: 767px) {
-    .header {
-        background-image: url("../images/background-mobile.jpg");
-        max-width: 767px;
-        
-    }
-}
-
-@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-screen and (min-resolution: 192dpi) and (max-width: 767px),
-screen and (min-resolution: 2dppx) and (max-width: 767px) {
-    .header {
-      background-image: url ("../images/background-mobile@2x.jpg");
-    }
-}
-
-
 .header {
+  background: url("../images/background-mobile.jpg");
+  // тут я не понимаю почему если я задала в общем оно не сохранилось на таблетку и деск
   background-size: cover;
   background-position: center;
-  margin: 0 auto;
-}
-
-
-//Tablet//
-
-@media screen and (min-width: 768px) {
-  .header {
-      background-image: url("../images/background-tablet.jpg");
-      max-width: 1199px;
+  background-repeat: no-repeat;
+  padding-top: 40px; 
+  padding-bottom: 92px;
+  @include retina { 
+    background: url ("../images/background-mobile@2x.jpg");
   }
-}
-
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-screen and (min-resolution: 192dpi) and (min-width: 768px),
-screen and (min-resolution: 2dppx) and (min-width: 768px) {
-  .header {
-      background-image: url("../images/background-tablet@2x.jpg");
+  
+  @include tablet { 
+      background: url("../images/background-tablet.jpg"); 
+        // тут я не понимаю почему если я задала в общем оно не сохранилось на таблетку и деск
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding-bottom: 70px;
+      @include retina { 
+        background: url("../images/background-tablet@2x.jpg");
+      }
   }
-}
-
-
-//PC//
-
-@media screen and (min-width: 1200px) {
-  .header {
-      background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+  @include pc { 
+      background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url("../images/background-pc.jpg");
-      
+        // тут я не понимаю почему если я задала в общем оно не сохранилось на таблетку и деск
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding-bottom: 80px;
+
+      @include retina { 
+        background: url("../images/background-pc@2x.jpg");
+      }
   }
 }
 
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
-  screen and (min-resolution: 192dpi) and (min-width: 1200px),
-  screen and (min-resolution: 2dppx) and (min-width: 1200px) {
-  .header {
-      background-image: url("../images/background-pc@2x.jpg");
-  }   
+.page-navigation {
+  @include flex; 
+  justify-content: space-between;
+  gap: 115px;
 }
-.header-logo {
+
+.header-logo-link {
+  @include tablet { 
+    @include flex;
+    gap: 10px;
+  }
+}
+
+.pheader {
+    @include font ($fw: 500, $fs: 30, $lh: 35, $ls: 0.02);
+    color: var(--white-text-color);
+    display: none;
+
+    @include tablet { 
+      display: flex; 
+    }
+}
+.menu {
+  @include flex; 
+  gap: 30px;
+}
+
+.menu__link {
+  @include font ($fw: 500, $fs: 12, $lh: 14, $ls: 0.02);
+  color: var(--white-text-color);
+  text-transform: uppercase;
+}
+.menu__link_current {
+  border-bottom: 3px solid #FF001B;;
+}
+.search { 
+  margin-top: 57px;
+  @include tablet { 
+    width: 336px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.search-form  input{
+  background: transparent;
+  width: 90%;
+  border: 0;
+  border-bottom: 0.5px solid #FFFFFF;
+  padding-bottom: 4px;
+  @include tablet { 
+    width: 330px;
+    margin: 0 auto;
+  }
+}
+// (или задать кнопке класс)
+.search-form  button  {
+  border: 0;
+  background: transparent;
+}
+.search-form  ::placeholder{
+  @include font ($fw: 400, $fs: 14, $lh: 16, $ls: 0.03);
+    color: var(--white-text-color);
+}
+.searchBtn {
+  @include flex; 
+  fill: var(--white-text-color);
+}
+
+.heder-logo {
 font-family: 'Roboto';
 font-style: normal;
 font-weight: 500;
 font-size: 30px;
 line-height: 35px;
-display: flex;
-align-items: center;
-text-align: center;
-color: var (--white-text-color) ;
-justify-content: start;
-position: absolute;
-top:8;
-left: 8;
-    &--svg {
-      width: 25px;
-      height: 25px;
-      color: var(--white-text-color);
-    }
-    &>p {
-        @include font-box(400,20px,1.15,0);
-        color: var(--white-text-color);
-    }
-  }
+color: #FFFFFF;
+}
