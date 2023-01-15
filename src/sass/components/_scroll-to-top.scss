@@ -1,0 +1,59 @@
+.up-btn__wrapper {
+    position: fixed;
+    bottom: 40px;
+    right: 15px;
+    z-index: 999;
+    cursor: pointer;
+    color: var(--light-text-color);
+    box-shadow: inset 0 0 0 4px var(--light-text-color);
+    transition: var(--duration);    
+
+    @include mobile {
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+    }    
+    @include tablet {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+    }    
+    @include pc {
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
+    }
+    
+    &::before {
+        position: absolute;
+        bottom: 7%;
+        left: 0;
+        @include flex;
+        width: 100%;
+        height: 100%;
+        font-size: 40px;
+        content: '▲';
+
+        @include mobile {
+            font-size: 28px;
+        }    
+        @include tablet {
+            font-size: 35px;
+        }    
+        @include pc {
+            font-size: 40px;
+        }
+    }
+
+    &:hover, &:focus {
+        color: var(--accentBG);
+    }
+}
+
+.up-btn__svg-path {
+    box-sizing: border-box;
+    stroke: var(--accentBG);
+    stroke-width: 4px;
+    transition: var(--duration);
+    fill: none;   
+}

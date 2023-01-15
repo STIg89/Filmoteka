@@ -20,4 +20,6 @@ export const refs = {
   policyCheckbox: document.querySelector('[name="policy-checkbox"]'),
   signoutModal: document.querySelector('[signout-data-modal]'),
   topMovieEll: document.querySelector('.swiper-wrapper'),
+  scrollUp: document.querySelector('.up-btn__wrapper'),
+  scrollUpSvgPath: document.querySelector('.up-btn__svg-path'),
 };
