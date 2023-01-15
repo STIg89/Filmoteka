@@ -22,4 +22,7 @@ export const refs = {
   topMovieEll: document.querySelector('.swiper-wrapper'),
   scrollUp: document.querySelector('.up-btn__wrapper'),
   scrollUpSvgPath: document.querySelector('.up-btn__svg-path'),
+  watchedAddBtn: '',
+  watchedBtn: document.querySelector('#watched-btn'),
+  modalMovieContent: document.querySelector('.modal-movie__content'),
 };
