@@ -1,9 +1,6 @@
-.header {
+.header-main{
   background: url("../images/background-mobile.jpg");
-  // тут я не понимаю почему если я задала в общем оно не сохранилось на таблетку и деск
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  @include bg; 
   padding-top: 40px; 
   padding-bottom: 92px;
   @include retina { 
@@ -12,10 +9,7 @@
   
   @include tablet { 
       background: url("../images/background-tablet.jpg"); 
-        // тут я не понимаю почему если я задала в общем оно не сохранилось на таблетку и деск
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      @include bg; 
       padding-bottom: 70px;
       @include retina { 
         background: url("../images/background-tablet@2x.jpg");
@@ -24,10 +18,7 @@
   @include pc { 
       background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url("../images/background-pc.jpg");
-        // тут я не понимаю почему если я задала в общем оно не сохранилось на таблетку и деск
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      @include bg; 
       padding-bottom: 80px;
 
       @include retina { 
@@ -35,31 +26,27 @@
       }
   }
 }
-
 .page-navigation {
   @include flex; 
   justify-content: space-between;
-  gap: 115px;
+  gap: 90px;
 }
-
 .header-logo-link {
   @include tablet { 
     @include flex;
     gap: 10px;
   }
 }
-
 .pheader {
     @include font ($fw: 500, $fs: 30, $lh: 35, $ls: 0.02);
     color: var(--white-text-color);
     display: none;
-
     @include tablet { 
       display: flex; 
     }
 }
 .menu {
-  @include flex; 
+  @include flex;
   gap: 30px;
 }
 
@@ -71,6 +58,10 @@
 .menu__link_current {
   border-bottom: 3px solid #FF001B;;
 }
+.search-form { 
+  @include flex;
+  border-bottom: 0.5px solid #FFFFFF;
+}
 .search { 
   margin-top: 57px;
   @include tablet { 
@@ -79,20 +70,17 @@
     margin-right: auto;
   }
 }
-.search-form  input{
+.search-input{
   background: transparent;
-  width: 90%;
   border: 0;
-  border-bottom: 0.5px solid #FFFFFF;
-  padding-bottom: 4px;
   @include tablet { 
     width: 330px;
     margin: 0 auto;
   }
 }
-// (или задать кнопке класс)
-.search-form  button  {
+.searchBtn {
   border: 0;
+  padding-bottom: 4px;
   background: transparent;
 }
 .search-form  ::placeholder{
@@ -104,11 +92,3 @@
   fill: var(--white-text-color);
 }
 
-.heder-logo {
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 30px;
-line-height: 35px;
-color: #FFFFFF;
-}
