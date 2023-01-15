@@ -34,3 +34,8 @@ a {
   pointer-events: none;
   visibility: hidden;
 }
+
+.no-scroll {
+  height: 100%;
+  overflow: hidden;
+}

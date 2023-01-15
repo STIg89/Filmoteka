@@ -5,7 +5,7 @@ const refs = {
 
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.modalLogIn.addEventListener("click", onBackdropClick);
-window.addEventListener("keydown", onEscKeyPress);
+// window.addEventListener("keydown", onEscKeyPress);
 
 function onCloseModal() {
   refs.modalLogIn.classList.toggle('is-hidden');
@@ -18,17 +18,8 @@ function onBackdropClick(e) {
   }
 }
 
-function onEscKeyPress(e) {
-  if (e.code === "Escape") {
-    onCloseModal();
-  }
-}
-
-// document.querySelector('.backdrop').addEventListener('click', e => {
-//     if (
-//       e.target.classList.contains('button-modal-movie--close') ||
-//       e.target.classList.contains('backdrop')
-//     ) {
-//       document.querySelector('.backdrop').classList.add('is-hidden');
-//     }
-//   });
+// function onEscKeyPress(e) {
+//   if (e.code === "Escape") {
+//     onCloseModal();
+//   }
+// }

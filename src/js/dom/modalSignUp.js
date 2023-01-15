@@ -7,6 +7,7 @@ import { refs } from './refs.js';
 
 refs.headerSignupBtn.addEventListener('click', () => {
   refs.signupModal.classList.toggle('is-hidden');
+  refs.body.classList.add('no-scroll');
 });
 async function createAccount(event) {
   event.preventDefault();
@@ -43,13 +44,14 @@ function toggleBtnProperty(evt) {
   }
 }
 
-refs.SignupBtnClose.addEventListener('click', onCloseModal);
-refs.signupModal.addEventListener("click", onBackdropClick);
-window.addEventListener("keydown", onEscKeyPress);
+refs.signupBtnClose.addEventListener('click', onCloseModal);
+refs.signupModal.addEventListener('click', onBackdropClick);
+window.addEventListener('keydown', onEscKeyPress);
 
 function onCloseModal() {
   refs.signupModal.classList.toggle('is-hidden');
-  window.removeEventListener("keydown", onEscKeyPress);
+  refs.body.classList.remove('no-scroll');
+  window.removeEventListener('keydown', onEscKeyPress);
 }
 
 function onBackdropClick(e) {
