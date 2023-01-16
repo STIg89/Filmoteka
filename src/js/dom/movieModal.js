@@ -30,7 +30,7 @@ function activeMovieModal() {
           document.querySelector('.modal-movie__content').innerHTML = `
         <div class="movie-detail">
           <div class="movie-detail__image">
-            <img src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="" class="movie-detail__img">
+            <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="" class="movie-detail__img">
           </div>
           <div class="movie-detail__content">
             <h2 class="movie-detail__title">${data.title}</h2>
