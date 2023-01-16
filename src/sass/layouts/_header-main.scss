@@ -1,48 +1,48 @@
-.header-main{
-  background: url("../images/background-mobile.jpg");
-  @include bg; 
-  padding-top: 40px; 
+.header-main {
+  background: url('../images/background-mobile.jpg');
+  @include bg;
+  padding-top: 40px;
   padding-bottom: 40px;
-  @include retina { 
-    background: url ("../images/background-mobile@2x.jpg");
+  @include retina {
+    background: url ('../images/background-mobile@2x.jpg');
   }
-  
-  @include tablet { 
-      background: url("../images/background-tablet.jpg"); 
-      @include bg; 
-      padding-bottom: 50px;
-      @include retina { 
-        background: url("../images/background-tablet@2x.jpg");
-      }
-  }
-  @include pc { 
-      background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-      url("../images/background-pc.jpg");
-      @include bg; 
 
-      @include retina { 
-        background: url("../images/background-pc@2x.jpg");
-      }
+  @include tablet {
+    background: url('../images/background-tablet.jpg');
+    @include bg;
+    padding-bottom: 50px;
+    @include retina {
+      background: url('../images/background-tablet@2x.jpg');
+    }
+  }
+  @include pc {
+    background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url('../images/background-pc.jpg');
+    @include bg;
+
+    @include retina {
+      background: url('../images/background-pc@2x.jpg');
+    }
   }
 }
 .page-navigation {
-  @include flex; 
+  @include flex;
   justify-content: space-between;
   gap: 90px;
 }
 .header-logo-link {
-  @include tablet { 
+  @include tablet {
     @include flex;
     gap: 10px;
   }
 }
 .pheader {
-    @include font ($fw: 500, $fs: 30, $lh: 35, $ls: 0.02);
-    color: var(--white-text-color);
-    display: none;
-    @include tablet { 
-      display: flex; 
-    }
+  @include font($fw: 500, $fs: 30, $lh: 35, $ls: 0.02);
+  color: var(--white-text-color);
+  display: none;
+  @include tablet {
+    display: flex;
+  }
 }
 .menu {
   @include flex;
@@ -50,32 +50,32 @@
 }
 
 .menu__link {
-  @include font ($fw: 500, $fs: 12, $lh: 14, $ls: 0.02);
+  @include font($fw: 500, $fs: 12, $lh: 14, $ls: 0.02);
   color: var(--white-text-color);
   text-transform: uppercase;
 }
 .menu__link_current {
-  border-bottom: 3px solid #FF001B;;
+  border-bottom: 3px solid #ff001b;
 }
-.search-form { 
+.search-form {
   width: 100%;
   border-bottom: 0.5px solid #fff;
   justify-content: space-between;
   align-items: center;
   display: flex;
 }
-.search { 
+.search {
   margin-top: 40px;
-  @include tablet { 
+  @include tablet {
     width: 336px;
     margin-left: auto;
     margin-right: auto;
   }
 }
-.search-input{
+.search-input {
   background: transparent;
   border: 0;
-  @include tablet { 
+  @include tablet {
     width: 330px;
     margin: 0 auto;
   }
@@ -85,27 +85,27 @@
   padding-bottom: 4px;
   background: transparent;
 }
-.search-form  ::placeholder{
-  @include font ($fw: 400, $fs: 14, $lh: 16, $ls: 0.03);
-    color: var(--white-text-color);
+.search-form ::placeholder {
+  @include font($fw: 400, $fs: 14, $lh: 16, $ls: 0.03);
+  color: var(--white-text-color);
 }
 .searchBtn {
-  @include flex; 
+  @include flex;
   fill: var(--white-text-color);
 }
 
-#header-useremail-div { 
+#header-useremail-div {
   @include font-box(500, 13px, 1.1, null);
   color: var(--white-text-color);
 }
 
-.header__buttons { 
+.header__buttons {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 10px;
 }
-.header__button { 
+.header__button {
   height: 34px;
   width: 80px;
   border: 1px solid var(--white-text-color);
@@ -117,32 +117,35 @@
 
   @include font-box(500, 12px, 1.33, null);
   transition: color var(--duration) var(--cubic),
-  background-color var(--duration) var(--cubic);
+    background-color var(--duration) var(--cubic);
 
+  &:active {
+    background-color: var(--accent-text-color);
+    color: var(--white-text-color);
+    border: 1px solid var(--accentBG);
 
-  &:active {  
-  background-color: var(--accent-text-color);
-  color: var(--white-text-color);
-  border: 1px solid var(--accentBG);
-  
-      @include font-box(500, 12px, 1.33, null);
-      transition: color var(--duration) var(--cubic),
+    @include font-box(500, 12px, 1.33, null);
+    transition: color var(--duration) var(--cubic),
       background-color var(--duration) var(--cubic);
-      
-          &:hover,
-          :focus {
-              cursor: pointer;
-          }
 
-          &:disabled {
-              background-color: var(--dark-text-color);
-              color: var(--black-text-color);
-          }
+    &:hover,
+    :focus {
+      cursor: pointer;
+    }
+
+    &:disabled {
+      background-color: var(--dark-text-color);
+      color: var(--black-text-color);
+    }
   }
   &:hover,
   &:focus {
-      background-color: var(--accent-text-color);
-      cursor: pointer;
+    background-color: var(--accent-text-color);
+    cursor: pointer;
   }
-
 }
+
+// .header-logo-svg {
+//   animation: bounce;
+//   animation: infinite;
+// }
