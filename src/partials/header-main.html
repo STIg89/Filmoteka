@@ -21,6 +21,16 @@
             </ul>
           </div>
     </nav>
+    <div class="header__buttons header__buttons--login visually-hidden" id="div-sign-up">
+      <button class="header__button" login-data-modal-open>LOG IN</button>
+      <button class="header__button" signup-data-modal-open>SIGN-UP</button>
+    </div>
+
+    <div class="header__buttons header__buttons--singup visually-hidden" id="div-sign-out">
+      <div id="header-useremail-div"></div>
+      <button class="header__button" signout-data-modal-open>SIGN-OUT</button>
+    </div>
+
     <div class="search">
         <form class="search-form" id="search-form">
           <input class="search-input"
@@ -36,36 +46,25 @@
           </button>
         </form>
     </div>
+    <div class="filter">
+      <button class="filter__btn">
+        <svg class="filter__icon" width="25" height="25">
+          <use href="./images/sprite.svg#icon-filters"></use>
+        </svg>
+        FILTER</button>
+    </div>
 
     <div class="page__action">
         <button type="button" class="page__theme"></button>
         <button type="button" class="page__reset">AUTO</button>
     </div>
-
-    <div class="header__buttons visually-hidden" id="div-sign-up">
-      <button class="header__button" login-data-modal-open>LOG IN</button>
-      <button class="header__button" signup-data-modal-open>SIGN-UP</button>
-    </div>
-
-    <div class="header__buttons visually-hidden" id="div-sign-out">
-      <div id="header-useremail-div"></div>
-      <button class="header__button" signout-data-modal-open>SIGN-OUT</button>
-    </div>
-
-      <div class="filter">
-        <button class="filter__btn">
-          <svg class="filter__icon" width="25" height="25">
-            <use href="./images/sprite.svg#icon-filters"></use>
-          </svg>
-          FILTER</button>
-      </div>
   
-      <div id="tags-genre">
-        <div class="genre">Action</div>
-        <div class="genre">Adventure</div>
-        <div class="genre">Animation</div>
-        <div class="genre">Comedy</div>
-        <div class="genre">Documentary</div>
+      <div id="tags-genre" class="visually-hidden">
+        <div class="tag">Action</div>
+        <div class="tag">Adventure</div>
+        <div class="tag">Animation</div>
+        <div class="tag">Comedy</div>
+        <div class="tag">Documentary</div>
     </div>
   </div>
 </header>

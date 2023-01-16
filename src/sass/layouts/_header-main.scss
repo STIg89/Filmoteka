@@ -2,7 +2,7 @@
   background: url("../images/background-mobile.jpg");
   @include bg; 
   padding-top: 40px; 
-  padding-bottom: 92px;
+  padding-bottom: 40px;
   @include retina { 
     background: url ("../images/background-mobile@2x.jpg");
   }
@@ -10,7 +10,7 @@
   @include tablet { 
       background: url("../images/background-tablet.jpg"); 
       @include bg; 
-      padding-bottom: 70px;
+      padding-bottom: 50px;
       @include retina { 
         background: url("../images/background-tablet@2x.jpg");
       }
@@ -19,7 +19,6 @@
       background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url("../images/background-pc.jpg");
       @include bg; 
-      padding-bottom: 80px;
 
       @include retina { 
         background: url("../images/background-pc@2x.jpg");
@@ -59,11 +58,14 @@
   border-bottom: 3px solid #FF001B;;
 }
 .search-form { 
-  @include flex;
-  border-bottom: 0.5px solid #FFFFFF;
+  width: 100%;
+  border-bottom: 0.5px solid #fff;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
 }
 .search { 
-  margin-top: 57px;
+  margin-top: 40px;
   @include tablet { 
     width: 336px;
     margin-left: auto;
@@ -92,3 +94,55 @@
   fill: var(--white-text-color);
 }
 
+#header-useremail-div { 
+  @include font-box(500, 13px, 1.1, null);
+  color: var(--white-text-color);
+}
+
+.header__buttons { 
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+.header__button { 
+  height: 34px;
+  width: 80px;
+  border: 1px solid var(--white-text-color);
+  background-color: transparent;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: var(--white-text-color);
+  cursor: pointer;
+
+  @include font-box(500, 12px, 1.33, null);
+  transition: color var(--duration) var(--cubic),
+  background-color var(--duration) var(--cubic);
+
+
+  &:active {  
+  background-color: var(--accent-text-color);
+  color: var(--white-text-color);
+  border: 1px solid var(--accentBG);
+  
+      @include font-box(500, 12px, 1.33, null);
+      transition: color var(--duration) var(--cubic),
+      background-color var(--duration) var(--cubic);
+      
+          &:hover,
+          :focus {
+              cursor: pointer;
+          }
+
+          &:disabled {
+              background-color: var(--dark-text-color);
+              color: var(--black-text-color);
+          }
+  }
+  &:hover,
+  &:focus {
+      background-color: var(--accent-text-color);
+      cursor: pointer;
+  }
+
+}
