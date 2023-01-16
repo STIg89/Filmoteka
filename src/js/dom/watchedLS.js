@@ -1,7 +1,6 @@
 import { getMovieDetails } from '../api/fetchAPI';
 import { renderGallery } from '../dom/renderMovies';
 import { refs } from './refs';
-import { activeMovieModal } from '../dom/movieModal';
 
 const keyWatchedLS = 'arrayWatched';
 //Перевіряємо є чи є в нас сховище з таким ключем і якщо немає створюємо
@@ -89,7 +88,6 @@ function renderWatched() {
   if (refs.watchedGallery) {
     refs.moviesOnInputList.innerHTML = '';
     renderGallery(arrayWatched);
-    // activeMovieModal();
   }
 }
 
