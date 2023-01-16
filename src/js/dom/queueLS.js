@@ -22,12 +22,12 @@ function addListenerQueueBtn() {
 addListenerQueueBtn();
 
 async function onAddQueueClick(event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   let movieId = Number(refs.modalMovieContent.getAttribute('data-id'));
 
-   await addToQueue(movieId);
-   await checkQueueBtn();
+  await addToQueue(movieId);
+  await checkQueueBtn(movieId);
 }
 
 async function addToQueue(movieId) {
@@ -71,20 +71,18 @@ async function getQueue() {
   return Array.isArray(parsedMovieArray) ? parsedMovieArray : [];
 }
 
-async function onQueueBtnClick(event) {
-  event.preventDefault();
-
-  console.log('check');
-
-    await renderQueue();
+async function onQueueBtnClick() {
+  refs.watchedGallery = false;
+  await renderQueue();
 }
 
 async function renderQueue() {
-  
-  refs.moviesOnInputList.innerHTML = '';
-  let array = await getQueue();
-
-  renderGallery(array);
+  if (!refs.watchedGallery) {
+    refs.moviesOnInputList.innerHTML = '';
+    let array = await getQueue();
+    
+    renderGallery(array);
+  }
 }
 
 async function checkQueueBtn(movieId) {
@@ -93,6 +91,7 @@ async function checkQueueBtn(movieId) {
 
   let indexID = array.findIndex(x => x.id === movieId);
   let queueAddBtn = document.querySelector('.add-queue-btn');
+
   if (indexID < 0) {
     queueAddBtn.textContent = 'Add to queue';
     return;
@@ -100,4 +99,4 @@ async function checkQueueBtn(movieId) {
     queueAddBtn.textContent = 'Remove from queue';
 }
 
-export {addListenerQueueAddBtn, addListenerQueueBtn, checkQueueBtn};
+export {addListenerQueueAddBtn, addListenerQueueBtn, checkQueueBtn, renderQueue};

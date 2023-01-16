@@ -88,6 +88,7 @@ function activeMovieModal() {
 
         //Потрібно перерендерить сторінку якщо фільм був видалений
         renderWatched();
+        renderQueue();
       }
     });
   }, 1000);
