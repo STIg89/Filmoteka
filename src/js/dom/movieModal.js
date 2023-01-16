@@ -1,3 +1,4 @@
+import { addListener } from 'process';
 import { getMovieDetails } from '../api/fetchAPI';
 import {
   addListenerAddWatched,
@@ -55,7 +56,7 @@ function activeMovieModal() {
             <p class="movie-detail__text">${data.overview}</p>
             <div class="movie-detail__btns">
               <button class="movie-detail__btn-main" id="add-watched-btn">add to Watched</button>
-              <button class="movie-detail__btn-secondary">add to queue</button>
+              <button class="movie-detail__add-queue-btn add-queue-btn" type="button">Add to queue</button>
               <button class="movie-detail__btn-main">trailer</button>
             </div>
           </div>
