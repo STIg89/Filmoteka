@@ -9,62 +9,71 @@
           <p class="pheader">Filmoteka</p>
         </a>
       </div>
-          <div class="header-menu">
-            <ul class="menu list">
-                <li class="menu__item">
-                <a class="menu__link menu__link_current link" href="./index.html">HOME</a>
-                </li>
-                <li class="menu__item">
-                <a class="menu__link link" href="./library.html">MY LIBRARY</a>
-                </li>
-              
-            </ul>
-          </div>
+      <div class="header-menu">
+        <ul class="menu list">
+          <li class="menu__item">
+            <a class="menu__link menu__link_current link" href="./index.html"
+              >HOME</a
+            >
+          </li>
+          <li class="menu__item">
+            <a class="menu__link link" href="./library.html">MY LIBRARY</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-    <div class="header__buttons header__buttons--login visually-hidden" id="div-sign-up">
+    <div
+      class="header__buttons header__buttons--login visually-hidden"
+      id="div-sign-up"
+    >
       <button class="header__button" login-data-modal-open>LOG IN</button>
       <button class="header__button" signup-data-modal-open>SIGN-UP</button>
     </div>
 
-    <div class="header__buttons header__buttons--singup visually-hidden" id="div-sign-out">
+    <div
+      class="header__buttons header__buttons--singup visually-hidden"
+      id="div-sign-out"
+    >
       <div id="header-useremail-div"></div>
       <button class="header__button" signout-data-modal-open>SIGN-OUT</button>
     </div>
 
     <div class="search">
-        <form class="search-form" id="search-form">
-          <input class="search-input"
-            type="text"
-            name="searchQuery"
-            autocomplete="off"
-            placeholder="Movie search"
-          />
-          <button type="submit" class="searchBtn">
-            <svg class="search-icon" width="20" height="20">
-              <use href="./images/sprite.svg#icon-search-1"></use>
-            </svg>
-          </button>
-        </form>
+      <form class="search-form" id="search-form">
+        <input
+          class="search-input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Movie search"
+        />
+        <button type="submit" class="searchBtn">
+          <svg class="search-icon" width="20" height="20">
+            <use href="./images/sprite.svg#icon-search-1"></use>
+          </svg>
+        </button>
+      </form>
     </div>
     <div class="filter">
       <button class="filter__btn">
         <svg class="filter__icon" width="25" height="25">
           <use href="./images/sprite.svg#icon-filters"></use>
         </svg>
-        FILTER</button>
+        FILTER
+      </button>
     </div>
 
     <div class="page__action">
-        <button type="button" class="page__theme"></button>
-        <button type="button" class="page__reset">AUTO</button>
+      <button type="button" class="page__theme"></button>
+      <button type="button" class="page__reset">AUTO</button>
     </div>
-  
-      <div id="tags-genre" class="visually-hidden">
-        <div class="tag">Action</div>
-        <div class="tag">Adventure</div>
-        <div class="tag">Animation</div>
-        <div class="tag">Comedy</div>
-        <div class="tag">Documentary</div>
+
+    <div id="tags-genre" class="visually-hidden">
+      <div class="tag">Action</div>
+      <div class="tag">Adventure</div>
+      <div class="tag">Animation</div>
+      <div class="tag">Comedy</div>
+      <div class="tag">Documentary</div>
     </div>
   </div>
 </header>
