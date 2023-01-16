@@ -44,24 +44,24 @@ function toggleBtnProperty(evt) {
   }
 }
 
-refs.signupBtnClose.addEventListener('click', onCloseModal);
-refs.signupModal.addEventListener('click', onBackdropClick);
-window.addEventListener('keydown', onEscKeyPress);
-
-function onCloseModal() {
-  refs.signupModal.classList.toggle('is-hidden');
-  refs.body.classList.remove('no-scroll');
-  window.removeEventListener('keydown', onEscKeyPress);
-}
-
-function onBackdropClick(e) {
-  if (e.currentTarget === e.target) {
-    onCloseModal();
-  }
-}
-
-function onEscKeyPress(e) {
-  if (e.code === "Escape") {
-    onCloseModal();
-  }
-}
+// refs.signupBtnClose.addEventListener('click', onCloseModal);
+// refs.signupModal.addEventListener('click', onBackdropClick);
+// window.addEventListener('keydown', onEscKeyPress);
+//
+// function onCloseModal() {
+//   refs.signupModal.classList.toggle('is-hidden');
+//   refs.body.classList.remove('no-scroll');
+//   window.removeEventListener('keydown', onEscKeyPress);
+// }
+//
+// function onBackdropClick(e) {
+//   if (e.currentTarget === e.target) {
+//     onCloseModal();
+//   }
+// }
+//
+// function onEscKeyPress(e) {
+//   if (e.code === 'Escape') {
+//     onCloseModal();
+//   }
+// }
