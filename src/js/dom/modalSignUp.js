@@ -9,9 +9,9 @@ refs.headerSignupBtn.addEventListener('click', () => {
   refs.signupModal.classList.toggle('is-hidden'); // open modal wondow
   refs.signupForm.addEventListener('submit', createAccount); // listener on form submit
   refs.policyCheckbox.addEventListener('click', toggleBtnProperty);
-  refs.signupBtnClose.addEventListener('click', onCloseModal);
-  refs.signupModal.addEventListener('click', onBackdropClick);
-  window.addEventListener('keydown', onEscKeyPress);
+  refs.signupBtnClose.addEventListener('click', onCloseSignUpModal);
+  refs.signupModal.addEventListener('click', onBackdropSignUpClick);
+  window.addEventListener('keydown', onEscKeyPressSignUpModal);
   refs.body.classList.add('no-scroll');
 });
 async function createAccount(event) {
@@ -31,6 +31,9 @@ async function createAccount(event) {
     showSuccessModal(user.email);
     refs.signupForm.removeEventListener('submit', createAccount);
     refs.policyCheckbox.removeEventListener('click', toggleBtnProperty);
+    refs.signupBtnClose.removeEventListener('click', onCloseSignUpModal);
+    refs.signupModal.removeEventListener('click', onBackdropSignUpClick);
+    window.removeEventListener('keydown', onEscKeyPressSignUp);
   } catch (error) {
     showSignUpError(error);
   }
@@ -44,20 +47,20 @@ function toggleBtnProperty(evt) {
   }
 }
 
-function onCloseModal() {
+function onCloseSignUpModal() {
   refs.signupModal.classList.toggle('is-hidden');
   refs.body.classList.remove('no-scroll');
-  window.removeEventListener('keydown', onEscKeyPress);
+  window.removeEventListener('keydown', onEscKeyPressSignUpModal);
 }
 
-function onBackdropClick(e) {
+function onBackdropSignUpClick(e) {
   if (e.currentTarget === e.target) {
-    onCloseModal();
+    onCloseSignUpModal();
   }
 }
 
-function onEscKeyPress(e) {
+function onEscKeyPressSignUpModal(e) {
   if (e.code === 'Escape') {
-    onCloseModal();
+    onCloseSignUpModal();
   }
 }

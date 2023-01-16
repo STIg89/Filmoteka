@@ -7,6 +7,9 @@ import { refs } from './refs.js';
 
 refs.headerLoginBtn.addEventListener('click', () => {
   refs.loginModal.classList.toggle('is-hidden');
+  refs.loginModalCloseBtn.addEventListener('click', onCloseLogInModal);
+  refs.loginModal.addEventListener('click', onBackdropLogInClick);
+  window.addEventListener('keydown', onEscKeyPressLogInModal);
   refs.body.classList.add('no-scroll');
 });
 const signupEmailInput = refs.signupForm.querySelector('[name="useremail"]');
@@ -23,12 +26,15 @@ async function invokeResponseSet(event) {
       email,
       password
     );
-    refs.loginModalCloseBtn.addEventListener('click', onCloseModal);
+    
     const user = userCredential.user;
     refs.headerUserNoLoginContainer.classList.add('visually-hidden');
     refs.headerUserLogedinContainer.classList.remove('visually-hidden');
 
     userState(user);
+    refs.loginModalCloseBtn.removeEventListener('click', onCloseLogInModal);
+    refs.loginModal.removeEventListener('click', onBackdropLogInClick);
+    window.removeEventListener('keydown', onEscKeyPressLogInModal);
   } catch (error) {
     showLoginError(error);
   }
@@ -52,22 +58,20 @@ refs.signupBtnOnLoginModal.addEventListener('click', () => {
   refs.signupModal.classList.toggle('is-hidden');
 });
 
-refs.loginModal.addEventListener('click', onBackdropClick);
-window.addEventListener('keydown', onEscKeyPress);
-
-function onCloseModal() {
+function onCloseLogInModal() {
   refs.loginModal.classList.toggle('is-hidden');
-  window.removeEventListener('keydown', onEscKeyPress);
+  refs.body.classList.remove('no-scroll');
+  window.removeEventListener('keydown', onEscKeyPressLogInModal);
 }
 
-function onBackdropClick(e) {
+function onBackdropLogInClick(e) {
   if (e.currentTarget === e.target) {
-    onCloseModal();
+    onCloseLogInModal();
   }
 }
 
-function onEscKeyPress(e) {
+function onEscKeyPressLogInModal(e) {
   if (e.code === 'Escape') {
-    onCloseModal();
+    onCloseLogInModal();
   }
 }

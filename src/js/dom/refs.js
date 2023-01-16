@@ -28,4 +28,7 @@ export const refs = {
   watchedAddBtn: '',
   modalMovieContent: document.querySelector('.modal-movie__content'),
   watchedGallery: false,
+  successModalText: document.querySelector('.success-modal-text'),
+  modalSuccess: document.querySelector('[success-data-modal]'),
+  modalSuccessCloseBtn: document.querySelector('[success-data-modal-close]'),
 };
