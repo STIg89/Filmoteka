@@ -1,32 +1,33 @@
 import { addListener } from 'process';
 import { getMovieDetails } from '../api/fetchAPI';
-import { addListenerAddWatched, checkStatusBTN } from '../dom/watchedLS';
-import { addListener } from 'process';
-import {addListenerQueueAddBtn} from './queueLS';
+import {
+  addListenerAddWatched,
+  checkStatusBTN,
+  renderWatched,
+} from '../dom/watchedLS';
 
-console.log(1);
+function activeMovieModal() {
+  setTimeout(() => {
+    const movieItems = document.querySelectorAll('.movie__item');
 
-setTimeout(() => {
-  const movieItems = document.querySelectorAll('.movie__item');
+    console.log(movieItems);
 
-  console.log(movieItems);
+    movieItems.forEach(movie => {
+      movie.addEventListener('click', e => {
+        e.preventDefault();
 
-  movieItems.forEach(movie => {
-    movie.addEventListener('click', e => {
-      e.preventDefault();
+        const id = movie.getAttribute('data-id');
 
-      const id = movie.getAttribute('data-id');
+        getMovieDetails(id).then(data => {
+          console.log(data);
+          const backdrop = document.querySelector('.backdrop');
+          backdrop.classList.remove('is-hidden');
+          //Заповнення id для кнопки Add to watched і Add to queue
+          document
+            .querySelector('.modal-movie__content')
+            .setAttribute('data-id', id);
 
-      getMovieDetails(id).then(data => {
-        console.log(data);
-        const backdrop = document.querySelector('.backdrop');
-        backdrop.classList.remove('is-hidden');
-        //Заповнення id для кнопки Add to watched і Add to queue
-        document
-          .querySelector('.modal-movie__content')
-          .setAttribute('data-id', id);
-
-        document.querySelector('.modal-movie__content').innerHTML = `
+          document.querySelector('.modal-movie__content').innerHTML = `
         <div class="movie-detail">
           <div class="movie-detail__image">
             <img src="https://image.tmdb.org/t/p/original/${data.poster_path}" alt="" class="movie-detail__img">
@@ -61,27 +62,33 @@ setTimeout(() => {
           </div>
         </div>
         `;
-        //додає слухача на кнопку і перевіряє ч иє цей фільм в local storage
-        addListenerAddWatched();
-        addListenerQueueAddBtn();
-        checkStatusBTN(Number(id));
+          //додає слухача на кнопку і перевіряє ч иє цей фільм в local storage
+          addListenerAddWatched();
+          checkStatusBTN(Number(id));
+        });
       });
     });
-  });
 
-  // document
-  //   .querySelector('.backdrop')
-  //   .addEventListener('click', e => {
-  //     e.preventDefault();
-  //     document.querySelector('.backdrop').classList.add('is-hidden');
-  //   });
+    // document
+    //   .querySelector('.backdrop')
+    //   .addEventListener('click', e => {
+    //     e.preventDefault();
+    //     document.querySelector('.backdrop').classList.add('is-hidden');
+    //   });
 
-  document.querySelector('.backdrop').addEventListener('click', e => {
-    if (
-      e.target.classList.contains('button-modal-movie--close') ||
-      e.target.classList.contains('backdrop')
-    ) {
-      document.querySelector('.backdrop').classList.add('is-hidden');
-    }
-  });
-}, 1000);
+    document.querySelector('.backdrop').addEventListener('click', e => {
+      if (
+        e.target.classList.contains('button-modal-movie--close') ||
+        e.target.classList.contains('backdrop')
+      ) {
+        document.querySelector('.backdrop').classList.add('is-hidden');
+
+        //Потрібно перерендерить сторінку якщо фільм був видалений
+        renderWatched();
+      }
+    });
+  }, 1000);
+}
+
+activeMovieModal();
+export { activeMovieModal };

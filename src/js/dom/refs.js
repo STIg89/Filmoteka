@@ -23,6 +23,6 @@ export const refs = {
   scrollUp: document.querySelector('.up-btn__wrapper'),
   scrollUpSvgPath: document.querySelector('.up-btn__svg-path'),
   watchedAddBtn: '',
-  watchedBtn: document.querySelector('#watched-btn'),
   modalMovieContent: document.querySelector('.modal-movie__content'),
- }; 
+  watchedGallery: false,
+};
