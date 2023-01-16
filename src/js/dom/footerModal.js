@@ -1,24 +1,23 @@
 import Swiper from 'swiper';
 import 'swiper/swiper.scss';
 
-const { default: Swiper } = require('swiper');
+ var swiper = new Swiper('.footer-swiper', {
+   effect: 'coverflow',
+   grabCursor: true,
+   centeredSlides: true,
+   slidesPerView: 'auto',
+   coverflowEffect: {
+     rotate: 50,
+     stretch: 0,
+     depth: 100,
+     modifier: 1,
+     slideShadows: true,
+   },
+   pagination: {
+     el: '.swiper-pagination',
+   },
+ });
 
-  const swiper = new Swiper('.mySwiper', {
-    effect: 'coverflow',
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: 'auto',
-    coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-    },
-  });
 
 // Відкриття та закриття модалки футера----------------------------------------------
 
