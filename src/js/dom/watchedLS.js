@@ -26,17 +26,18 @@ async function OnAddWatchedClick(event) {
     const movieDetails = await getMovieDetails(movieID);
 
     //Вибираємо з масиву обєктів тільки імена жанрів
-    genre_names = movieDetails.genres.map(x => (x = x.name));
+    let genre_names = movieDetails.genres.map(x => (x = x.name));
     // якщо жанрів більше ніж обрізаємо їх залишаючи лише три замінючи третій словом Other
     if (genre_names.length > 3) {
       genre_names.splice(2, genre_names.length - 1, 'Other');
     }
     genre_names = genre_names.join(', ');
     //З дати беремо лише рік
+    let release_date = '';
     if (movieDetails.release_date) {
       release_date = movieDetails.release_date.slice(0, 4);
     }
-    
+
     let movieOb = {
       id: movieDetails.id,
       backdrop_path: movieDetails.backdrop_path,
