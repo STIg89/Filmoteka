@@ -48,7 +48,7 @@ function renderGallery(data) {
       markup += `<div class="movie__item topMovie_container" data-id="${
         data[j].id
       }">
-                  <img class="topMovie_img"  src= "https://image.tmdb.org/t/p/original${
+                  <img class="topMovie_img"  src= "https://image.tmdb.org/t/p/w500/${
                     data[j].poster_path
                   }" alt="${data[j].original_title}" loading="lazy">
             
