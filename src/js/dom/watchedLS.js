@@ -89,7 +89,7 @@ function renderWatched() {
   if (refs.watchedGallery) {
     refs.moviesOnInputList.innerHTML = '';
     renderGallery(arrayWatched);
-    activeMovieModal();
+    // activeMovieModal();
   }
 }
 

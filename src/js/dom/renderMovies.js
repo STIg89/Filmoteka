@@ -1,5 +1,6 @@
 import { refs } from './refs';
 const { moviesOnInputList } = refs;
+import { activeMovieModal } from './movieModal';
 
 export function renderGallery(data) {
   const markupGallery = data
@@ -30,4 +31,5 @@ export function renderGallery(data) {
     )
     .join('');
   moviesOnInputList.insertAdjacentHTML('beforeend', markupGallery);
+  activeMovieModal();
 }
