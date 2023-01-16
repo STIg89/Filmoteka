@@ -1,69 +1,112 @@
 body { 
-    transition: color var(--duration) var(--cubic), background-color var(--duration) var(--cubic);
-    background-color: var(--mainBGL);
-    color: var(--black-text-color);
-  }
-  
-  html.light body { 
-    background-color: var(--mainBGL);
-    color: var(--black-text-color);
-  }
-  
-  html.dark body { 
-    background-color: #333;
-    color: var(--white-text-color);
-  }
-  .page__action, .filter { 
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 24px;
-    width: 100px;
-    height: 50px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  
-  .page__theme { 
-    border: 0;
-    width: 25px;
-    height: 25px;
-  }
-  
-  .page__reset { 
-    opacity: 0;
-    visibility: hidden; 
-    background: transparent;
-    border: transparent;
-    transition: color var(--duration) var(--cubic);
-  }
-  
-  .page__reset.active{ 
-    opacity: 1;
-    visibility: visible;
-    border: 0;
-  }
-  
-  html.dark .page__theme { 
-    background: url("../images/icon-moon.svg");
-  }
-  
-  html.light .page__theme { 
-    background: url("../images/icon-sun.svg");
-  }
-
-
-// ФІЛЬТР 
-
-.filter {
-  top: 60px;
+  transition: color var(--duration) var(--cubic), background-color var(--duration) var(--cubic);
+  background-color: var(--mainBGL);
+  color: var(--black-text-color);
 }
-.filter__btn {
+
+html.light body { 
+  background-color: var(--mainBGL);
+  color: var(--black-text-color);
+}
+
+html.dark body { 
+  background-color: #333;
+  color: var(--white-text-color);
+}
+
+.settings { 
+display: flex;
+align-items: end;
+flex-direction: column;
+gap: 10px;
+}
+.page__action, .filter { 
+  position: absolute;
+  top: 5px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.page__theme { 
+  border: 0;
+  width: 25px;
+  height: 25px;
+}
+
+.page__reset { 
+  opacity: 0;
+  visibility: hidden; 
   background: transparent;
   border: transparent;
-  display: flex; 
-  align-items: center;
-  gap: 7px;
+  transition: color var(--duration) var(--cubic);
+}
+
+.page__reset.active{ 
+  opacity: 1;
+  visibility: visible;
+  border: 0;
+}
+
+html.dark .page__theme { 
+  background: url("../images/icon-moon.svg");
+}
+
+html.light .page__theme { 
+  background: url("../images/icon-sun.svg");
+}
+
+
+
+.filter { 
+  top: 186px; 
+  @include tablet { 
+    top: 205px;
+  }
+}
+
+.filter--animation { 
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.filter__btn {
+background: transparent;
+border: transparent;
+display: flex; 
+align-items: center;
+gap: 7px;
+}
+
+
+#tags-genre {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 5px;
+margin: 10px 0;
+padding: 20px;
+border-radius: 5px;
+background: var(--modal-overlay); 
+border: 1px solid var(--accentBG);
+
+}
+.tag { 
+@include font-box(400, 12px, 1.15, 0.02);
+background: rgba(255, 255, 255, 0.5);
+border-radius: 20px;
+padding: 8px;
+color: var(--white-text-color);
+text-transform: uppercase;
+transition: color var(--duration) var(--cubic),
+background-color var(--duration) var(--cubic);
+&:hover, 
+&:focus { 
+  background-color: var(--accentBG);
+}
 }
