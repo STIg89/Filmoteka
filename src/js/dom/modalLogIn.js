@@ -23,10 +23,10 @@ async function invokeResponseSet(event) {
       email,
       password
     );
+    refs.loginModalCloseBtn.addEventListener('click', onCloseModal);
     const user = userCredential.user;
     refs.headerUserNoLoginContainer.classList.add('visually-hidden');
     refs.headerUserLogedinContainer.classList.remove('visually-hidden');
-    console.log(refs.headerUserEmailDiv);
 
     userState(user);
   } catch (error) {
@@ -52,14 +52,12 @@ refs.signupBtnOnLoginModal.addEventListener('click', () => {
   refs.signupModal.classList.toggle('is-hidden');
 });
 
-refs.loginModalCloseBtn.addEventListener('click', onCloseModal);
-refs.loginModal.addEventListener("click", onBackdropClick);
-window.addEventListener("keydown", onEscKeyPress);
+refs.loginModal.addEventListener('click', onBackdropClick);
+window.addEventListener('keydown', onEscKeyPress);
 
 function onCloseModal() {
   refs.loginModal.classList.toggle('is-hidden');
-  window.removeEventListener("keydown", onEscKeyPress);
-  refs.body.classList.remove('no-scroll');
+  window.removeEventListener('keydown', onEscKeyPress);
 }
 
 function onBackdropClick(e) {
@@ -69,7 +67,7 @@ function onBackdropClick(e) {
 }
 
 function onEscKeyPress(e) {
-  if (e.code === "Escape") {
+  if (e.code === 'Escape') {
     onCloseModal();
   }
 }
