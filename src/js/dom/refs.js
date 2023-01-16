@@ -31,4 +31,5 @@ export const refs = {
   successModalText: document.querySelector('.success-modal-text'),
   modalSuccess: document.querySelector('[success-data-modal]'),
   modalSuccessCloseBtn: document.querySelector('[success-data-modal-close]'),
+  closeModalBtnSignOut: document.querySelector('[signout-data-modal-close]'),
 };
