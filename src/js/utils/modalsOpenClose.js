@@ -5,7 +5,7 @@ const refs = {
 
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.modalLogIn.addEventListener("click", onBackdropClick);
-window.addEventListener("keydown", onEscKeyPress);
+// window.addEventListener("keydown", onEscKeyPress);
 
 function onCloseModal() {
   refs.modalLogIn.classList.toggle('is-hidden');
@@ -18,8 +18,8 @@ function onBackdropClick(e) {
   }
 }
 
-function onEscKeyPress(e) {
-  if (e.code === "Escape") {
-    onCloseModal();
-  }
-}
+// function onEscKeyPress(e) {
+//   if (e.code === "Escape") {
+//     onCloseModal();
+//   }
+// }

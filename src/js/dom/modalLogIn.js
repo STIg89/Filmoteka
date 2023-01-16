@@ -7,6 +7,7 @@ import { refs } from './refs.js';
 
 refs.headerLoginBtn.addEventListener('click', () => {
   refs.loginModal.classList.toggle('is-hidden');
+  refs.body.classList.add('no-scroll');
 });
 const signupEmailInput = refs.signupForm.querySelector('[name="useremail"]');
 const signupPassInput = refs.signupForm.querySelector('[name="userpassword"]');
@@ -50,3 +51,25 @@ refs.signupBtnOnLoginModal.addEventListener('click', () => {
   refs.loginModal.classList.toggle('is-hidden');
   refs.signupModal.classList.toggle('is-hidden');
 });
+
+refs.loginModalCloseBtn.addEventListener('click', onCloseModal);
+refs.loginModal.addEventListener("click", onBackdropClick);
+window.addEventListener("keydown", onEscKeyPress);
+
+function onCloseModal() {
+  refs.loginModal.classList.toggle('is-hidden');
+  window.removeEventListener("keydown", onEscKeyPress);
+  refs.body.classList.remove('no-scroll');
+}
+
+function onBackdropClick(e) {
+  if (e.currentTarget === e.target) {
+    onCloseModal();
+  }
+}
+
+function onEscKeyPress(e) {
+  if (e.code === "Escape") {
+    onCloseModal();
+  }
+}
