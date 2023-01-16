@@ -4,12 +4,13 @@ const refs = {
 };
 
 refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.modalLogIn.addEventListener("click", onBackdropClick);
+refs.modalLogIn.addEventListener('click', onBackdropClick);
 // window.addEventListener("keydown", onEscKeyPress);
 
 function onCloseModal() {
   refs.modalLogIn.classList.toggle('is-hidden');
-  window.removeEventListener("keydown", onEscKeyPress);
+  window.removeEventListener('keydown', onEscKeyPress);
+  refs.body.classList.remove('no-scroll');
 }
 
 function onBackdropClick(e) {
