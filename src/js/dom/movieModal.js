@@ -11,7 +11,7 @@ function activeMovieModal() {
   setTimeout(() => {
     const movieItems = document.querySelectorAll('.movie__item');
 
-    console.log(movieItems);
+    // console.log(movieItems);
 
     movieItems.forEach(movie => {
       movie.addEventListener('click', e => {
