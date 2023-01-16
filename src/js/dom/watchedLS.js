@@ -1,8 +1,7 @@
 import { getMovieDetails } from '../api/fetchAPI';
 import { renderGallery } from '../dom/renderMovies';
 import { refs } from './refs';
-
-const watchedBtn = document.querySelector('#watched-btn');
+import { activeMovieModal } from '../dom/movieModal';
 
 const keyWatchedLS = 'arrayWatched';
 //Перевіряємо є чи є в нас сховище з таким ключем і якщо немає створюємо
@@ -22,7 +21,7 @@ async function OnAddWatchedClick(event) {
   let movieID = Number(refs.modalMovieContent.getAttribute('data-id'));
   //--
 
-  indexID = arrayWatched.findIndex(x => x.id === movieID);
+  let indexID = arrayWatched.findIndex(x => x.id === movieID);
 
   if (indexID < 0) {
     const movieDetails = await getMovieDetails(movieID);
@@ -60,7 +59,7 @@ async function OnAddWatchedClick(event) {
 ///Перевіряє чи є такий фільм в local storage і якщо є то змінює кнопку на Remove
 function checkStatusBTN(movieID) {
   // let arrayWatched = JSON.parse(localStorage.getItem(keyWatchedLS));
-  indexID = arrayWatched.findIndex(x => x.id === movieID);
+  let indexID = arrayWatched.findIndex(x => x.id === movieID);
   if (indexID < 0) {
     refs.watchedAddBtn.textContent = 'Add to watched';
     refs.watchedAddBtn.dataset.action = 'add';
@@ -70,24 +69,33 @@ function checkStatusBTN(movieID) {
   refs.watchedAddBtn.dataset.action = 'remove';
 }
 
-function addListenerWatched() {
-  refs.watchedBtn.addEventListener('click', onClickWatched);
+/// watched
+refs.watchedGallery = false;
+
+const watchedBtn = document.querySelector('.library__button--watched');
+if (watchedBtn !== null) {
+  watchedBtn.addEventListener('click', onClickWatched);
+  /// для того щоб фільми з watched  рендерились автоматично
+  refs.watchedGallery = true;
+  renderWatched();
 }
 
 function onClickWatched(event) {
+  refs.watchedGallery = true;
   renderWatched();
 }
 // ренедрить фільми з сховища
 function renderWatched() {
-  refs.moviesOnInputList.innerHTML = '';
-  renderGallery(arrayWatched);
+  if (refs.watchedGallery) {
+    refs.moviesOnInputList.innerHTML = '';
+    renderGallery(arrayWatched);
+    activeMovieModal();
+  }
 }
 
 export {
   // додає слухача події на кнопку add watched на модалці
   addListenerAddWatched,
-  // додає слухача події на кнопку  watched на хедері
-  addListenerWatched,
   // ренедрить фільми з сховища
   renderWatched,
   // переіряє чи фільм в сховищі і змінює текст кнопки
