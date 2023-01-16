@@ -1,5 +1,6 @@
 import { addListener } from 'process';
 import { getMovieDetails } from '../api/fetchAPI';
+import { addListenerQueueAddBtn } from './queueLS';
 import {
   addListenerAddWatched,
   checkStatusBTN,
@@ -64,6 +65,7 @@ function activeMovieModal() {
         `;
           //додає слухача на кнопку і перевіряє ч иє цей фільм в local storage
           addListenerAddWatched();
+          addListenerQueueAddBtn();
           checkStatusBTN(Number(id));
         });
       });
