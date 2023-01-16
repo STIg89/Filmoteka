@@ -1,6 +1,6 @@
 import { addListener } from 'process';
 import { getMovieDetails } from '../api/fetchAPI';
-import { addListenerQueueAddBtn } from './queueLS';
+import { addListenerQueueAddBtn, renderQueue, checkQueueBtn } from './queueLS';
 import {
   addListenerAddWatched,
   checkStatusBTN,
@@ -67,6 +67,7 @@ function activeMovieModal() {
           addListenerAddWatched();
           addListenerQueueAddBtn();
           checkStatusBTN(Number(id));
+          checkQueueBtn(Number(id));
         });
       });
     });
@@ -87,6 +88,7 @@ function activeMovieModal() {
 
         //Потрібно перерендерить сторінку якщо фільм був видалений
         renderWatched();
+        renderQueue();
       }
     });
   }, 1000);

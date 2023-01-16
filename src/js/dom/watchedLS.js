@@ -36,6 +36,7 @@ async function OnAddWatchedClick(event) {
     if (movieDetails.release_date) {
       release_date = movieDetails.release_date.slice(0, 4);
     }
+    
     let movieOb = {
       id: movieDetails.id,
       backdrop_path: movieDetails.backdrop_path,
@@ -64,7 +65,7 @@ function checkStatusBTN(movieID) {
     refs.watchedAddBtn.dataset.action = 'add';
     return;
   }
-  refs.watchedAddBtn.textContent = 'Remove to watched';
+  refs.watchedAddBtn.textContent = 'Remove from watched';
   refs.watchedAddBtn.dataset.action = 'remove';
 }
 
