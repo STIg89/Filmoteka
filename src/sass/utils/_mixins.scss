@@ -55,3 +55,18 @@
   background-position: center;
   background-repeat: no-repeat; 
 }
+
+@keyframes scale-logo {
+  0% {
+    transform: scale(0.75) rotate(180deg);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(0.75) rotate(360deg);
+  }
+}
+
