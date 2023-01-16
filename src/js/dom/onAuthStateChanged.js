@@ -34,4 +34,3 @@ export const userState = user => {
     }
   });
 };
-refs.headerSignoutBtn.addEventListener('click', userState);
