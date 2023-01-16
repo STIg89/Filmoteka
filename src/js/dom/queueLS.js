@@ -13,6 +13,7 @@ function addListenerQueueBtn() {
 
   let queueBtn = document.querySelector('.queue-btn');
 
+  
   if (queueBtn) {
     queueBtn.addEventListener('click', onQueueBtnClick);
   } 
@@ -71,13 +72,17 @@ async function getQueue() {
   return Array.isArray(parsedMovieArray) ? parsedMovieArray : [];
 }
 
-async function onQueueBtnClick() {
-  refs.watchedGallery = false;
+async function onQueueBtnClick(event) {
+  
+  event.currentTarget.classList.add("active")
   await renderQueue();
 }
 
 async function renderQueue() {
-  if (!refs.watchedGallery) {
+  let queueBtn = document.querySelector('.queue-btn');
+
+  if (queueBtn && queueBtn.classList.contains("active")) {
+    console.log('render');
     refs.moviesOnInputList.innerHTML = '';
     let array = await getQueue();
     
