@@ -1,26 +1,28 @@
-const refs = {
-  closeModalBtn: document.querySelector('[signout-data-modal-close]'),
-  modalLogIn: document.querySelector('[signout-data-modal]'),
-};
+// const refs = {
+//   closeModalBtnSignOut: document.querySelector('[signout-data-modal-close]'),
+//   signoutModal: document.querySelector('[signout-data-modal]'),
+// };
 
-refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.modalLogIn.addEventListener('click', onBackdropClick);
-// window.addEventListener("keydown", onEscKeyPress);
+// refs.closeModalBtnSignOut.addEventListener('click', onCloseModalSignOut);
+// refs.signoutModal.addEventListener('click', onBackdropClickSignOut);
+// // window.addEventListener("keydown", onEscKeyPressSignOut);
 
-function onCloseModal() {
-  refs.modalLogIn.classList.toggle('is-hidden');
-  window.removeEventListener('keydown', onEscKeyPress);
-  refs.body.classList.remove('no-scroll');
-}
+// function onCloseModalSignOut() {
+//   refs.signoutModal.classList.toggle('is-hidden');
+//   window.addEventListener("keydown", onEscKeyPressSignOut);
 
-function onBackdropClick(e) {
-  if (e.currentTarget === e.target) {
-    onCloseModal();
-  }
-}
+//   // window.removeEventListener('keydown', onEscKeyPressSignOut);
+//   refs.body.classList.remove('no-scroll');
+// }
 
-// function onEscKeyPress(e) {
+// function onBackdropClickSignOut(e) {
+//   if (e.currentTarget === e.target) {
+//     onCloseModalSignOut();
+//   }
+// }
+
+// function onEscKeyPressSignOut(e) {
 //   if (e.code === "Escape") {
-//     onCloseModal();
+//     onCloseModalSignOut();
 //   }
 // }
