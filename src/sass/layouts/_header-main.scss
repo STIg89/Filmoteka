@@ -145,7 +145,7 @@
   }
 }
 
-// .header-logo-svg {
-//   animation: bounce;
-//   animation: infinite;
-// }
+.header-logo-svg {
+  animation: scale-logo 2000ms infinite linear;
+}
+
