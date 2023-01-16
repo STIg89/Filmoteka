@@ -71,23 +71,24 @@ function checkStatusBTN(movieID) {
 }
 
 /// watched
-refs.watchedGallery = false;
+// refs.watchedGallery = false;
 
 const watchedBtn = document.querySelector('.library__button--watched');
 if (watchedBtn !== null) {
   watchedBtn.addEventListener('click', onClickWatched);
-  /// для того щоб фільми з watched  рендерились автоматично
-  refs.watchedGallery = true;
+  watchedBtn.classList.add('activeLS');
   renderWatched();
 }
 
 function onClickWatched(event) {
-  refs.watchedGallery = true;
+  document.querySelector('.queue-btn').classList.remove('activeLS');
+  event.currentTarget.classList.add('activeLS');
+  //refs.watchedGallery = true;
   renderWatched();
 }
 // ренедрить фільми з сховища
 function renderWatched() {
-  if (refs.watchedGallery) {
+  if (watchedBtn && watchedBtn.classList.contains('activeLS')) {
     refs.moviesOnInputList.innerHTML = '';
     renderGallery(arrayWatched);
   }
