@@ -12,6 +12,12 @@
   }
 }
 
+.movie__item:hover {
+  transform: scale(1.03);
+  transition: 500ms linear;
+  cursor: pointer;
+}
+
 .movie__container {
   flex-grow: 1;
 }
