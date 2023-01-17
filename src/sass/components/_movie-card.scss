@@ -5,10 +5,12 @@
 
   @include tablet {
     width: calc((100% - var(--Gap16) * 2) / 2);
+    height: 495px;
   }
 
   @include pc {
     width: calc((100% - var(--Gap16) * 2) / 3);
+    height: 634px;
   }
 }
 
