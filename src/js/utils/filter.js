@@ -1,14 +1,11 @@
 import { renderGallery } from '../dom/renderMovies';
+import { refs } from '../dom/refs'; 
 
 const API_KEY = 'api_key=e57746b2e4fe98cb5cc839cb405a15f1';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const GENRE_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+ API_KEY;
 
-const tagsEl = document.querySelector("#tags-genre");
-const moviesOnInputList = document.querySelector('.movie__gallery'); 
-const filterOpenBtn = document.querySelector('.filter'); 
-
-filterOpenBtn.addEventListener('click', onFilterOpen);
+refs.filterOpenBtn.addEventListener('click', onFilterOpen);
 
 const genres = [
     {"id":28,"name":"Action"},
@@ -33,15 +30,14 @@ const genres = [
     ]
 
 function onFilterOpen(e) { 
-    filterOpenBtn.classList.toggle('visually-hidden');
-    tagsEl.classList.toggle('visually-hidden');
+    refs.filterOpenBtn.classList.toggle('filter--active');
+    refs.tagsEl.classList.toggle('visually-hidden');
     setGenre(); 
 }
 
-
 let selectedGenre = [];
 function setGenre() { 
-    tagsEl.innerHTML = "";
+    refs.tagsEl.innerHTML = "";
     genres.forEach(genre => { 
         const t = document.createElement("div"); 
         t.classList.add('tag'); 
@@ -60,12 +56,27 @@ function setGenre() {
                 selectedGenre.push(genre.id)
             }
             console.log(selectedGenre);
-            moviesOnInputList.innerHTML = '';
+            refs.moviesOnInputList.innerHTML = '';
             getMoviesByGenre(GENRE_URL + '&with_genres=' + encodeURI(selectedGenre.
-                join(',')))
+                join(','))), 
+                showSelectedGenre()
         })
-        tagsEl.append(t); 
+        refs.tagsEl.append(t); 
     })
+}
+
+function showSelectedGenre() {
+    const tagEl = document.querySelectorAll('.tag')
+    tagEl.forEach(tag => { 
+        tag.classList.remove('highlight')
+    })
+
+    if (selectedGenre.length !==0) { 
+        selectedGenre.forEach(id => { 
+            const highlightedTag = document.getElementById(id);
+            highlightedTag.classList.add('highlight');
+        })
+    }
 }
 
 getMoviesByGenre(GENRE_URL); 
