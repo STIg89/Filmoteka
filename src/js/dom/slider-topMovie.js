@@ -13,24 +13,23 @@ async function renderTopFilms() {
   const data = await getTopFilms();
   renderGallery(data.results);
   const swiper = new Swiper('.swiper', {
-    slidesPerView: 2,
-    spaceBetween: 10,
+    slidesPerView: 3,
+    spaceBetween: 2,
 
     breakpoints: {
-      // when window width is >= 320px
       480: {
         slidesPerView: 3,
-        spaceBetween: 10,
+        spaceBetween: 2,
       },
-      // when window width is >= 480px
+
       768: {
         slidesPerView: 4,
-        spaceBetween: 20,
+        spaceBetween: 4,
       },
-      // when window width is >= 640px
+
       1280: {
         slidesPerView: 5,
-        spaceBetween: 30,
+        spaceBetween: 8,
       },
     },
     direction: 'horizontal',
