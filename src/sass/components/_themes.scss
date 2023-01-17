@@ -8,10 +8,23 @@ html.light body {
   background-color: var(--mainBGL);
   color: var(--black-text-color);
 }
-
 html.dark body { 
   background-color: #333;
   color: var(--white-text-color);
+}
+// button-modal-movie--close
+html.dark .movie__title{ 
+  color: var(--white-text-color);
+}
+html.dark .tui-page-btn{ 
+  color: var(--white-text-color);
+}
+html.dark .modal-movie{ 
+  background-color: #333;
+}
+
+html.dark .button-modal-movie--close{ 
+  background-color: var(--white-text-color);
 }
 
 .settings { 
