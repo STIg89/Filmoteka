@@ -21,31 +21,19 @@
 }
 .topMovie_container {
   flex-grow: 1;
-
   @include mobile {
     max-width: 120px;
+    max-height: 180px;
   }
 
   @include tablet {
     width: 160px;
+    height: 265px;
   }
 
   @include pc {
     width: 240px;
-  }
-}
-.topMovie_date {
-  color: var(--accent-text-color);
-  font-weight: 500;
-
-  @media screen and (min-width: 769px) and (max-width: 1280px) {
-    font-size: 20px;
-    line-height: 1.2;
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 12px;
-    line-height: 1.33;
+    height: 350px;
   }
 }
 .topMovieGallery-caption {
