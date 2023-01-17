@@ -8,25 +8,44 @@ html.light body {
   background-color: var(--mainBGL);
   color: var(--black-text-color);
 }
-html.dark body { 
+html.dark body, 
+.login__modal
+.movie__title, 
+.tui-page-btn, 
+.modal-movie, 
+.login-modal__title,
+.login-modal__text, 
+.login-modal__button,
+.login-modal__svg,
+.checkbox-label { 
   background-color: #333;
   color: var(--white-text-color);
+  stroke: var(--white-text-color);
 }
-// button-modal-movie--close
-html.dark .movie__title{ 
-  color: var(--white-text-color);
-}
-html.dark .tui-page-btn{ 
-  color: var(--white-text-color);
-}
-html.dark .modal-movie{ 
+html.dark body 
+.login__modal { 
   background-color: #333;
+}
+
+html.dark body 
+.login-form__input, 
+.signup-form__input { 
+  background-color: var(--light-text-color);
+  color: var(--white-text-color);
+}
+
+html.dark body 
+.login-form__input::placeholder, 
+.signup-form__input::placeholder  { 
+  color: var(--white-text-color);
+}
+html.dark body .login-modal__svg{ 
+  stroke: var(--white-text-color);
 }
 
 html.dark .button-modal-movie--close{ 
   background-color: var(--white-text-color);
 }
-
 
 .page__action{ 
   position: absolute;
