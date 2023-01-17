@@ -13,6 +13,7 @@ async function renderTopFilms() {
   const data = await getTopFilms();
   renderGallery(data.results);
   const swiper = new Swiper('.swiper', {
+    slidesPerView: 5,
     direction: 'horizontal',
     spaceBetween: 30,
     effect: 'fade',
@@ -38,16 +39,13 @@ async function renderTopFilms() {
 }
 
 function renderGallery(data) {
-  let markup = '';
-  for (let i = 0; i <= 15; i += 5) {
-    markup += '<div  class="topMovieGallery_slide swiper-slide">';
-    for (let j = 0 + i; j <= i + 4; j += 1) {
-      markup += `<div class="movie__item topMovie_container" data-id="${data[j].id}">
-      <img class="topMovie_img"  src= "https://image.tmdb.org/t/p/w500/${data[j].poster_path}"
-      alt="${data[j].original_title}" loading="lazy"></div>`;
-    }
-    markup += '</div>';
-  }
+  const markup = data
+    .map(({ id, poster_path, original_title }) => {
+      return `<div  class="topMovieGallery_slide swiper-slide"><div class="movie__item topMovie_container" data-id="${id}">
+      <img class="topMovie_img"  src= "https://image.tmdb.org/t/p/w500/${poster_path}"
+      alt="${original_title}" loading="lazy"></div></div>`;
+    })
+    .join('');
 
   topMovieEll.insertAdjacentHTML('beforeend', markup);
 }
