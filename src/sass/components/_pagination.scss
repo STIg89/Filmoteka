@@ -1,112 +1,112 @@
-.main-image {
-  transition: all 0.4s;
-  &:hover {
-    cursor: pointer;
-    scale: 1.025;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 1),
-      -23px 0 20px -23px rgba(0, 0, 0, 0.8),
-      23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  }
-  object-fit: cover;
-  border-radius: 1.5em;
-  height: 398px;
-  width: 280px;
-  margin: 0 auto 8px;
-  @include tablet {
-    height: 445px;
-    width: 336px;
-  }
-  @include pc {
-    height: 574px;
-    width: 395px;
-    margin-bottom: 12px;
-  }
-}
-.film-item {
-  margin: 0 auto;
-  text-align: center;
-  width: 280;
-  @include tablet {
-    width: 336;
-    align-content: center;
-    margin: 0;
-  }
-
-  @include pc {
-    width: 395;
-  }
-}
-.info {
-  display: flex;
-  justify-content: start;
-}
-.item-genre {
-  color: #ff6b08;
-
-  &::after {
-    content: '';
-    margin-left: 5px;
-    display: inline-block;
-    width: 2px;
-    height: 10px;
-    background-color: #ff6b08;
-    @include pc {
-      width: 2px;
-      height: 14px;
-    }
-  }
-}
-.item-year {
-  color: #ff6b08;
-  margin-left: 5px;
-}
-.item-name {
-  transition: all 0.3s;
-  &:hover {
-    text-decoration: underline;
-  }
-  text-align: start;
-  margin-bottom: 4px;
-
-  color: #000000;
-}
-.film-list {
-  margin: 0;
-  margin-bottom: 30px;
-  display: grid;
-  row-gap: 20px;
-  justify-content: space-around;
-  @include tablet {
-    gap: 32px;
-    grid-template-columns: 336 336;
-  }
-  @include pc {
-    gap: 15px;
-    row-gap: 32px;
-    grid-template-columns: 395 395 395;
-  }
-}
-.vote {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 8px;
-  background-color: #ff6b08;
-  color: #ffffff;
-  border-radius: 5px;
-  width: 36px;
-  height: 16px;
-  @include pc {
-    width: 40px;
-    height: 20px;
-  }
-}
-
-.item-name,
-.item-genre,
-.item-year {
-  cursor: pointer;
-}
+// .main-image {
+//   transition: all 0.4s;
+//   &:hover {
+//     cursor: pointer;
+//     scale: 1.025;
+//     box-shadow: 0 1px 4px rgba(0, 0, 0, 1),
+//       -23px 0 20px -23px rgba(0, 0, 0, 0.8),
+//       23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+//   }
+//   object-fit: cover;
+//   border-radius: 1.5em;
+//   height: 398px;
+//   width: 280px;
+//   margin: 0 auto 8px;
+//   @include tablet {
+//     height: 445px;
+//     width: 336px;
+//   }
+//   @include pc {
+//     height: 574px;
+//     width: 395px;
+//     margin-bottom: 12px;
+//   }
+// }
+// .film-item {
+//   margin: 0 auto;
+//   text-align: center;
+//   width: 280;
+//   @include tablet {
+//     width: 336;
+//     align-content: center;
+//     margin: 0;
+//   }
+//
+//   @include pc {
+//     width: 395;
+//   }
+// }
+// .info {
+//   display: flex;
+//   justify-content: start;
+// }
+// .item-genre {
+//   color: #ff6b08;
+//
+//   &::after {
+//     content: '';
+//     margin-left: 5px;
+//     display: inline-block;
+//     width: 2px;
+//     height: 10px;
+//     background-color: #ff6b08;
+//     @include pc {
+//       width: 2px;
+//       height: 14px;
+//     }
+//   }
+// }
+// .item-year {
+//   color: #ff6b08;
+//   margin-left: 5px;
+// }
+// .item-name {
+//   transition: all 0.3s;
+//   &:hover {
+//     text-decoration: underline;
+//   }
+//   text-align: start;
+//   margin-bottom: 4px;
+//
+//   color: #000000;
+// }
+// .film-list {
+//   margin: 0;
+//   margin-bottom: 30px;
+//   display: grid;
+//   row-gap: 20px;
+//   justify-content: space-around;
+//   @include tablet {
+//     gap: 32px;
+//     grid-template-columns: 336 336;
+//   }
+//   @include pc {
+//     gap: 15px;
+//     row-gap: 32px;
+//     grid-template-columns: 395 395 395;
+//   }
+// }
+// .vote {
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-left: 8px;
+//   background-color: #ff6b08;
+//   color: #ffffff;
+//   border-radius: 5px;
+//   width: 36px;
+//   height: 16px;
+//   @include pc {
+//     width: 40px;
+//     height: 20px;
+//   }
+// }
+//
+// .item-name,
+// .item-genre,
+// .item-year {
+//   cursor: pointer;
+// }
 
 ///////////////////////
 
