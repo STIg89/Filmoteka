@@ -1,6 +1,7 @@
-import {refs} from './refs';
+import { refs } from './refs';
 import { getMovieDetails } from '../api/fetchAPI';
 import { renderGallery } from '../dom/renderMovies';
+import { checkForLoginState } from './checkForLoginState-lib';
 
 let key = 'moviesQueue';
 
@@ -10,29 +11,28 @@ function addListenerQueueAddBtn() {
 }
 
 function addListenerQueueBtn() {
-
   let queueBtn = document.querySelector('.queue-btn');
 
-  
   if (queueBtn) {
     queueBtn.addEventListener('click', onQueueBtnClick);
-  } 
-
+  }
 }
 
 addListenerQueueBtn();
 
 async function onAddQueueClick(event) {
   // event.preventDefault();
+  if (localStorage.getItem('uid') && localStorage.getItem('username')) {
+    let movieId = Number(refs.modalMovieContent.getAttribute('data-id'));
 
-  let movieId = Number(refs.modalMovieContent.getAttribute('data-id'));
-
-  await addToQueue(movieId);
-  await checkQueueBtn(movieId);
+    await addToQueue(movieId);
+    await checkQueueBtn(movieId);
+  } else {
+    checkForLoginState();
+  }
 }
 
 async function addToQueue(movieId) {
- 
   let movieDetails = await getMovieDetails(movieId);
 
   let genre_names = movieDetails.genres.map(x => (x = x.name));
@@ -40,7 +40,7 @@ async function addToQueue(movieId) {
     genre_names.splice(2, genre_names.length - 1, 'Other');
   }
   genre_names = genre_names.join(', ');
-  
+
   let release_date = movieDetails.release_date.slice(0, 4);
 
   let movieObject = {
@@ -54,7 +54,7 @@ async function addToQueue(movieId) {
   };
 
   let array = await getQueue();
- 
+
   let indexID = array.findIndex(x => x.id === movieId);
 
   if (indexID < 0) {
@@ -66,7 +66,7 @@ async function addToQueue(movieId) {
   }
 }
 
-async function getQueue() { 
+async function getQueue() {
   let movieArray = localStorage.getItem(key);
   let parsedMovieArray = JSON.parse(movieArray);
   return Array.isArray(parsedMovieArray) ? parsedMovieArray : [];
@@ -74,36 +74,46 @@ async function getQueue() {
 
 async function onQueueBtnClick(event) {
   let watchedBtn = document.querySelector('.library__button--watched');
-  
-  event.currentTarget.classList.add("activeLS")
-  watchedBtn.classList.remove("activeLS");
-  await renderQueue();
+  if (localStorage.getItem('uid') && localStorage.getItem('username')) {
+    event.currentTarget.classList.add('activeLS');
+    watchedBtn.classList.remove('activeLS');
+    await renderQueue();
+  } else {
+    checkForLoginState();
+  }
 }
 
 async function renderQueue() {
   let queueBtn = document.querySelector('.queue-btn');
 
-  if (queueBtn && queueBtn.classList.contains("activeLS")) {
+  if (queueBtn && queueBtn.classList.contains('activeLS')) {
     console.log('render');
     refs.moviesOnInputList.innerHTML = '';
     let array = await getQueue();
-    
+
     renderGallery(array);
   }
 }
 
 async function checkQueueBtn(movieId) {
-
   let array = await getQueue();
 
   let indexID = array.findIndex(x => x.id === movieId);
   let queueAddBtn = document.querySelector('.add-queue-btn');
-
-  if (indexID < 0) {
-    queueAddBtn.textContent = 'Add to queue';
-    return;
-  }
+  if (localStorage.getItem('uid') && localStorage.getItem('username')) {
+    if (indexID < 0) {
+      queueAddBtn.textContent = 'Add to queue';
+      return;
+    }
     queueAddBtn.textContent = 'Remove from queue';
+  } else {
+    queueAddBtn.textContent = 'Add to queue';
+  }
 }
 
-export {addListenerQueueAddBtn, addListenerQueueBtn, checkQueueBtn, renderQueue};
+export {
+  addListenerQueueAddBtn,
+  addListenerQueueBtn,
+  checkQueueBtn,
+  renderQueue,
+};

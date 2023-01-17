@@ -28,7 +28,10 @@
 .page-navigation {
   @include flex;
   justify-content: space-between;
-  gap: 90px;
+  flex-grow: 1;
+  @include tablet {
+      gap: 90px;
+  }
 }
 .header-logo-link {
   @include tablet {
@@ -46,7 +49,10 @@
 }
 .menu {
   @include flex;
-  gap: 30px;
+  gap: 20px;
+  @include tablet {
+    gap: 30px;
+  }
 }
 
 .menu__link {
@@ -75,6 +81,8 @@
 .search-input {
   background: transparent;
   border: 0;
+  padding: 7px 13px;
+  width: 100%;
   @include tablet {
     width: 330px;
     margin: 0 auto;
@@ -97,52 +105,20 @@
 #header-useremail-div {
   @include font-box(500, 13px, 1.1, null);
   color: var(--white-text-color);
+  @include flex;
 }
+// .header__buttons--signup {
+//   display: block;
+// }
 
 .header__buttons {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 10px;
 }
 .header__button {
   height: 34px;
   width: 80px;
-  border: 1px solid var(--white-text-color);
-  background-color: transparent;
-  border-radius: 5px;
-  text-transform: uppercase;
-  color: var(--white-text-color);
-  cursor: pointer;
-
-  @include font-box(500, 12px, 1.33, null);
-  transition: color var(--duration) var(--cubic),
-    background-color var(--duration) var(--cubic);
-
-  &:active {
-    background-color: var(--accent-text-color);
-    color: var(--white-text-color);
-    border: 1px solid var(--accentBG);
-
-    @include font-box(500, 12px, 1.33, null);
-    transition: color var(--duration) var(--cubic),
-      background-color var(--duration) var(--cubic);
-
-    &:hover,
-    :focus {
-      cursor: pointer;
-    }
-
-    &:disabled {
-      background-color: var(--dark-text-color);
-      color: var(--black-text-color);
-    }
-  }
-  &:hover,
-  &:focus {
-    background-color: var(--accent-text-color);
-    cursor: pointer;
-  }
 }
 
 .header-logo-svg {
@@ -152,4 +128,16 @@
 .pheader:hover {
   transform: scale(1.05);
   transition: 1.5s;
+}
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+  @include tablet{
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+  }
 }

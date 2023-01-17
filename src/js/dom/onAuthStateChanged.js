@@ -4,9 +4,6 @@ import { getAuth, signOut } from 'firebase/auth';
 import { showSuccessModal } from './showSuccess.js';
 import { refs } from './refs.js';
 
-refs.headerSignoutBtn.addEventListener('click', () => {
-  userState();
-});
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export const userState = user => {
@@ -17,9 +14,7 @@ export const userState = user => {
       const uid = user.uid;
       localStorage.setItem('uid', uid);
       localStorage.setItem('username', user.email);
-      refs.headerUserEmailDiv.innerHTML = `Hello, </br> ${localStorage.getItem(
-        'username'
-      )}`;
+      refs.headerUserEmailDiv.innerHTML = `${localStorage.getItem('username')}`;
       refs.loginModal.classList.toggle('is-hidden');
       showSuccessModal(user.email);
       return;
@@ -31,13 +26,16 @@ export const userState = user => {
       refs.body.classList.add('no-scroll');
       refs.closeModalBtnSignOut.addEventListener('click', onCloseModalSignOut);
       refs.signoutModal.addEventListener('click', onBackdropClickSignOut);
-      window.addEventListener("keydown", onEscKeyPressSignOut);
+      window.addEventListener('keydown', onEscKeyPressSignOut);
       refs.headerUserLogedinContainer.classList.add('visually-hidden');
       refs.headerUserNoLoginContainer.classList.remove('visually-hidden');
+      window.location = window.location.href;
       // should be attached to button sign out in header
+      location.reload();
     }
   });
 };
+refs.headerSignoutBtn.addEventListener('click', userState);
 
 function onCloseModalSignOut() {
   refs.signoutModal.classList.toggle('is-hidden');
@@ -52,8 +50,7 @@ function onBackdropClickSignOut(e) {
 }
 
 function onEscKeyPressSignOut(e) {
-  if (e.code === "Escape") {
+  if (e.code === 'Escape') {
     onCloseModalSignOut();
   }
 }
-

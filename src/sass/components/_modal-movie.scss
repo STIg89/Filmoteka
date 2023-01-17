@@ -30,6 +30,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
+ 
 
   width: 100%;
   height: 100%;
@@ -54,6 +55,7 @@
     padding-top: 42px;
     padding-left: 30px;
     padding-right: 30px;
+    overflow: hidden;
   }
 
   @include pc {
@@ -182,14 +184,47 @@
 }
 
 .movie-detail__btn-main {
-  padding: 14px 15px;
-  background: var(--accentBG);
-  border-radius: 5px;
-  color: var(--white-text-color);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 16px;
-  border: 1px solid transparent;
+    background-color: var(--accent-text-color);
+    border: 1px solid var(--accent-text-color);
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: var(--white-text-color);
+    cursor: pointer;
+    height: 44px;
+    width: 110px;
+  
+    @include font-box(500, 12px, 1.33, null);
+    transition: color var(--duration) var(--cubic),
+      background-color var(--duration) var(--cubic);
+  
+    @include tablet {
+      width: 125px;
+    }
+  
+    @include pc {
+      width: 136px;
+      height: 42px;
+    }
+        // &:active,
+        // .activeLS {
+        //   background-color: transparent;
+        //   color: var(--black-text-color);
+    
+          // @include font-box(500, 12px, 1.33, null);
+          // transition: color var(--duration) var(--cubic),
+          //   background-color var(--duration) var(--cubic);
+    
+          // &:disabled {
+          //   background-color: var(--dark-text-color);
+          //   color: var(--black-text-color);
+          // }
+    
+        &:hover,
+        &:focus {
+          background-color: transparent;
+          cursor: pointer;
+          color: var(--accent-text-color)
+        }
 }
 
 // .movie-detail__btn-secondary {

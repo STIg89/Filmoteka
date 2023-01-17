@@ -1,6 +1,7 @@
 import { getMovieDetails } from '../api/fetchAPI';
 import { renderGallery } from '../dom/renderMovies';
 import { refs } from './refs';
+import { checkForLoginState } from './checkForLoginState-lib';
 
 const keyWatchedLS = 'arrayWatched';
 //Перевіряємо є чи є в нас сховище з таким ключем і якщо немає створюємо
@@ -16,58 +17,66 @@ function addListenerAddWatched() {
 
 async function OnAddWatchedClick(event) {
   event.preventDefault();
+  if (localStorage.getItem('uid') && localStorage.getItem('username')) {
+    let movieID = Number(refs.modalMovieContent.getAttribute('data-id'));
+    //--
 
-  let movieID = Number(refs.modalMovieContent.getAttribute('data-id'));
-  //--
+    let indexID = arrayWatched.findIndex(x => x.id === movieID);
 
-  let indexID = arrayWatched.findIndex(x => x.id === movieID);
+    if (indexID < 0) {
+      const movieDetails = await getMovieDetails(movieID);
 
-  if (indexID < 0) {
-    const movieDetails = await getMovieDetails(movieID);
+      //Вибираємо з масиву обєктів тільки імена жанрів
+      let genre_names = movieDetails.genres.map(x => (x = x.name));
+      // якщо жанрів більше ніж обрізаємо їх залишаючи лише три замінючи третій словом Other
+      if (genre_names.length > 3) {
+        genre_names.splice(2, genre_names.length - 1, 'Other');
+      }
+      genre_names = genre_names.join(', ');
+      //З дати беремо лише рік
+      let release_date = '';
+      if (movieDetails.release_date) {
+        release_date = movieDetails.release_date.slice(0, 4);
+      }
 
-    //Вибираємо з масиву обєктів тільки імена жанрів
-    let genre_names = movieDetails.genres.map(x => (x = x.name));
-    // якщо жанрів більше ніж обрізаємо їх залишаючи лише три замінючи третій словом Other
-    if (genre_names.length > 3) {
-      genre_names.splice(2, genre_names.length - 1, 'Other');
+      let movieOb = {
+        id: movieDetails.id,
+        backdrop_path: movieDetails.backdrop_path,
+        genre_names: genre_names,
+        poster_path: movieDetails.poster_path,
+        release_date: release_date,
+        original_title: movieDetails.original_title,
+        vote_average: movieDetails.vote_average,
+      };
+
+      arrayWatched.push(movieOb);
+      localStorage.setItem(keyWatchedLS, JSON.stringify(arrayWatched));
+    } else {
+      arrayWatched.splice(indexID, 1);
+
+      localStorage.setItem(keyWatchedLS, JSON.stringify(arrayWatched));
     }
-    genre_names = genre_names.join(', ');
-    //З дати беремо лише рік
-    let release_date = '';
-    if (movieDetails.release_date) {
-      release_date = movieDetails.release_date.slice(0, 4);
-    }
-
-    let movieOb = {
-      id: movieDetails.id,
-      backdrop_path: movieDetails.backdrop_path,
-      genre_names: genre_names,
-      poster_path: movieDetails.poster_path,
-      release_date: release_date,
-      original_title: movieDetails.original_title,
-      vote_average: movieDetails.vote_average,
-    };
-
-    arrayWatched.push(movieOb);
-    localStorage.setItem(keyWatchedLS, JSON.stringify(arrayWatched));
+    checkStatusBTN(movieID);
   } else {
-    arrayWatched.splice(indexID, 1);
-
-    localStorage.setItem(keyWatchedLS, JSON.stringify(arrayWatched));
+    checkForLoginState();
   }
-  checkStatusBTN(movieID);
 }
 ///Перевіряє чи є такий фільм в local storage і якщо є то змінює кнопку на Remove
 function checkStatusBTN(movieID) {
   // let arrayWatched = JSON.parse(localStorage.getItem(keyWatchedLS));
   let indexID = arrayWatched.findIndex(x => x.id === movieID);
-  if (indexID < 0) {
+  if (localStorage.getItem('uid') && localStorage.getItem('username')) {
+    if (indexID < 0) {
+      refs.watchedAddBtn.textContent = 'Add to watched';
+      refs.watchedAddBtn.dataset.action = 'add';
+      return;
+    }
+    refs.watchedAddBtn.textContent = 'Remove from watched';
+    refs.watchedAddBtn.dataset.action = 'remove';
+  } else {
     refs.watchedAddBtn.textContent = 'Add to watched';
     refs.watchedAddBtn.dataset.action = 'add';
-    return;
   }
-  refs.watchedAddBtn.textContent = 'Remove from watched';
-  refs.watchedAddBtn.dataset.action = 'remove';
 }
 
 /// watched
@@ -81,16 +90,24 @@ if (watchedBtn !== null) {
 }
 
 function onClickWatched(event) {
-  document.querySelector('.queue-btn').classList.remove('activeLS');
-  event.currentTarget.classList.add('activeLS');
-  //refs.watchedGallery = true;
-  renderWatched();
+  if (localStorage.getItem('uid') && localStorage.getItem('username')) {
+    document.querySelector('.queue-btn').classList.remove('activeLS');
+    event.currentTarget.classList.add('activeLS');
+    //refs.watchedGallery = true;
+    renderWatched();
+  } else {
+    checkForLoginState();
+  }
 }
 // ренедрить фільми з сховища
 function renderWatched() {
-  if (watchedBtn && watchedBtn.classList.contains('activeLS')) {
-    refs.moviesOnInputList.innerHTML = '';
-    renderGallery(arrayWatched);
+  if (localStorage.getItem('uid') && localStorage.getItem('username')) {
+    if (watchedBtn && watchedBtn.classList.contains('activeLS')) {
+      refs.moviesOnInputList.innerHTML = '';
+      renderGallery(arrayWatched);
+    }
+  } else {
+    return;
   }
 }
 

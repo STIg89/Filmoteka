@@ -33,7 +33,7 @@ async function createAccount(event) {
     refs.policyCheckbox.removeEventListener('click', toggleBtnProperty);
     refs.signupBtnClose.removeEventListener('click', onCloseSignUpModal);
     refs.signupModal.removeEventListener('click', onBackdropSignUpClick);
-    window.removeEventListener('keydown', onEscKeyPressSignUp);
+    window.removeEventListener('keydown', onEscKeyPressSignUpModal);
   } catch (error) {
     showSignUpError(error);
   }
