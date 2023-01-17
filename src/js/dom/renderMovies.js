@@ -37,6 +37,6 @@ export function renderGallery(data) {
       }
     )
     .join('');
-  moviesOnInputList.insertAdjacentHTML('beforeend', markupGallery);
+  moviesOnInputList.innerHTML = markupGallery;
   activeMovieModal();
 }

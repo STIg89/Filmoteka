@@ -4,11 +4,11 @@ import { showSpinner, hideSpinner } from '../utils/spinner';
 const API_KEY = 'e57746b2e4fe98cb5cc839cb405a15f1';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-async function getTrendingFilms() {
+async function getTrendingFilms(page) {
   try {
     showSpinner();
     const response = await axios.get(
-      `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`
+      `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${page}`
     );
 
     return response.data;
@@ -19,11 +19,11 @@ async function getTrendingFilms() {
   }
 }
 
-async function getMoviesSearch(query) {
+async function getMoviesSearch(query, page = 1) {
   try {
     showSpinner();
     const response = await axios.get(
-      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}&page=${page}`
     );
 
     return response.data;

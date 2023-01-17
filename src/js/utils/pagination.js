@@ -1,96 +1,68 @@
-import { getDataApi } from '../api/getDataApi';
-import card from './templates/card.hbs';
 import Pagination from 'tui-pagination';
-const containerPag = document.getElementById('tui-pagination-container');
-const tuiCont = document.querySelector('.tui-pagination');
-const filmList = document.querySelector('.film-list');
-let URL = '';
-let page = 1;
-const URL_TO_WEEK = `https://api.themoviedb.org/3/trending/movie/week?api_key=7bfeb33324f72574136d1cd14ae769b5&page=`;
-URL = URL_TO_WEEK;
-const genres = {
-  28: 'Action',
-  12: 'Adventure',
-  16: 'Animation',
-  35: 'Comedy',
-  80: 'Crime',
-  99: 'Documentary',
-  18: 'Drama',
-  10751: 'Family',
-  14: 'Fantasy',
-  36: 'History',
-  27: 'Horror',
-  10402: 'Music',
-  9648: 'Mystery',
-  10749: 'Romance',
-  878: 'Science Fiction',
-  10770: 'TV Movie',
-  53: 'Thriller',
-  10752: 'War',
-  37: 'Western',
-};
+import { getTrendingFilms, getMoviesSearch } from '../api/fetchAPI';
+import { options } from './options-pagination';
+import { renderGallery } from '../dom/renderMovies';
 
-let allResults = null;
+const pagination = new Pagination('pagination', options);
 
-function mainPage(URL, page) {
-  getDataApi(URL + page).then(response => buildElements(response));
-}
+pagination.on('afterMove', onPaginationClick);
 
-function buildElements(response) {
-  allResults = response.total_results;
-  if (allResults < 21) {
-    instance.reset();
-    tuiCont.classList.add('visually-hidden');
+async function onPaginationClick(e) {
+  const lastPageNumber = Number(
+    document.querySelector('.tui-ico-last').textContent
+  );
+  const selectedPage = e.page;
+  const searchedValue = localStorage.getItem('searchedValue');
+
+  if ((selectedPage > 1) & (selectedPage < lastPageNumber)) {
+    hideBtn(selectedPage);
+  }
+  console.log('searchedValue', searchedValue !== null);
+
+  if (searchedValue !== null) {
+    const dataResponse = await getMoviesSearch(searchedValue, selectedPage);
+    renderGallery(dataResponse.results);
   } else {
-    instance.setTotalItems(allResults);
-    tuiCont.classList.remove('visually-hidden');
+    const dataResponse = await getTrendingFilms(selectedPage);
+    renderGallery(dataResponse.results);
   }
 
-  response.results.map(item => {
-    function auditGanres() {
-      if (item.genre_ids.length < 3) {
-        return item.genre_ids.map(elem => genres[elem]).join(', ');
-      }
-      return (
-        item.genre_ids
-          .map(elem => genres[elem])
-          .slice(0, 2)
-          .join(', ') + ', others'
-      );
-    }
+  setTimeout(() => {
+    scrollToTop();
+  }, 400);
+}
 
-    function auditYear() {
-      if (!item.release_date) {
-        return 'unknown year';
-      } else return item.release_date.slice(0, 4);
-    }
-    function srcAudit() {
-      if (!item.poster_path) {
-        return `https://st4.depositphotos.com/14953852/22772/v/600/depositphotos_227725020-stock-illustration-no-image-available-icon-flat.jpg`;
-      }
-      return `https://image.tmdb.org/t/p/w500${item.poster_path}`;
-    }
-    const genr = auditGanres();
-    const vote = item.vote_average.toFixed(1);
-    const name = item.title.toUpperCase();
-    const year = auditYear();
-    const src = srcAudit();
-    const id = item.id;
+function hideBtn(selectedPage) {
+  const firstPageBtnRef = document.querySelector('.custom-class-first');
+  const lastPageBtnRef = document.querySelector('.custom-class-last');
+  const lastPageNumber = Number(
+    document.querySelector('.tui-ico-last').textContent
+  );
 
-    const data = { name, year, genr, vote, src, id };
+  if (selectedPage < 4) {
+    firstPageBtnRef.classList.add('btn-hidden');
+    return;
+  }
+  if (lastPageNumber - selectedPage < 3) {
+    lastPageBtnRef.classList.add('btn-hidden');
+    return;
+  }
 
-    filmList.insertAdjacentHTML('beforeend', card(data));
+  lastPageBtnRef.classList.remove('btn-hidden');
+  firstPageBtnRef.classList.remove('btn-hidden');
+}
+
+function updateLastPaginationPage({ total_pages }) {
+  pagination.setTotalItems(total_pages);
+  document.querySelector('.tui-ico-last').innerHTML = total_pages;
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 240,
+    behavior: 'smooth',
   });
 }
-const instance = new Pagination(containerPag, {
-  totalItems: 120,
-  itemsPerPage: 20,
-  visiblePages: 5,
-});
-tuiCont.addEventListener('click', onTuiContClick);
-function onTuiContClick() {
-  page = instance.getCurrentPage();
-  filmList.innerHTML = '';
 
-  mainPage(URL, page);
-}
+export { pagination };
+export { updateLastPaginationPage };
