@@ -23,11 +23,11 @@
   flex-grow: 1;
 
   @include mobile {
-    max-width: 70px;
+    max-width: 120px;
   }
 
   @include tablet {
-    width: 140px;
+    width: 160px;
   }
 
   @include pc {
@@ -48,6 +48,10 @@
     line-height: 1.33;
   }
 }
-#button-color {
+.topMovieGallery-caption {
   color: var(--accent-text-color);
+  text-align: center;
+}
+.swiper-wrapper {
+  transition-timing-function: linear;
 }
