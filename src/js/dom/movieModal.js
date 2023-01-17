@@ -6,6 +6,7 @@ import {
   checkStatusBTN,
   renderWatched,
 } from '../dom/watchedLS';
+import { addListenerAddBtnTrailer } from './trailer';
 
 function activeMovieModal() {
   setTimeout(() => {
@@ -58,7 +59,7 @@ function activeMovieModal() {
             <div class="movie-detail__btns">
               <button class="movie-detail__btn-main" id="add-watched-btn">add to Watched</button>
               <button class="movie-detail__add-queue-btn add-queue-btn" type="button">Add to queue</button>
-              <button class="movie-detail__btn-main">trailer</button>
+              <button class="movie-detail__btn-main" id="trailer">trailer</button>
             </div>
           </div>
         </div>
@@ -66,6 +67,7 @@ function activeMovieModal() {
           //додає слухача на кнопку і перевіряє ч иє цей фільм в local storage
           addListenerAddWatched();
           addListenerQueueAddBtn();
+          addListenerAddBtnTrailer();
           checkStatusBTN(Number(id));
           checkQueueBtn(Number(id));
         });
