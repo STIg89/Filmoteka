@@ -149,3 +149,7 @@
   animation: scale-logo 2000ms infinite linear;
 }
 
+.pheader:hover {
+  transform: scale(1.05);
+  transition: 1.5s;
+}
