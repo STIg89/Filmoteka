@@ -2,15 +2,14 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  transition: transform 0.5s;
 
   @include tablet {
     width: calc((100% - var(--Gap16) * 2) / 2);
-    height: 495px;
   }
 
   @include pc {
     width: calc((100% - var(--Gap16) * 2) / 3);
-    height: 634px;
   }
 }
 
@@ -22,9 +21,17 @@
 
 .movie__img {
   border-radius: 5px;
-  object-fit: contain;
+  object-fit: cover;
   filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
   box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
+
+  @include tablet {
+    height: 495px;
+  }
+
+  @include pc {
+    height: 634px;
+  }
 }
 
 .movie__img:hover {
