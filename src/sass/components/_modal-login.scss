@@ -9,6 +9,7 @@
   transition: opacity var(--duration) var(--cubic);
   background-color: var(--modal-overlay);
   overflow-y: scroll;
+  backdrop-filter: blur(15px);
 
   &.is-hidden {
     opacity: 0;
