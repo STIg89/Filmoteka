@@ -5,6 +5,7 @@ function onCloseSuccessModal() {
   refs.modalSuccessCloseBtn.removeEventListener('click', onCloseSuccessModal);
   refs.modalSuccess.removeEventListener('click', onBackdropSuccessClick);
   window.removeEventListener('keydown', onEscKeyPressSuccessModal);
+  refs.body.classList.remove('no-scroll');
 }
 export function showSuccessModal(email) {
   refs.modalSuccess.classList.remove('is-hidden');

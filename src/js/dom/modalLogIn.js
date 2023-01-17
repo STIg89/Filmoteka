@@ -3,7 +3,8 @@ import { firebaseConfig } from '../api/firebase-config.js';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { showLoginError } from './showErrors.js';
 import { userState } from './onAuthStateChanged.js';
-import { refs } from './refs.js';
+import { refs } from './refs.js'; 
+import { onCloseSignUpModal, onBackdropSignUpClick, onEscKeyPressSignUpModal } from './modalSignUp.js';
 
 refs.headerLoginBtn.addEventListener('click', () => {
   refs.loginModal.classList.toggle('is-hidden');
@@ -56,6 +57,10 @@ refs.signupBtnOnLoginModal.addEventListener('click', () => {
   refs.signupBtn.disabled = true;
   refs.loginModal.classList.toggle('is-hidden');
   refs.signupModal.classList.toggle('is-hidden');
+  refs.signupBtnClose.addEventListener('click', onCloseSignUpModal);
+  refs.signupModal.addEventListener('click', onBackdropSignUpClick);
+  window.removeEventListener('keydown', onEscKeyPressLogInModal);
+  window.addEventListener('keydown', onEscKeyPressSignUpModal);
 });
 
 function onCloseLogInModal() {

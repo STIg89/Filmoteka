@@ -86,6 +86,10 @@ function activeMovieModal() {
       ) {
         document.querySelector('.backdrop').classList.add('is-hidden');
 
+        window.addEventListener('keydown',e => {
+        document.querySelector('.backdrop').classList.add('is-hidden');
+      })
+
         //Потрібно перерендерить сторінку якщо фільм був видалений
         renderWatched();
         renderQueue();

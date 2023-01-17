@@ -28,6 +28,7 @@ export const userState = user => {
       localStorage.removeItem('uid');
       localStorage.removeItem('username');
       refs.signoutModal.classList.toggle('is-hidden');
+      refs.body.classList.add('no-scroll');
       refs.closeModalBtnSignOut.addEventListener('click', onCloseModalSignOut);
       refs.signoutModal.addEventListener('click', onBackdropClickSignOut);
       window.addEventListener("keydown", onEscKeyPressSignOut);
