@@ -83,6 +83,7 @@
   border: 0;
   padding: 7px 13px;
   width: 100%;
+  color: var(--white-text-color);
   @include tablet {
     width: 330px;
     margin: 0 auto;
