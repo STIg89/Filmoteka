@@ -17,9 +17,9 @@ async function onPaginationClick(e) {
   if ((selectedPage > 1) & (selectedPage < lastPageNumber)) {
     hideBtn(selectedPage);
   }
-  console.log('searchedValue', searchedValue !== null);
+  console.log('searchedValue', searchedValue !== '');
 
-  if (searchedValue !== null) {
+  if (searchedValue !== '') {
     const dataResponse = await getMoviesSearch(searchedValue, selectedPage);
     renderGallery(dataResponse.results);
   } else {
