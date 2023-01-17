@@ -47,19 +47,19 @@ function toggleBtnProperty(evt) {
   }
 }
 
-function onCloseSignUpModal() {
+export function onCloseSignUpModal() {
   refs.signupModal.classList.toggle('is-hidden');
   refs.body.classList.remove('no-scroll');
   window.removeEventListener('keydown', onEscKeyPressSignUpModal);
 }
 
-function onBackdropSignUpClick(e) {
+export function onBackdropSignUpClick(e) {
   if (e.currentTarget === e.target) {
     onCloseSignUpModal();
   }
 }
 
-function onEscKeyPressSignUpModal(e) {
+export function onEscKeyPressSignUpModal(e) {
   if (e.code === 'Escape') {
     onCloseSignUpModal();
   }
