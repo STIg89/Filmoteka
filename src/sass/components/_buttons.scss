@@ -1,7 +1,6 @@
 .queue-btn,
-.watched-btn {
-  height: 44px;
-  width: 129.53px;
+.watched-btn,
+.btn {
   border: 1px solid var(--white-text-color);
   background-color: transparent;
   border-radius: 5px;
@@ -9,7 +8,7 @@
   color: var(--white-text-color);
   cursor: pointer;
   height: 44px;
-  width: 129.5px;
+  width: 130px;
 
   @include font-box(500, 12px, 1.33, null);
   transition: color var(--duration) var(--cubic),
@@ -28,16 +27,11 @@
   &.activeLS {
     background-color: var(--accent-text-color);
     color: var(--white-text-color);
-    border: 1px solid var(--accentBG);
+    border: 1px solid var(--accent-text-color);
 
     @include font-box(500, 12px, 1.33, null);
     transition: color var(--duration) var(--cubic),
       background-color var(--duration) var(--cubic);
-
-    &:hover,
-    :focus {
-      cursor: pointer;
-    }
 
     &:disabled {
       background-color: var(--dark-text-color);
@@ -48,12 +42,13 @@
   &:focus {
     background-color: var(--accent-text-color);
     cursor: pointer;
+    border-color: var(--accent-text-color);
   }
 }
 
 .add-queue-btn {
   height: 44px;
-  width: 129.53px;
+  width: 110px;
   border: 1px solid var(--black-text-color);
   background-color: transparent;
   border-radius: 5px;
@@ -86,7 +81,7 @@
   }
 
   @include tablet {
-    width: 125.03px;
+    width: 125px;
   }
 
   @include pc {

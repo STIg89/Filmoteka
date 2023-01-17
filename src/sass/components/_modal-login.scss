@@ -31,6 +31,7 @@
   padding: var(--Gap20);
   min-width: 280px;
 
+
   @include tablet {
     min-width: 380px;
     
@@ -64,7 +65,7 @@
         color: var(--accent-text-color);
     }
   }
-  &__close-button {
+  &__close-button.btn {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -75,6 +76,9 @@
     border-color: transparent;
     transition: color var(--duration) var(--cubic);
     padding: 0;
+    cursor: pointer;
+    width: auto;
+    height:auto;
 
     @include tablet {
       top: 20;
@@ -175,29 +179,22 @@ outline: transparent;
   display: block;
   margin-right: auto;
   margin-left: auto;
-  
+  cursor: pointer;
 
 border: 1px solid var(--accentBG);
-    border-radius: 5px;
-    text-transform: uppercase;
-  @include font-box(500, 12px, 1.33, null);
-  transition: color var(--duration) var(--cubic),
-    background-color var(--duration) var(--cubic);
     &--login {
         background-color: var(--accent-text-color);
         color: var(--white-text-color);
-            padding: 10px 25px;
             margin-bottom: var(--Gap20);
             &:hover,
             :focus {
                     background-color: transparent;
-                    color: var(--black-text-color);
+                    color: var(--accent-text-color);
+
                 }
         }
     &--signup {
-        background-color: transparent;
-        color: var(--black-text-color);
-        padding: 10px 20px;
+        color: var(--accent-text-color);
         &:hover,
             :focus {
                 background-color: var(--accent-text-color);

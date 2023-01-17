@@ -11,11 +11,12 @@ refs.headerLoginBtn.addEventListener('click', () => {
   refs.loginModalCloseBtn.addEventListener('click', onCloseLogInModal);
   refs.loginModal.addEventListener('click', onBackdropLogInClick);
   window.addEventListener('keydown', onEscKeyPressLogInModal);
+  refs.loginForm.addEventListener('submit', invokeResponseSet);
   refs.body.classList.add('no-scroll');
 });
 const signupEmailInput = refs.signupForm.querySelector('[name="useremail"]');
 const signupPassInput = refs.signupForm.querySelector('[name="userpassword"]');
-async function invokeResponseSet(event) {
+export async function invokeResponseSet(event) {
   event.preventDefault();
   const email = event.currentTarget.elements.useremail.value;
   const password = event.currentTarget.elements.userpassword.value;
@@ -27,15 +28,12 @@ async function invokeResponseSet(event) {
       email,
       password
     );
-    
+
     const user = userCredential.user;
     refs.headerUserNoLoginContainer.classList.add('visually-hidden');
     refs.headerUserLogedinContainer.classList.remove('visually-hidden');
 
     userState(user);
-    refs.loginModalCloseBtn.removeEventListener('click', onCloseLogInModal);
-    refs.loginModal.removeEventListener('click', onBackdropLogInClick);
-    window.removeEventListener('keydown', onEscKeyPressLogInModal);
   } catch (error) {
     showLoginError(error);
   }
@@ -48,7 +46,6 @@ async function invokeResponseSet(event) {
   // });
 }
 
-refs.loginForm.addEventListener('submit', invokeResponseSet);
 refs.signupBtnOnLoginModal.addEventListener('click', () => {
   signupEmailInput.value = '';
   signupPassInput.value = '';
@@ -63,19 +60,22 @@ refs.signupBtnOnLoginModal.addEventListener('click', () => {
   window.addEventListener('keydown', onEscKeyPressSignUpModal);
 });
 
-function onCloseLogInModal() {
+export function onCloseLogInModal() {
   refs.loginModal.classList.toggle('is-hidden');
   refs.body.classList.remove('no-scroll');
   window.removeEventListener('keydown', onEscKeyPressLogInModal);
+  refs.loginModalCloseBtn.removeEventListener('click', onCloseLogInModal);
+  refs.loginModal.removeEventListener('click', onBackdropLogInClick);
+  refs.body.classList.remove('no-scroll');
 }
 
-function onBackdropLogInClick(e) {
+export function onBackdropLogInClick(e) {
   if (e.currentTarget === e.target) {
     onCloseLogInModal();
   }
 }
 
-function onEscKeyPressLogInModal(e) {
+export function onEscKeyPressLogInModal(e) {
   if (e.code === 'Escape') {
     onCloseLogInModal();
   }

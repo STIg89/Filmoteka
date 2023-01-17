@@ -1,5 +1,6 @@
 <header class="header-library" id="header">
     <div class="container header-container">
+      <div class="header-wrapper">
       <nav class="page-navigation">
         <div class="header-logo">
           <a class="header-logo-link link" href="./index.html">
@@ -23,6 +24,16 @@
             </div>
       </nav>
 
+      <div class="header__buttons header__buttons--login visually-hidden" id="div-sign-up">
+        <button class="header__button btn" login-data-modal-open>LOG IN</button>
+        <button class="header__button btn" signup-data-modal-open>SIGN UP</button>
+      </div>
+      
+      <div class="header__buttons header__buttons--singup visually-hidden" id="div-sign-out">
+        <div id="header-useremail-div"></div>
+        <button class="header__button btn" signout-data-modal-open>SIGN OUT</button>
+      </div>
+      </div>
       <div class="page__action">
         <button type="button" class="page__theme"></button>
         <button type="button" class="page__reset">AUTO</button>
