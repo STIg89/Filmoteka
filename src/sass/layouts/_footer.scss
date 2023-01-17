@@ -23,11 +23,14 @@
     height: 13px;
 }
 
-  &__refs{
+}
+.footer__text__students {
+
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14px;
   color: var(--dark-text-color);
   text-decoration: underline;
-}
+  cursor: pointer;
+
 }
