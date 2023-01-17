@@ -8,9 +8,6 @@ renderTrendingFilms();
 async function renderTrendingFilms() {
   const page = 1;
   const data = await getTrendingFilms(page);
-  localStorage.setItem('searchedValue', '');
-  pagination.reset(data.total_pages);
-  updateLastPaginationPage(data);
 
   const genre = await getGenres().then(({ genres }) => {
     if (data.results) {
@@ -33,4 +30,7 @@ async function renderTrendingFilms() {
   });
 
   renderGallery(data.results);
+  localStorage.setItem('searchedValue', '');
+  pagination.reset(data.total_pages);
+  updateLastPaginationPage(data);
 }
