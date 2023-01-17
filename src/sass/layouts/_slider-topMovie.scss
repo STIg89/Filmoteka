@@ -48,6 +48,10 @@
     line-height: 1.33;
   }
 }
-#button-color {
+.topMovieGallery-caption {
   color: var(--accent-text-color);
+  text-align: center;
+}
+.swiper-wrapper {
+  transition-timing-function: linear;
 }
