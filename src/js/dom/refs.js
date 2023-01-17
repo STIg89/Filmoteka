@@ -36,5 +36,6 @@ export const refs = {
   tagEl: document.querySelectorAll('.tag'), 
   moviesOnInputList: document.querySelector('.movie__gallery'),
   filterOpenBtn: document.querySelector('.filter'), 
-  
+  filterBtn: document.querySelector('.filter__btn'), 
+  filterOpenBtnIcon: document.querySelector('.filter__icon'), 
 };
