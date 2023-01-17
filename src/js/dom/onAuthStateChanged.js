@@ -29,7 +29,6 @@ export const userState = user => {
       window.addEventListener('keydown', onEscKeyPressSignOut);
       refs.headerUserLogedinContainer.classList.add('visually-hidden');
       refs.headerUserNoLoginContainer.classList.remove('visually-hidden');
-      window.location = window.location.href;
       // should be attached to button sign out in header
       location.reload();
     }
