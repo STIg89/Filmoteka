@@ -32,4 +32,9 @@ export const refs = {
   modalSuccess: document.querySelector('[success-data-modal]'),
   modalSuccessCloseBtn: document.querySelector('[success-data-modal-close]'),
   closeModalBtnSignOut: document.querySelector('[signout-data-modal-close]'),
+  tagsEl: document.querySelector("#tags-genre"),
+  tagEl: document.querySelectorAll('.tag'), 
+  moviesOnInputList: document.querySelector('.movie__gallery'),
+  filterOpenBtn: document.querySelector('.filter'), 
+  
 };
