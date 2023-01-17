@@ -5,10 +5,12 @@
 
   @include tablet {
     width: calc((100% - var(--Gap16) * 2) / 2);
+    height: 495px;
   }
 
   @include pc {
     width: calc((100% - var(--Gap16) * 2) / 3);
+    height: 634px;
   }
 }
 
@@ -16,6 +18,18 @@
   transform: scale(1.03);
   transition: 500ms linear;
   cursor: pointer;
+}
+
+.movie__img {
+  border-radius: 5px;
+  object-fit: contain;
+  filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
+  box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
+}
+
+.movie__img:hover {
+  transition: 0.5s;
+  box-shadow: 0 0 20px rgba(250, 119, 12, 0.897);
 }
 
 .movie__container {
