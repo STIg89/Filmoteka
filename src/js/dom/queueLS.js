@@ -73,15 +73,17 @@ async function getQueue() {
 }
 
 async function onQueueBtnClick(event) {
+  let watchedBtn = document.querySelector('.library__button--watched');
   
-  event.currentTarget.classList.add("active")
+  event.currentTarget.classList.add("activeLS")
+  watchedBtn.classList.remove("activeLS");
   await renderQueue();
 }
 
 async function renderQueue() {
   let queueBtn = document.querySelector('.queue-btn');
 
-  if (queueBtn && queueBtn.classList.contains("active")) {
+  if (queueBtn && queueBtn.classList.contains("activeLS")) {
     console.log('render');
     refs.moviesOnInputList.innerHTML = '';
     let array = await getQueue();
