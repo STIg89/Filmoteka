@@ -59,7 +59,7 @@ function updateLastPaginationPage({ total_pages }) {
 
 function scrollToTop() {
   window.scrollTo({
-    top: 240,
+    top: 630,
     behavior: 'smooth',
   });
 }
