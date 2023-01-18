@@ -1,8 +1,7 @@
 import { refs } from './refs';
 const { moviesOnInputList } = refs;
 import { activeMovieModal } from './movieModal';
-import { getTrendingFilms, getGenres } from '../api/fetchAPI';
-import { async } from '@firebase/util';
+import { getGenres } from '../api/fetchAPI';
 import myImageUrl from '../../images/sorry.png';
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 const noPosterImg = myImageUrl;
@@ -27,7 +26,6 @@ export async function renderGallery(data) {
       });
     }
   });
-  console.log('genres', genres);
 
   const markupGallery = data
     .map(

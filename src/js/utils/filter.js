@@ -1,9 +1,8 @@
 import { updateLastPaginationPage, pagination } from '../utils/pagination';
-// import { getMoviesSearch, getGenres } from '../api/fetchAPI';
 import { renderGallery } from '../dom/renderMovies';
 import { refs } from '../dom/refs';
 import Notiflix from 'notiflix';
-// import { addToLS } from '../utils/funtionsLS';
+
 const API_KEY = 'api_key=e57746b2e4fe98cb5cc839cb405a15f1';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const GENRE_URL =
@@ -38,9 +37,11 @@ function onFilterOpen(e) {
   refs.tagsEl.classList.toggle('visually-hidden');
   refs.inputEl.classList.toggle('is-hidden');
   setGenre();
-  showSelectedGenre(); 
+  showSelectedGenre();
 }
+
 let selectedGenre = [];
+
 function setGenre() {
   refs.tagsEl.innerHTML = '';
   genres.forEach(genre => {
@@ -60,7 +61,7 @@ function setGenre() {
       } else {
         selectedGenre.push(genre.id);
       }
-      console.log(selectedGenre);
+
       refs.moviesOnInputList.innerHTML = '';
       getMoviesByGenre(
         GENRE_URL + '&with_genres=' + encodeURI(selectedGenre.join(','))
@@ -70,6 +71,7 @@ function setGenre() {
     refs.tagsEl.append(t);
   });
 }
+
 function showSelectedGenre() {
   const tagEl = document.querySelectorAll('.tag');
   tagEl.forEach(tag => {
@@ -82,7 +84,7 @@ function showSelectedGenre() {
     });
   }
 }
-// getMoviesByGenre(GENRE_URL);
+
 function getMoviesByGenre(url) {
   fetch(url)
     .then(res => res.json())

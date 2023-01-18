@@ -22,7 +22,6 @@ function activeMovieModal() {
         const id = movie.getAttribute('data-id');
 
         getMovieDetails(id).then(data => {
-          console.log(data);
           const backdrop = document.querySelector('.backdrop');
           backdrop.classList.remove('is-hidden');
           //Заповнення id для кнопки Add to watched і Add to queue

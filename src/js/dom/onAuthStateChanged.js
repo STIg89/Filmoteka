@@ -8,7 +8,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export const userState = user => {
   auth.onAuthStateChanged(user => {
-    console.log(user);
     if (!localStorage.getItem('uid')) {
       refs.headerSignoutBtn.addEventListener('click', userState);
       const uid = user.uid;

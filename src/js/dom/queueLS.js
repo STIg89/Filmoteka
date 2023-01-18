@@ -87,7 +87,6 @@ async function renderQueue() {
   let queueBtn = document.querySelector('.queue-btn');
 
   if (queueBtn && queueBtn.classList.contains('activeLS')) {
-    console.log('render');
     refs.moviesOnInputList.innerHTML = '';
     let array = await getQueue();
 
