@@ -2,12 +2,34 @@ import { refs } from './refs';
 const { moviesOnInputList } = refs;
 import { activeMovieModal } from './movieModal';
 import { getTrendingFilms, getGenres } from '../api/fetchAPI';
+import { async } from '@firebase/util';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 const noPosterImg =
   'https://sd.keepcalms.com/i/sorry-no-picture-available-2.png';
 
-export function renderGallery(data) {
+export async function renderGallery(data) {
+  const genres = await getGenres().then(({ genres }) => {
+    if (data) {
+      data.forEach(movie => {
+        const { genre_ids, release_date } = movie;
+        genres.forEach(({ name, id }) => {
+          if (genre_ids.includes(id)) {
+            if (genre_ids.length > 2) {
+              genre_ids.splice(2, genre_ids.length - 1, 'Other');
+            }
+            genre_ids.splice(genre_ids.indexOf(id), 1, name);
+          }
+          movie.genre_names = genre_ids.join(', ');
+          if (movie.release_date) {
+            movie.release_date = release_date.slice(0, 4);
+          }
+        });
+      });
+    }
+  });
+  console.log('genres', genres);
+
   const markupGallery = data
     .map(
       ({

@@ -32,14 +32,18 @@ function activeMovieModal() {
           document.querySelector('.modal-movie__content').innerHTML = `
         <div class="movie-detail">
           <div class="movie-detail__image">
-            <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="" class="movie-detail__img">
+            <img src="https://image.tmdb.org/t/p/w500/${
+              data.poster_path
+            }" alt="" class="movie-detail__img">
           </div>
           <div class="movie-detail__content">
             <h2 class="movie-detail__title">${data.title}</h2>
             <ul class="movie-detail__list">
               <li class="movie-detail__item">
                 <h4 class="movie-detail__heading">Vote / Votes</h4>
-                <p class="movie-detail__value"><span>${data.vote_average.toFixed(1)}</span> / ${data.vote_count}</p>
+                <p class="movie-detail__value"><span>${data.vote_average.toFixed(
+                  1
+                )}</span> / ${data.vote_count}</p>
               </li>
               <li class="movie-detail__item">
                 <h4 class="movie-detail__heading">Popularity</h4>
@@ -59,7 +63,7 @@ function activeMovieModal() {
             <div class="movie-detail__btns">
               <button class="movie-detail__btn-main add-to-watched-btn" id="add-watched-btn">add to Watched</button>
               <button class="movie-detail__add-queue-btn add-queue-btn" type="button">Add to queue</button>
-              <button class="movie-detail__btn-main btn-trailer">trailer</button>
+              <button class="movie-detail__btn-main btn-trailer" id="trailer">trailer</button>
             </div>
           </div>
         </div>
@@ -88,9 +92,9 @@ function activeMovieModal() {
       ) {
         document.querySelector('.backdrop').classList.add('is-hidden');
 
-        window.addEventListener('keydown',e => {
-        document.querySelector('.backdrop').classList.add('is-hidden');
-      })
+        window.addEventListener('keydown', e => {
+          document.querySelector('.backdrop').classList.add('is-hidden');
+        });
 
         //Потрібно перерендерить сторінку якщо фільм був видалений
         renderWatched();

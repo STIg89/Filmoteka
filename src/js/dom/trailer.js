@@ -1,5 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/dist/basiclightbox.min.css';
+import 'basiclightbox/dist/basiclightbox.min.css';
 import { getMovieTrailer } from '../api/fetchAPI';
 import { refs } from './refs';
 
