@@ -20,10 +20,24 @@ async function onClickBtnTrailer(e) {
     }
   });
 
-  const instance = basicLightbox.create(`  
+  const instance = basicLightbox.create(`
+  <div class="close-btn-trailer"><button data-modal-close class="button-modal-movie--close"></button></div>
   <iframe  width="660" height="415" src='https://www.youtube.com/embed/${key}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-`);
+  `);
   instance.show();
+
+  const closeBtnTrailer = document.querySelector('.close-btn-trailer');
+  closeBtnTrailer.addEventListener('click', () => {
+    instance.close();    
+  });
+
+  window.addEventListener('keydown', closeTrailerByEsc);
+  function closeTrailerByEsc(e) {
+    if (e.code === 'Escape') {
+      instance.close();
+      window.removeEventListener('keydown', closeTrailerByEsc);
+    }
+  }
 }
 
 export { addListenerAddBtnTrailer };
