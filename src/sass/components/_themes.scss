@@ -26,7 +26,7 @@ html.dark .checkbox-label {
   color: var(--white-text-color);
 }
 html.dark .login-form__input,
-html.dark .signup-form__input {
+html.dark .signup-form__input, html.dark .tui-next, html.dark .tui-prev{
   background-color: var(--light-text-color);
   color: var(--white-text-color);
 }
