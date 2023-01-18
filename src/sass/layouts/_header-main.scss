@@ -30,7 +30,7 @@
   justify-content: space-between;
   flex-grow: 1;
   @include tablet {
-      gap: 90px;
+    gap: 90px;
   }
 }
 .header-logo-link {
@@ -83,6 +83,7 @@
   border: 0;
   padding: 7px 13px;
   width: 100%;
+  color: var(--white-text-color);
   @include tablet {
     width: 330px;
     margin: 0 auto;
@@ -135,7 +136,7 @@
   justify-content: flex-end;
   gap: 20px;
   flex-wrap: wrap;
-  @include tablet{
+  @include tablet {
     flex-direction: row;
     justify-content: space-between;
     gap: 50px;
