@@ -39,7 +39,7 @@ function activeMovieModal() {
             <ul class="movie-detail__list">
               <li class="movie-detail__item">
                 <h4 class="movie-detail__heading">Vote / Votes</h4>
-                <p class="movie-detail__value"><span>${data.vote_average}</span> / ${data.vote_count}</p>
+                <p class="movie-detail__value"><span>${data.vote_average.toFixed(1)}</span> / ${data.vote_count}</p>
               </li>
               <li class="movie-detail__item">
                 <h4 class="movie-detail__heading">Popularity</h4>
@@ -57,14 +57,14 @@ function activeMovieModal() {
             <h5 class="movie-detail__subtitle">About</h5>
             <p class="movie-detail__text">${data.overview}</p>
             <div class="movie-detail__btns">
-              <button class="movie-detail__btn-main" id="add-watched-btn">add to Watched</button>
+              <button class="movie-detail__btn-main add-to-watched-btn" id="add-watched-btn">add to Watched</button>
               <button class="movie-detail__add-queue-btn add-queue-btn" type="button">Add to queue</button>
-              <button class="movie-detail__btn-main" id="trailer">trailer</button>
+              <button class="movie-detail__btn-main btn-trailer">trailer</button>
             </div>
           </div>
         </div>
         `;
-          //додає слухача на кнопку і перевіряє ч иє цей фільм в local storage
+          //додає слухача на кнопку і перевіряє чи є цей фільм в local storage
           addListenerAddWatched();
           addListenerQueueAddBtn();
           addListenerAddBtnTrailer();
