@@ -33,6 +33,7 @@ const genres = [
 function onFilterOpen(e) {
   refs.filterOpenBtn.classList.toggle('filter--active');
   refs.tagsEl.classList.toggle('visually-hidden');
+  refs.inputEl.classList.toggle('visually-hidden');
   setGenre();
 }
 
