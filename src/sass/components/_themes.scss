@@ -85,9 +85,14 @@ html.light .page__theme {
   transform: translateX(-50%);
   background: transparent;
   @include tablet {
-    top: 169px;
+    top: 160px;
   }
   transition: all var(--duration) var(--cubic);
+
+}
+
+.filter:hover { 
+  background-color: var(--accentBG);
 }
 .filter--active {
   background: var(--accentBG);

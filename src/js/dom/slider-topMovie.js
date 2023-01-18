@@ -28,8 +28,8 @@ async function renderTopFilms() {
       },
 
       1280: {
-        slidesPerView: 5,
-        spaceBetween: 8,
+        slidesPerView: 8,
+        spaceBetween: 6,
       },
     },
     direction: 'horizontal',
