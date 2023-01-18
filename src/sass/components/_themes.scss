@@ -85,16 +85,21 @@ html.light .page__theme {
   transform: translateX(-50%);
   background: transparent;
   @include tablet {
-    top: 169px;
+    top: 160px;
   }
   transition: all var(--duration) var(--cubic);
+
+}
+
+.filter:hover { 
+  background-color: var(--accentBG);
 }
 .filter--active {
   background: var(--accentBG);
   transform: translateX(-50%);
-  top: 140px;
-  @include tablet {
-    top: 100px;
+  top: 210px;
+  @include pc {
+    top: 170px;
   }
 }
 .filter__btn {
@@ -106,6 +111,7 @@ html.light .page__theme {
   display: flex;
   align-items: center;
   gap: 7px;
+  cursor: pointer;
 }
 #tags-genre {
   display: flex;
