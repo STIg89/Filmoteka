@@ -1,15 +1,11 @@
 import { getTrendingFilms, getGenres } from '../api/fetchAPI';
 import { renderGallery } from './renderMovies';
 import { updateLastPaginationPage, pagination } from '../utils/pagination';
-import { addToLS } from '../utils/funtionsLS';
 
-renderTrendingFilms();
-
-async function renderTrendingFilms() {
-  const page = 1;
+export async function renderTrendingFilms(page) {
   const data = await getTrendingFilms(page);
 
-  const genre = await getGenres().then(({ genres }) => {
+  await getGenres().then(({ genres }) => {
     if (data.results) {
       data.results.forEach(movie => {
         const { genre_ids, release_date } = movie;
@@ -34,3 +30,5 @@ async function renderTrendingFilms() {
   pagination.reset(data.total_pages);
   updateLastPaginationPage(data);
 }
+
+renderTrendingFilms();

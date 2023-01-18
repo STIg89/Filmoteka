@@ -4,7 +4,7 @@ import { showSpinner, hideSpinner } from '../utils/spinner';
 const API_KEY = 'e57746b2e4fe98cb5cc839cb405a15f1';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-async function getTrendingFilms(page) {
+async function getTrendingFilms(page = 1) {
   try {
     showSpinner();
     const response = await axios.get(

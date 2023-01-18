@@ -6,6 +6,7 @@ import {
   checkStatusBTN,
   renderWatched,
 } from '../dom/watchedLS';
+import { addListenerAddBtnTrailer } from './trailer';
 
 function activeMovieModal() {
   setTimeout(() => {
@@ -66,6 +67,7 @@ function activeMovieModal() {
           //додає слухача на кнопку і перевіряє чи є цей фільм в local storage
           addListenerAddWatched();
           addListenerQueueAddBtn();
+          addListenerAddBtnTrailer();
           checkStatusBTN(Number(id));
           checkQueueBtn(Number(id));
         });

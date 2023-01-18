@@ -1,0 +1,14 @@
+.basicLightbox__placeholder > iframe {
+    width: 300px;
+    height: 270px;
+  
+    @include tablet {
+      width: 660px;
+      height: 370px;
+    }
+  
+    @include pc {
+      width: 850px;
+      height: 470px;
+    }
+  }

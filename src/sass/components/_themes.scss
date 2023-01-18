@@ -1,45 +1,42 @@
-body { 
-  transition: color var(--duration) var(--cubic), background-color var(--duration) var(--cubic);
+body {
+  transition: color var(--duration) var(--cubic),
+    background-color var(--duration) var(--cubic);
   background-color: var(--mainBGL);
   color: var(--black-text-color);
 }
 
-html.light body { 
+html.light body {
   background-color: var(--mainBGL);
   color: var(--black-text-color);
 }
-html.dark body, 
-.login__modal
-.movie__title, 
-.tui-page-btn, 
-.modal-movie, 
+html.dark body,
+.login__modal .movie__title,
+.tui-page-btn,
+.modal-movie,
 .login-modal__title,
-.login-modal__text, 
+.login-modal__text,
 .login-modal__button,
 .login-modal__svg,
-.checkbox-label { 
+.checkbox-label {
   background-color: #333;
   color: var(--white-text-color);
   stroke: var(--white-text-color);
 }
-html.dark body 
-.login__modal { 
+html.dark body .login__modal {
   background-color: #333;
 }
 
-html.dark body 
-.login-form__input, 
-.signup-form__input { 
+html.dark body .login-form__input,
+.signup-form__input {
   background-color: var(--light-text-color);
   color: var(--white-text-color);
 }
 
-html.dark body 
-.login-form__input::placeholder, 
-.signup-form__input::placeholder  { 
+html.dark body .login-form__input::placeholder,
+.signup-form__input::placeholder {
   color: var(--white-text-color);
 }
-html.dark body .login-modal__svg{ 
+html.dark body .login-modal__svg {
   stroke: var(--white-text-color);
 }
 
@@ -71,29 +68,12 @@ html.dark .add-to-watched-btn {
     }
 }
 
-html.dark body 
-.login-modal__button--login:hover, 
-.login-modal__button--login :focus  { 
-  color: var(--light-text-color);
-}
-
-html.dark body 
-.signup-modal__button:disabled  { 
-  color: var(--light-text-color);
-}
-
-.settings { 
-display: flex;
-align-items: end;
-flex-direction: column;
-gap: 10px;
-}
-.page__action, .filter { 
+.page__action {
   position: absolute;
   top: 5px;
   right: 0;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
   width: 90px;
   height: 30px;
   display: flex;
@@ -101,87 +81,99 @@ gap: 10px;
   align-items: center;
 }
 
-.page__theme { 
+.page__theme {
   border: 0;
   width: 25px;
   height: 25px;
 }
 
-.page__reset { 
+.page__reset {
   opacity: 0;
-  visibility: hidden; 
+  visibility: hidden;
   background: transparent;
   border: transparent;
   transition: color var(--duration) var(--cubic);
 }
 
-.page__reset.active{ 
+.page__reset.active {
   opacity: 1;
   visibility: visible;
   border: 0;
 }
 
-html.dark .page__theme { 
-  background: url("../images/icon-moon.svg");
+html.dark .page__theme {
+  background: url('../images/icon-moon.svg');
 }
 
-html.light .page__theme { 
-  background: url("../images/icon-sun.svg");
+html.light .page__theme {
+  background: url('../images/icon-sun.svg');
 }
 
-
-
-.filter { 
-  top: 186px; 
-  @include tablet { 
-    top: 205px;
+.filter {
+  position: absolute;
+  width: 90px;
+  height: 30px;
+  @include flex;
+  top: 205px;
+  left: 50%;
+  border-radius: 5px;
+  transform: translateX(-50%);
+  background: transparent;
+  @include tablet {
+    top: 169px;
   }
-  transition: all var(--duration) var(--cubic),
+  transition: all var(--duration) var(--cubic);
 }
 
-.filter--active { 
-  background: rgba(255, 255, 255, 0.8);
-  transform: scale(0.7);
+.filter--active {
+  background: var(--accentBG);
+  transform: translateX(-50%);
+  top: 140px;
+  @include tablet {
+    top: 100px;
+  }
 }
 
 .filter__btn {
-background: transparent;
-border: transparent;
-display: flex; 
-align-items: center;
-gap: 7px;
+  color: var(--white-text-color);
+  fill: var(--white-text-color);
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid var(--white-text-color);
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
-
 
 #tags-genre {
-display: flex;
-justify-content: center;
-align-items: center;
-flex-wrap: wrap;
-gap: 5px;
-margin-top: 20px;
-padding: 20px;
-background: var(--modal-overlay); 
-border: 1px solid var(--accentBG); 
-
-}
-.tag { 
-@include font-box(400, 12px, 1.15, 0.02);
-background: var(--white-text-color);
-border-radius: 20px;
-padding: 8px;
-color: var(--black-text-color);
-text-transform: uppercase;
-transition: color var(--duration) var(--cubic),
-background-color var(--duration) var(--cubic);
-&:hover, 
-&:focus { 
-  background-color: var(--accentBG);
-  color: var(--white-text-color);
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--modal-overlay);
+  border: 1px solid var(--accentBG);
 }
 
-.highlight{ 
+.tag {
+  @include font-box(400, 12px, 1.15, 0.02);
+  background: var(--white-text-color);
+  border-radius: 20px;
+  padding: 8px;
+  color: var(--black-text-color);
+  text-transform: uppercase;
+  transition: color var(--duration) var(--cubic),
+    background-color var(--duration) var(--cubic);
+  &:hover,
+  &:focus {
+    background-color: var(--accentBG);
+    color: var(--white-text-color);
+  }
+}
+
+.highlight {
   background: var(--accentBG);
   color: var(--white-text-color);
 }
