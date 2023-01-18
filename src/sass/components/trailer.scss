@@ -12,3 +12,15 @@
       height: 470px;
     }
   }
+
+.close-btn-trailer {
+    cursor: pointer;
+    position: absolute;
+    top: -39px;
+    right: 150px;
+    padding: 10px;
+  @include tablet {
+      top: -43px;
+      right: 5px;
+    }
+}
