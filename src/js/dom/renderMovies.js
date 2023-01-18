@@ -3,10 +3,9 @@ const { moviesOnInputList } = refs;
 import { activeMovieModal } from './movieModal';
 import { getTrendingFilms, getGenres } from '../api/fetchAPI';
 import { async } from '@firebase/util';
-
+import myImageUrl from '../../images/sorry.png';
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500/';
-const noPosterImg =
-  'https://sd.keepcalms.com/i/sorry-no-picture-available-2.png';
+const noPosterImg = myImageUrl;
 
 export async function renderGallery(data) {
   const genres = await getGenres().then(({ genres }) => {
