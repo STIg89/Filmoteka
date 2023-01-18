@@ -28,13 +28,17 @@ function activeMovieModal() {
           document
             .querySelector('.modal-movie__content')
             .setAttribute('data-id', id);
-
+          let poster = '';
+          if (!data.poster_path) {
+            poster =
+              'https://sd.keepcalms.com/i/sorry-no-picture-available-2.png';
+          } else {
+            poster = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
+          }
           document.querySelector('.modal-movie__content').innerHTML = `
         <div class="movie-detail">
           <div class="movie-detail__image">
-            <img src="https://image.tmdb.org/t/p/w500/${
-              data.poster_path
-            }" alt="" class="movie-detail__img">
+            <img src="${poster}" alt="" class="movie-detail__img">
           </div>
           <div class="movie-detail__content">
             <h2 class="movie-detail__title">${data.title}</h2>
