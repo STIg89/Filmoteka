@@ -13,7 +13,7 @@ import './js/dom/trailer';
 import './js/dom/watchedLS';
 import './js/dom/queueLS';
 
-import './js/utils/pagination';
+// import './js/utils/pagination';
 import './js/utils/scrollToTop';
 import './js/utils/spinner';
 import './js/utils/themes';

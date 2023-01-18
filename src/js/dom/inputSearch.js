@@ -6,7 +6,6 @@ import { addToLS } from '../utils/funtionsLS';
 import { updateLastPaginationPage, pagination } from '../utils/pagination';
 
 const { moviesOnInputList, inputEl } = refs;
-console.log(moviesOnInputList);
 
 inputEl.addEventListener('submit', searchHendler);
 

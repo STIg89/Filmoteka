@@ -11,7 +11,7 @@ renderTopFilms();
 
 async function renderTopFilms() {
   const data = await getTopFilms();
-  renderGallery(data.results);
+  renderGallerySlider(data.results);
   const swiper = new Swiper('.swiper', {
     slidesPerView: 3,
     spaceBetween: 2,
@@ -55,7 +55,7 @@ async function renderTopFilms() {
   });
 }
 
-function renderGallery(data) {
+function renderGallerySlider(data) {
   const markup = data
     .map(({ id, poster_path, original_title }) => {
       return `<div  class="topMovieGallery_slide swiper-slide"><div class="movie__item topMovie_container" data-id="${id}">

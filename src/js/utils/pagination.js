@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 import { getTrendingFilms, getMoviesSearch } from '../api/fetchAPI';
 import { options } from './options-pagination';
 import { renderGallery } from '../dom/renderMovies';
+import { renderTrendingFilms } from '../dom/renderTrendingFilms';
 
 const pagination = new Pagination('pagination', options);
 
@@ -25,6 +26,7 @@ async function onPaginationClick(e) {
   } else {
     const dataResponse = await getTrendingFilms(selectedPage);
     renderGallery(dataResponse.results);
+    // renderTrendingFilms(selectedPage);
   }
 
   setTimeout(() => {
