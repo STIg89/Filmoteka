@@ -49,22 +49,23 @@
 .add-queue-btn {
   height: 44px;
   width: 110px;
-  border: 1px solid var(--black-text-color);
-  background-color: transparent;
+  border: 1px solid var(--accentBG);
+  background-color: var(--accentBG);
   border-radius: 5px;
   text-transform: uppercase;
-  color: var(--black-text-color);
+  color: var(--white-text-color);
 
   @include font-box(500, 12px, 1.33, null);
   transition: color var(--duration) var(--cubic),
     background-color var(--duration) var(--cubic);
 
   &:hover,
-  &:focus {
-    cursor: pointer;
-    border: 1px solid var(--accentBG);
-    color: var(--accentBG);
-  }
+    &:focus {
+      background-color: transparent;
+      border: solid 1px var(--accent-text-color);
+      cursor: pointer;
+      color: var(--accent-text-color)
+    }
 
   &:disabled {
     color: var(--light-text-color);

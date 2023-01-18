@@ -44,7 +44,31 @@ html.dark body .login-modal__svg{
 }
 
 html.dark .button-modal-movie--close{ 
-  background-color: var(--white-text-color);
+  background-color: transparent;
+}
+
+html.dark .add-queue-btn{
+  border-color: var(--accentBG);
+  color: var(--accentBG);
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    background-color: var(--accentBG);
+      color: var(--white-text-color);
+  }
+}
+
+html.dark .add-to-watched-btn {
+  border-color: var(--accentBG);
+  color: var(--accentBG);
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+      background-color: var(--accentBG);
+      color: var(--white-text-color);
+    }
 }
 
 html.dark body 
