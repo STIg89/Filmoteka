@@ -11,4 +11,4 @@ import './renderTrendingFilms';
 import './trailer';
 import './watchedLS';
 import './queueLS';
-import './slider-topMovie';
+import './sliderTopMovie';

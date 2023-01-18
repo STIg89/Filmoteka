@@ -2,7 +2,7 @@ import { getMoviesSearch, getGenres } from '../api/fetchAPI';
 import { renderGallery } from './renderMovies';
 import { refs } from './refs';
 import Notiflix from 'notiflix';
-import { addToLS } from '../utils/funtionsLS';
+import { addToLS } from '../utils/functionsLS';
 import { updateLastPaginationPage, pagination } from '../utils/pagination';
 
 const { moviesOnInputList, inputEl } = refs;

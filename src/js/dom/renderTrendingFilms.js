@@ -1,7 +1,7 @@
 import { getTrendingFilms, getGenres } from '../api/fetchAPI';
 import { renderGallery } from './renderMovies';
 import { updateLastPaginationPage, pagination } from '../utils/pagination';
-import { addToLS } from '../utils/funtionsLS';
+import { addToLS } from '../utils/functionsLS';
 
 renderTrendingFilms();
 

@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
 import { getTrendingFilms, getMoviesSearch } from '../api/fetchAPI';
-import { options } from './options-pagination';
+import { options } from './paginationConfig';
 import { renderGallery } from '../dom/renderMovies';
 
 const pagination = new Pagination('pagination', options);
