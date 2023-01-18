@@ -1,11 +1,13 @@
+import { updateLastPaginationPage, pagination } from '../utils/pagination';
+// import { getMoviesSearch, getGenres } from '../api/fetchAPI';
 import { renderGallery } from '../dom/renderMovies';
 import { refs } from '../dom/refs';
-
+import Notiflix from 'notiflix';
+// import { addToLS } from '../utils/funtionsLS';
 const API_KEY = 'api_key=e57746b2e4fe98cb5cc839cb405a15f1';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const GENRE_URL =
   BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
-
 refs.filterOpenBtn.addEventListener('click', onFilterOpen);
 
 const genres = [
@@ -36,7 +38,6 @@ function onFilterOpen(e) {
   refs.inputEl.classList.toggle('visually-hidden');
   setGenre();
 }
-
 let selectedGenre = [];
 function setGenre() {
   refs.tagsEl.innerHTML = '';
@@ -67,13 +68,11 @@ function setGenre() {
     refs.tagsEl.append(t);
   });
 }
-
 function showSelectedGenre() {
   const tagEl = document.querySelectorAll('.tag');
   tagEl.forEach(tag => {
     tag.classList.remove('highlight');
   });
-
   if (selectedGenre.length !== 0) {
     selectedGenre.forEach(id => {
       const highlightedTag = document.getElementById(id);
@@ -81,14 +80,20 @@ function showSelectedGenre() {
     });
   }
 }
-
-getMoviesByGenre(GENRE_URL);
-
+// getMoviesByGenre(GENRE_URL);
 function getMoviesByGenre(url) {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      console.log(data.results);
-      // renderGallery(data.results);
+      refs.moviesOnInputList.innerHTML = '';
+      if (data.total_results === 0) {
+        Notiflix.Notify.failure('There is no such film');
+        return;
+      } else {
+        renderGallery(data.results);
+        updateLastPaginationPage(data);
+        pagination.reset(data.total_pages);
+        updateLastPaginationPage(data);
+      }
     });
 }
