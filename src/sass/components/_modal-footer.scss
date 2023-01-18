@@ -63,13 +63,12 @@ padding: 30px 10px;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  z-index: 5;
 }
 
 // Контент в середені кнопки закриття модалки
 
 .footer-modal__icon{
-  color: #000;
+  color:var(--accent-text-color);
 }
 
 .footer-modal__icon:hover,
