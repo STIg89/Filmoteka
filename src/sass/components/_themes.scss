@@ -33,12 +33,12 @@ html.dark .signup-form__input {
 html.dark body .login-modal__svg {
   stroke: var(--white-text-color);
 }
-html.dark .button-modal-movie--close {
-  background-color: var(--white-text-color);
-}
-// html.dark .tui-pagination {
-//   background-color: var(--black-text-color);
+// html.dark .button-modal-movie--close {
+//   background-color: var(--white-text-color);
 // }
+html.dark .tui-page-btn {
+  color: var(--white-text-color);
+}
 .page__action {
   position: absolute;
   top: 5px;
