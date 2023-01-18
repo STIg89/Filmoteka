@@ -23,17 +23,17 @@
   flex-grow: 1;
   @include mobile {
     max-width: 120px;
-    max-height: 180px;
+    max-height: 190px;
   }
 
   @include tablet {
     width: 160px;
-    height: 265px;
+    height: 270px;
   }
 
   @include pc {
     width: 240px;
-    height: 350px;
+    height: 360px;
   }
 }
 .topMovieGallery-caption {
@@ -43,4 +43,7 @@
 }
 .swiper-wrapper {
   transition-timing-function: linear;
+}
+.topMovie_img {
+  width: 100%;
 }
