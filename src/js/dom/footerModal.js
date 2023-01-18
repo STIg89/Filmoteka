@@ -1,23 +1,31 @@
 import Swiper from 'swiper';
 import 'swiper/swiper.scss';
-
-var swiper = new Swiper('.footer-swiper', {
+import Swiper, { Navigation, Pagination } from 'swiper';
+import 'swiper/swiper.min.css';
+import 'swiper/modules/navigation/navigation.scss';
+import 'swiper/modules/pagination/pagination.scss';
+var swiperD = new Swiper('.mySwiper', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 3,
+  spaceBetween: 40,
+  modules: [Navigation, Pagination],
   effect: 'coverflow',
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: 'auto',
-  coverflowEffect: {
-    rotate: 50,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: true,
+  coverFlowEffect: {
+    rotate: 20,
+    stretch: 50,
+    slideShadow: true,
   },
   pagination: {
     el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
 });
-
 // Відкриття та закриття модалки футера----------------------------------------------
 
 const modalRefs = document.querySelectorAll('#footer-modal-open');
