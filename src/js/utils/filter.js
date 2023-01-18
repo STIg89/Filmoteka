@@ -8,6 +8,7 @@ const API_KEY = 'api_key=e57746b2e4fe98cb5cc839cb405a15f1';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const GENRE_URL =
   BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
+
 refs.filterOpenBtn.addEventListener('click', onFilterOpen);
 
 const genres = [
@@ -35,8 +36,9 @@ const genres = [
 function onFilterOpen(e) {
   refs.filterOpenBtn.classList.toggle('filter--active');
   refs.tagsEl.classList.toggle('visually-hidden');
-  refs.inputEl.classList.toggle('visually-hidden');
+  refs.inputEl.classList.toggle('is-hidden');
   setGenre();
+  showSelectedGenre(); 
 }
 let selectedGenre = [];
 function setGenre() {
