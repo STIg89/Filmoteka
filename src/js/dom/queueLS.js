@@ -1,6 +1,6 @@
 import { refs } from './refs';
 import { getMovieDetails } from '../api/fetchAPI';
-import { renderGallery } from '../dom/renderMovies';
+import { renderLibraryGallery } from '../dom/renderMovies';
 import { checkForLoginState } from './checkForLoginState-lib';
 
 let key = 'moviesQueue';
@@ -91,7 +91,7 @@ async function renderQueue() {
     refs.moviesOnInputList.innerHTML = '';
     let array = await getQueue();
 
-    renderGallery(array);
+    renderLibraryGallery(array);
   }
 }
 

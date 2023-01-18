@@ -1,5 +1,5 @@
 import { getMovieDetails } from '../api/fetchAPI';
-import { renderGallery } from '../dom/renderMovies';
+import { renderLibraryGallery } from '../dom/renderMovies';
 import { refs } from './refs';
 import { checkForLoginState } from './checkForLoginState-lib';
 
@@ -104,7 +104,7 @@ function renderWatched() {
   if (localStorage.getItem('uid') && localStorage.getItem('username')) {
     if (watchedBtn && watchedBtn.classList.contains('activeLS')) {
       refs.moviesOnInputList.innerHTML = '';
-      renderGallery(arrayWatched);
+      renderLibraryGallery(arrayWatched);
     }
   } else {
     return;
