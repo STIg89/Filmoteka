@@ -92,18 +92,17 @@ html.light .page__theme {
   transition: all var(--duration) var(--cubic);
 }
 
-.filter:hover {
+.filter__btn:hover {
   background-color: var(--accentBG);
 }
 .filter--active {
-  background: var(--accentBG);
   transform: translateX(-50%);
   top: 210px;
   @include pc {
-    top: 170px;
+    top: 165px;
   }
 }
-.filter__btn {
+.filter__btn, .filter__reset {
   color: var(--white-text-color);
   fill: var(--white-text-color);
   background: transparent;
@@ -156,3 +155,20 @@ html.light .page__theme {
   background: var(--accentBG);
   color: var(--white-text-color);
 }
+
+.filter--active--color { 
+  background-color: var(--accentBG);
+}
+
+.filter__reset{ 
+  margin-left: 7px;
+  width: 90px;
+  height: 30px;
+  background: transparent;
+  transition: all var(--duration) var(--cubic); 
+  color: var(--white-text-color);
+}
+.filter__reset:hover{ 
+  background-color: var(--accentBG);
+}
+

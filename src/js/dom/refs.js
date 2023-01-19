@@ -38,4 +38,5 @@ export const refs = {
   filterOpenBtn: document.querySelector('.filter'), 
   filterBtn: document.querySelector('.filter__btn'), 
   filterOpenBtnIcon: document.querySelector('.filter__icon'), 
+  filterReset: document.querySelector('.filter__reset'), 
 };
