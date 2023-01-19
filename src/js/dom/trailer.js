@@ -28,7 +28,7 @@ async function onClickBtnTrailer(e) {
 
   const closeBtnTrailer = document.querySelector('.close-btn-trailer');
   closeBtnTrailer.addEventListener('click', () => {
-    instance.close();    
+    instance.close();
   });
 
   window.addEventListener('keydown', closeTrailerByEsc);

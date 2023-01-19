@@ -102,7 +102,8 @@ html.light .page__theme {
     top: 165px;
   }
 }
-.filter__btn, .filter__reset {
+.filter__btn,
+.filter__reset {
   color: var(--white-text-color);
   fill: var(--white-text-color);
   background: transparent;
@@ -156,19 +157,18 @@ html.light .page__theme {
   color: var(--white-text-color);
 }
 
-.filter--active--color { 
+.filter--active--color {
   background-color: var(--accentBG);
 }
 
-.filter__reset{ 
+.filter__reset {
   margin-left: 7px;
   width: 90px;
   height: 30px;
   background: transparent;
-  transition: all var(--duration) var(--cubic); 
+  transition: all var(--duration) var(--cubic);
   color: var(--white-text-color);
 }
-.filter__reset:hover{ 
+.filter__reset:hover {
   background-color: var(--accentBG);
 }
-

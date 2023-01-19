@@ -41,7 +41,7 @@ function onFilterOpen(e) {
   setGenre();
   showSelectedGenre();
 }
-function onFilterReset(e) { 
+function onFilterReset(e) {
   location.reload();
 }
 let selectedGenre = [];
