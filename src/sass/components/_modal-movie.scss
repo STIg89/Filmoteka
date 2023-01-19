@@ -200,7 +200,7 @@
 }
 
 .movie-detail__value span {
-  background-color: var(--accentBG);
+  background-color: var(--accent-text-color);
   border-radius: 5px;
   padding: 1px 3px 1px 3px;
 }
@@ -257,7 +257,9 @@
           background-color: transparent;
           border: solid 1px var(--accent-text-color);
           cursor: pointer;
-          color: var(--accent-text-color)
+          color: var(--accent-text-color);
+          box-shadow: 0 0 20px rgba(250, 119, 12, 0.897);
+          transition: transform var(--cubic) var(--duration);
         }
 }
 
