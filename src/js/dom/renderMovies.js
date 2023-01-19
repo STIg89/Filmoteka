@@ -3,7 +3,6 @@ const { moviesOnInputList } = refs;
 import { activeMovieModal } from './movieModal';
 import { getGenres } from '../api/fetchAPI';
 import myImageUrl from '../../images/sorry.png';
-import nothingHere from '../../images/nothing-here-space.svg';
 import sprite from '../../images/sprite.svg';
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 const noPosterImg = myImageUrl;
