@@ -34,7 +34,7 @@ const genres = [
 
 function onFilterOpen(e) {
   refs.filterOpenBtn.classList.toggle('filter--active');
-  refs.tagsEl.classList.toggle('visually-hidden');
+  refs.tagsEl.classList.toggle('is-hidden');
   refs.inputEl.classList.toggle('is-hidden');
   setGenre();
   showSelectedGenre();

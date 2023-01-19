@@ -123,6 +123,7 @@ html.light .page__theme {
   padding: 20px;
   background: var(--modal-overlay);
   border: 1px solid var(--accentBG);
+  transition: all var(--duration) var(--cubic);
 }
 .tag {
   @include font-box(400, 12px, 1.15, 0.02);
@@ -131,6 +132,7 @@ html.light .page__theme {
   padding: 8px;
   color: var(--black-text-color);
   text-transform: uppercase;
+  cursor: pointer;
   transition: color var(--duration) var(--cubic),
     background-color var(--duration) var(--cubic);
   &:hover,
