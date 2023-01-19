@@ -26,7 +26,9 @@ html.dark .checkbox-label {
   color: var(--white-text-color);
 }
 html.dark .login-form__input,
-html.dark .signup-form__input, html.dark .tui-next, html.dark .tui-prev{
+html.dark .signup-form__input,
+html.dark .tui-next,
+html.dark .tui-prev {
   background-color: var(--light-text-color);
   color: var(--white-text-color);
 }
@@ -88,10 +90,9 @@ html.light .page__theme {
     top: 160px;
   }
   transition: all var(--duration) var(--cubic);
-
 }
 
-.filter:hover { 
+.filter:hover {
   background-color: var(--accentBG);
 }
 .filter--active {
@@ -123,9 +124,21 @@ html.light .page__theme {
   padding: 20px;
   background: var(--modal-overlay);
   border: 1px solid var(--accentBG);
+
+  @include pc {
+    position: absolute;
+    top: 27px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 60px;
+    padding: 0;
+    background: none;
+    border: none;
+  }
 }
 .tag {
   @include font-box(400, 12px, 1.15, 0.02);
+  cursor: pointer;
   background: var(--white-text-color);
   border-radius: 20px;
   padding: 8px;
