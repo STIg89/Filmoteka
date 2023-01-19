@@ -7,10 +7,13 @@ import {
   renderWatched,
 } from '../dom/watchedLS';
 import { addListenerAddBtnTrailer } from './trailer';
+import { brotliDecompressSync } from 'zlib';
+const body = document.querySelector('body');
 
 function activeMovieModal() {
   setTimeout(() => {
     const movieItems = document.querySelectorAll('.movie__item');
+    const scroll = document.querySelector('.up-btn__wrapper');
 
     // console.log(movieItems);
 
@@ -22,8 +25,13 @@ function activeMovieModal() {
 
         getMovieDetails(id).then(data => {
           console.log(data);
+
           const backdrop = document.querySelector('.backdrop');
           backdrop.classList.remove('is-hidden');
+          backdrop.style.background = `url('https://image.tmdb.org/t/p/original${data.backdrop_path}') no-repeat center,linear-gradient(to right, hsla(0, 0%, 0%, 0.2), #00000033) `;
+          backdrop.style.backgroundSize = 'cover';
+          scroll.classList.add('is-hidden');
+          body.classList.add('no-scroll');
           //Заповнення id для кнопки Add to watched і Add to queue
           document
             .querySelector('.modal-movie__content')
@@ -95,10 +103,12 @@ function activeMovieModal() {
         window.addEventListener('keydown', e => {
           document.querySelector('.backdrop').classList.add('is-hidden');
         });
+        scroll.classList.remove('is-hidden');
 
         //Потрібно перерендерить сторінку якщо фільм був видалений
         renderWatched();
         renderQueue();
+        body.classList.remove('no-scroll');
       }
     });
   }, 1000);

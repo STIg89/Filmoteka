@@ -77,6 +77,8 @@ export function renderLibraryGallery(data) {
         vote_average,
       }) => {
         return `<li class="movie__item" data-id="${id}">
+                <div class='modal_poster'>
+      <img class='modal_image' src="${poster_path}"" alt="${original_title}"" width='275' /></div>
                 <div class="movie__container">
                 <img class="movie__img"  src= "${
                   poster_path === null
@@ -98,5 +100,4 @@ export function renderLibraryGallery(data) {
     )
     .join('');
   moviesOnInputList.innerHTML = markupGallery;
-  activeMovieModal();
 }
