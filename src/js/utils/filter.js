@@ -9,7 +9,7 @@ const GENRE_URL =
   BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 
 refs.filterOpenBtn.addEventListener('click', onFilterOpen);
-
+refs.filterReset.addEventListener('click', onFilterReset);
 const genres = [
   { id: 28, name: 'Action' },
   { id: 12, name: 'Adventure' },
@@ -34,12 +34,16 @@ const genres = [
 
 function onFilterOpen(e) {
   refs.filterOpenBtn.classList.toggle('filter--active');
+  refs.filterBtn.classList.toggle('filter--active--color');
   refs.tagsEl.classList.toggle('visually-hidden');
   refs.inputEl.classList.toggle('is-hidden');
+  refs.filterReset.classList.toggle('is-hidden');
   setGenre();
   showSelectedGenre();
 }
-
+function onFilterReset(e) { 
+  location.reload();
+}
 let selectedGenre = [];
 
 function setGenre() {
