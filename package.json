@@ -1,11 +1,11 @@
 {
-  "name": "Filmoteka-command-project-JS-",
+  "name": "Filmoteka",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://STIg89.github.io/Filmoteka-command-project-JS-/",
+  "homepage": "https://STIg89.github.io/Filmoteka",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /Filmoteka-command-project-JS-/"
+    "build": "parcel build src/*.html --public-url /Filmoteka"
   },
   "repository": {
     "type": "git",
